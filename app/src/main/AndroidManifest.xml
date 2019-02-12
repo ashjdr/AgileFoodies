@@ -54,10 +54,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
             <!-- Juli -->
+        <activity android:name=".TimerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
 
-
+            </intent-filter>
+        </activity>
             <!-- Jack -->
 
 
@@ -73,7 +79,7 @@
             <!-- Ash -->
 
 
-        </activity>
+
     </application>
 
 </manifest>
