@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "marshmallow.cis2003.tees.ac.uk.agilefoodies"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,7 +29,8 @@ dependencies {
 
     // Matthew
 
-
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.google.android.gms:play-services-ads:11.8.0'
 
     // Marshall
 

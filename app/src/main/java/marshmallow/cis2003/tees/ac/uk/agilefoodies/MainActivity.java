@@ -14,7 +14,9 @@ import android.view.View;
 
 // Matthew
 
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 // Marshall
 
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Matthew
 
-
+    private AdView mAdView;
 
     // Marshall
 
@@ -66,7 +68,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Matthew
 
+        //START OF AD CODE
+        if (savedInstanceState == null)
+        {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new AdFragment())
+                    .commit();
+        }
 
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //END OF AD CODE
 
         // Marshall
 
