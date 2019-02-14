@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
     // Juli
 
 
-
     // Jack
-
 
 
     // Matthew
@@ -43,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
     // Marshall
 
 
-
     // Ash
-
 
 
     @Override
@@ -53,30 +49,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    }
 
         // Juli
-        public void goToTimerActivity (View view){
-            Intent intent = new Intent (this, TimerActivity.class);
-            startActivity(intent);
-        }
 
 
         // Jack
 
 
-
         // Matthew
 
         //START OF AD CODE
-        if (savedInstanceState == null)
-        {
+        if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new AdFragment())
                     .commit();
         }
 
-        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -86,31 +75,28 @@ public class MainActivity extends AppCompatActivity {
         // Marshall
 
 
-
         // Ash
-
 
 
     }
 
     // Juli
 
-
+    public void goToTimerActivity(View view) {
+        Intent intent = new Intent(this, TimerActivity.class);
+        startActivity(intent);
+    }
 
     // Jack
-
 
 
     // Matthew
 
 
-
     // Marshall
-
 
 
     // Ash
 
 
-
-
+}
