@@ -22,19 +22,25 @@ public class FindNearestShopActivity extends AppCompatActivity {
 
         switch(view.getId()) {
             case R.id.tescoButton:
-                shop = "tesco";
+                shop = "Tesco";
                 break;
             case R.id.sainsButton:
-                shop = "sainsbury's";
+                shop = "Sainsbury's";
                 break;
             case R.id.asdaButton:
-                shop = "asda";
+                shop = "Asda";
                 break;
             case R.id.lidlButton:
-                shop = "lidl";
+                shop = "Lidl";
+                break;
+            case R.id.aldiButton:
+                shop = "Aldi";
+                break;
+            case R.id.waitroseButton:
+                shop = "Waitrose";
                 break;
             default:
-                throw new RuntimeException("Unknow button ID");
+                throw new RuntimeException("Unknown button ID");
         }
 
         Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
