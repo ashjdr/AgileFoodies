@@ -60,7 +60,8 @@
 
         <!-- Ash -->
 
-        <activity android:name=".review"></activity>
+        <activity android:name=".review" />
+        <activity android:name=".FindNearestShopActivity"></activity>
     </application>
 
 </manifest>

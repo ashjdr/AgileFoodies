@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AgileFoodies</string>
 
-    
+
     <!-- Juli -->
 
 
@@ -12,6 +12,12 @@
 
     <string name="review_button">Review</string>
     <string name="review_text">Please Leave a review</string>
+
+    <string name="tesco">Tesco</string>
+    <string name="lidl">Lidl</string>
+    <string name="sainsbury_s">Sainsbury\'s</string>
+    <string name="asda">Asda</string>
+    <string name="find_shops_near_you">Find shops near you</string>
 
     <!-- Marshall -->
 

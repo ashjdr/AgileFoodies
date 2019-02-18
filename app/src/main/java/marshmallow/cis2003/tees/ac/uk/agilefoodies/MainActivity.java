@@ -1,6 +1,7 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -74,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
         // Marshall
 
 
@@ -100,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, review.class);
         startActivity(intent);
     }
+
+    public void openmapspage(View view) {
+        Intent intent = new Intent(this, FindNearestShopActivity.class);
+        startActivity(intent);
+    }
+
+
 
     // Marshall
 
