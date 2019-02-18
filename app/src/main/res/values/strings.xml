@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">AgileFoodies</string>
-    <!-- Juli -->
 
+    
+    <!-- Juli -->
 
 
     <!-- Jack -->
 
 
-
     <!-- Matthew -->
 
-
+    <string name="review_button">Review</string>
+    <string name="review_text">Please Leave a review</string>
 
     <!-- Marshall -->
-
 
 
     <!-- Ash -->

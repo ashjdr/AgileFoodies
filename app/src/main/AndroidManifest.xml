@@ -3,25 +3,10 @@
     package="marshmallow.cis2003.tees.ac.uk.agilefoodies">
 
     <!-- Juli -->
-
-
-
     <!-- Jack -->
-
-
-
     <!-- Matthew -->
-
-
-
     <!-- Marshall -->
-
-
-
     <!-- Ash -->
-
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,60 +14,53 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!-- Juli -->
 
+        <!-- Juli -->
 
 
         <!-- Jack -->
 
 
-
         <!-- Matthew -->
-
 
 
         <!-- Marshall -->
 
 
-
         <!-- Ash -->
-
 
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-            <!-- Juli -->
+        <!-- Juli -->
         <activity android:name=".TimerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <!-- Jack -->
+        <!-- Jack -->
 
 
-
-            <!-- Matthew -->
-
+        <!-- Matthew -->
 
 
-            <!-- Marshall -->
+        <!-- Marshall -->
 
 
+        <!-- Ash -->
 
-            <!-- Ash -->
-
-
-
+        <activity android:name=".review"></activity>
     </application>
 
 </manifest>

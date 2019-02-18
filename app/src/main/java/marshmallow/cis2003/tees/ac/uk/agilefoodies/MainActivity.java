@@ -72,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
         //END OF AD CODE
 
+
+
+
+
         // Marshall
 
 
@@ -92,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
 
     // Matthew
 
+    public void openReview(View view) {
+        Intent intent = new Intent(this, review.class);
+        startActivity(intent);
+    }
 
     // Marshall
 
