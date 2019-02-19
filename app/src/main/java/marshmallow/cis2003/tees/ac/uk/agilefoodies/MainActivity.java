@@ -1,9 +1,14 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 // Juli
 
 
@@ -59,8 +64,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+   
 
-        // Jack
+
+
+
+    // Jack
 
 
 
