@@ -32,7 +32,7 @@ import com.google.android.gms.tasks.Task;
 public class MainActivity extends AppCompatActivity {
 
     // Juli
-    GoogleSignInClient mGoogleSignInClient;
+
 
 
     // Jack
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
     }
 
-
+//need to pass the sign in client from login in to main
     private void googleSignOut() {
    mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
