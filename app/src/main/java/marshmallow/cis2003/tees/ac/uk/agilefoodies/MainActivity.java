@@ -23,7 +23,14 @@ import com.google.android.gms.ads.MobileAds;
 
 
 // Ash
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 
+import android.util.Log;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     // Ash
+    private FirebaseAuth mAuth;
+    private StorageReference mStorageRef;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    int RC_SIGN_IN = 0;
 
 
     @Override
@@ -76,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Ash
+        mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -97,6 +109,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     // Ash
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null) {
+            updateUI(currentUser);
+        }
+        else {
 
+            Log.d("getInitialLogin", "USER NOT LOGGED IN");
+        }
+    }
+
+
+
+    public void updateUI(FirebaseUser user) {
+        Log.d("TEST", "USER LOGGED IN");
+    }
 
 }
