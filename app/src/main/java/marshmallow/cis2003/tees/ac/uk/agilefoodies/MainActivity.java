@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -75,9 +76,11 @@ public class MainActivity extends AppCompatActivity {
     }
     }
 
+    GoogleSignInClient mGoogleSignInClient =getIntent().getParcelableExtra("ACCOUNT");
+
 //need to pass the sign in client from login in to main
     private void googleSignOut() {
-   mGoogleSignInClient.signOut()
+    mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
