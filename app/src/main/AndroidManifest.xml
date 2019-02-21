@@ -2,25 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="marshmallow.cis2003.tees.ac.uk.agilefoodies">
 
-    <!-- Juli -->
-
-
-
-    <!-- Jack -->
-
-
-
-    <!-- Matthew -->
-
-
-
-    <!-- Marshall -->
-
-
-
-    <!-- Ash -->
-
-
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -29,36 +14,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!-- Juli -->
-
-
-
         <!-- Jack -->
-
-
-
         <!-- Matthew -->
-
-
-
         <!-- Marshall -->
-
-
-
         <!-- Ash -->
-
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-            <!-- Juli -->
+        <!-- Juli -->
         <activity android:name=".TimerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
         </activity>
         <activity android:name=".SplashScreenActivity">
@@ -67,22 +38,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <!-- Jack -->
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login">
+            <intent-filter>
+                <action android:name="android.intent.action.view" />
+            </intent-filter>
 
 
-
-            <!-- Matthew -->
-
-
-
-            <!-- Marshall -->
-
-
-
-            <!-- Ash -->
-
-
-
+        </activity>
     </application>
 
 </manifest>
