@@ -43,7 +43,7 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.view" />
             </intent-filter>
 
 

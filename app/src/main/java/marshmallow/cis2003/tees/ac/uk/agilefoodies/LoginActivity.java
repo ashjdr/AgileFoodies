@@ -25,37 +25,51 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static int RC_SIGN_IN = 100;
     private static final String TAG = "LoginActivity";
     GoogleSignInClient mGoogleSignInClient;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         findViewById(signInButton).setOnClickListener(this);
 
     }
+
+
     @Override
     protected void onStart()
     {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        updateUI(account);
 
+        updateUI(account);
 
 
     }
 
     protected void updateUI(GoogleSignInAccount account){
+        if (account != null){
+
+        Intent intent = new Intent (this, MainActivity.class);
+        startActivity(intent);
+
+        }
+
+        else{
+            onClick(view);
+
+
+        }
 
 
     }
-
 
     @Override
     public void onClick(View view) {
@@ -65,6 +79,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+
+
 
 
     private void signIn() {
@@ -91,8 +107,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Intent loggedInIntent=new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(loggedInIntent);
             // Signed in successfully, show authenticated UI.
             updateUI(account);
         } catch (ApiException e) {
