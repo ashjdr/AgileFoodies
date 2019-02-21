@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///home/scm-studs/s6068159/AndroidStudioProjects/AgileFoodies/AgileFoodies.iml" filepath="/home/scm-studs/s6068159/AndroidStudioProjects/AgileFoodies/AgileFoodies.iml" />
-      <module fileurl="file:///home/scm-studs/s6068159/AndroidStudioProjects/AgileFoodies/app/app.iml" filepath="/home/scm-studs/s6068159/AndroidStudioProjects/AgileFoodies/app/app.iml" />
+      <module fileurl="file:///home/scm-studs/s6068159/AgileFoodies/AgileFoodies.iml" filepath="/home/scm-studs/s6068159/AgileFoodies/AgileFoodies.iml" />
+      <module fileurl="file:///home/scm-studs/s6068159/AgileFoodies/app/app.iml" filepath="/home/scm-studs/s6068159/AgileFoodies/app/app.iml" />
     </modules>
   </component>
 </project>
