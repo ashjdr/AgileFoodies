@@ -19,7 +19,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashScreenActivity.this,LoginActivity.class);
+                Intent intent=new Intent(SplashScreenActivity.this,tescoLab.class);
                 startActivity(intent);
                 finish();
             }

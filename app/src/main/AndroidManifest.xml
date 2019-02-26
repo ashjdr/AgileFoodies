@@ -19,6 +19,9 @@
 
         <!-- Juli -->
         <!-- Jack -->
+        <meta-data
+            android:name="key_tesco"
+            android:value="a78d89bd412f49c8b8c9532af8e1d4c2" />
         <activity
             android:name=".tescoLab"
             android:parentActivityName=".MainActivity">

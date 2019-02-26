@@ -58,6 +58,10 @@ public class tescoLab extends AppCompatActivity {
             @Override
             public void onClick (View v){
                 try {
+
+//                    Intent intent = getIntent();
+//                    finish();
+//                    startActivity(intent);
                     jsonParse(querys);
                 } catch (AuthFailureError authFailureError) {
                     authFailureError.printStackTrace();
