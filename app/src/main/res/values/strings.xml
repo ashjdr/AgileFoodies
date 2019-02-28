@@ -19,6 +19,11 @@
 
     <!-- Jack -->
     <string name="search_param">Enter item</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="side">Sides</string>
+    <string name="free_food">Free meals in your area</string>
 
     <!-- Matthew -->
 
