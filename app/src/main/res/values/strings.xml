@@ -24,6 +24,12 @@
     <string name="dinner">Dinner</string>
     <string name="side">Sides</string>
     <string name="free_food">Free meals in your area</string>
+    <string name="title_activity_home_page">HomePage</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
     <!-- Matthew -->
 
