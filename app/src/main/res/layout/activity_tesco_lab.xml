@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+<ScrollView
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -39,27 +46,22 @@
 
 
 
-
-
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/adFragment">
-
-        </FrameLayout>
-
-        <fragment
-            android:id="@+id/adFragment"
-            android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
-
     </RelativeLayout>
 
 </ScrollView>
+<FrameLayout
+android:id="@+id/container"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_above="@+id/adFragment">
+
+</FrameLayout>
+
+<fragment
+android:id="@+id/adFragment"
+android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
+android:layout_width="match_parent"
+android:layout_height="75dp"
+android:layout_alignParentBottom="true"
+android:layout_alignParentEnd="true" />
+    </RelativeLayout>

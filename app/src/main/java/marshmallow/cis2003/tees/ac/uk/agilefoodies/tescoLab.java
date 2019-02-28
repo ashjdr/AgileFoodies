@@ -63,10 +63,14 @@ public class tescoLab extends AppCompatActivity {
             public void onClick (View v){
                 try {
 
-//                    Intent intent = getIntent();
-//                    finish();
-//                    startActivity(intent);
+//                    Tesco LAb
+//                    Recycler layout
+//                    Array adapter
+
+                    // Intent intent=new Intent(tescoLab.this,tescoLab.class);
+                 //   startActivity(intent);
                     jsonParse(querys);
+                  //  finish();
                 } catch (AuthFailureError authFailureError) {
                     authFailureError.printStackTrace();
                 }

@@ -21,19 +21,18 @@
         <meta-data
             android:name="key_tesco"
             android:value="a78d89bd412f49c8b8c9532af8e1d4c2" />
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".HomePage" />
 
         <activity
             android:name=".tescoLab"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.VIEW" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
         </activity>
         <!-- Matthew -->
         <!-- Marshall -->
@@ -44,7 +43,8 @@
             </intent-filter>
         </activity>
         <!-- Juli -->
-        <activity android:name=".TimerActivity">
+        <activity android:name=".TimerActivity"
+            android:parentActivityName=".HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -60,7 +60,8 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.view" />
             </intent-filter>
