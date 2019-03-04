@@ -96,21 +96,26 @@ public class HomePage extends AppCompatActivity
             // Handle the camera action
             Intent intent=new Intent(HomePage.this,tescoLab.class);
             startActivity(intent);
-            finish();
+
         } else if (id == R.id.login_activity) {
             Intent intent=new Intent(HomePage.this,LoginActivity.class);
             startActivity(intent);
-            finish();
+
 
         } else if (id == R.id.timer_activity) {
             Intent intent=new Intent(HomePage.this,TimerActivity.class);
             startActivity(intent);
-            finish();
+
 
         } else if (id == R.id.nav_manage) {
             //action needed
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_locate) {
+            Intent intent=new Intent(HomePage.this,FindNearestShopActivity.class);
+            startActivity(intent);
+
+
+    } else if (id == R.id.nav_share) {
 //action needed
         } else if (id == R.id.nav_send) {
 //action needed

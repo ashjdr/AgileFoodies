@@ -39,6 +39,13 @@
             </intent-filter>
         </activity>
         <!-- Matthew -->
+        <activity
+            android:name=".FindNearestShopActivity"
+            android:parentActivityName=".HomePage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
         <!-- Marshall -->
         <!-- Ash -->
 

@@ -19,8 +19,13 @@
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="N/A" />
-    </group>
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_locate"
+            android:icon="@drawable/mapicon"
+            android:title="Locate stores near you" />
+                                                                <!--the icon used here is under the following licence: https://www.iconbros.com/license-->
+    </group>                                                    <!--It can therefore be used for the purposes of this app-->
 
     <item android:title="Communicate">
         <menu>

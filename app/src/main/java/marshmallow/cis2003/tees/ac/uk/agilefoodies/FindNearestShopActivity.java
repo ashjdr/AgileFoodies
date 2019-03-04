@@ -13,12 +13,13 @@ public class FindNearestShopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_nearest_shop);
+
     }
 
 
     public void toGMaps(View view) {
 
-        String shop = null;
+        String shop;
 
         switch(view.getId()) {
             case R.id.tescoButton:
