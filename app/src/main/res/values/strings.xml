@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AgileFoodies</string>
 
-    
-    <!-- Juli -->
+
+  <!-- Juli -->
     <string name="action_sign_out">Sign out</string>
   <string name="title_activity_login">Sign in</string>
     <!-- Strings related to login -->
@@ -19,8 +19,7 @@
     </string>
 
 
-
-    <!-- Jack -->
+  <!-- Jack -->
     <string name="search_param">Enter item</string>
     <string name="breakfast">Breakfast</string>
     <string name="lunch">Lunch</string>

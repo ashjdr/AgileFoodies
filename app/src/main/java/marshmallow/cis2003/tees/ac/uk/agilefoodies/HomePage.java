@@ -114,6 +114,10 @@ public class HomePage extends AppCompatActivity
             Intent intent=new Intent(HomePage.this,FindNearestShopActivity.class);
             startActivity(intent);
 
+        } else if (id == R.id.nav_review) {
+            Intent intent=new Intent(HomePage.this,review.class);
+            startActivity(intent);
+
 
     } else if (id == R.id.nav_share) {
 //action needed
