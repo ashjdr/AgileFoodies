@@ -22,7 +22,7 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-auth:11.8.0'
     implementation 'com.google.android.gms:play-services-ads:11.8.0'
-    implementation 'com.squareup.picasso:picasso: 2.5.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     // Jack
 

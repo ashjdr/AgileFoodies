@@ -21,7 +21,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import static marshmallow.cis2003.tees.ac.uk.agilefoodies.R.id.signInButton;
+import static marshmallow.cis2003.tees.ac.uk.agilefoodies.R.id.sign_in_button;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
+
             googleSignInButton = findViewById(R.id.sign_in_button);
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
@@ -73,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                      // a listener.
                      Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                      GoogleSignInAccount account = task.getResult(ApiException.class);
+                     String idToken = account.getIdToken();
                      onLoggedIn(account);
                  } catch (ApiException e) {
                      // The ApiException status code indicates the detailed failure reason.
@@ -90,6 +92,3 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }}
 
-//
-//
-//    }
