@@ -35,13 +35,14 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:layout_width="140dp"
-        android:text="SIGN OUT"
         android:id="@+id/sign_out"
-        android:layout_marginBottom="50dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:onClick="onClick"
+        android:text="SIGN OUT" />
 
 
 </RelativeLayout>
