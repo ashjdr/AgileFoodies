@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">AgileFoodies</string>
-    <string name="title_activity_login">Sign in</string>
+
+    
+    <!-- Juli -->
+    <string name="action_sign_out">Sign out</string>
+  <string name="title_activity_login">Sign in</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -13,8 +17,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <!-- Juli -->
-    <string name="action_sign_out">Sign out</string>
+
 
 
     <!-- Jack -->
@@ -29,9 +32,21 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+
     <string name="action_settings">Settings</string>
 
     <!-- Matthew -->
+
+    <string name="review_button">Review</string>
+    <string name="review_text">Please Leave a review</string>
+
+    <string name="find_shops_near_you">Find shops near you</string>
+    <string name="tesco">Tesco</string>
+    <string name="lidl">Lidl</string>
+    <string name="sainsbury_s">Sainsbury\'s</string>
+    <string name="asda">Asda</string>
+    <string name="aldi">Aldi</string>
+    <string name="waitrose">Waitrose</string>
 
 
     <!-- Marshall -->
