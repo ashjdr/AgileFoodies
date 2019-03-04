@@ -2,6 +2,9 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -95,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
         //END OF AD CODE
 
+
+
         // Marshall
 
 
@@ -115,6 +120,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     // Matthew
+
+    public void openReview(View view) {
+        Intent intent = new Intent(this, review.class);
+        startActivity(intent);
+    }
+
+    public void openmapspage(View view) {
+        Intent intent = new Intent(this, FindNearestShopActivity.class);
+        startActivity(intent);
+    }
+
 
 
     // Marshall

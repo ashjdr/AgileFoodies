@@ -21,14 +21,15 @@ dependencies {
     // Juli
 
     implementation 'com.google.android.gms:play-services-auth:11.8.0'
-    implementation 'com.google.android.gms:play-services-ads:11.8.0'
+
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
     // Jack
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.android.support:appcompat-v7:26.1.'
+    implementation 'com.android.support:design:26.1.0'
 
     // Matthew
-
-
     // Marshall
 
     // Ash
@@ -38,14 +39,16 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:11.8.0'
     implementation 'com.google.firebase:firebase-core:11.8.0'
 
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:design:26.1.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.google.android.gms:play-services-ads:11.8.0'
 }
 
 // Juli
@@ -57,6 +60,8 @@ dependencies {
 // Marshall
 
 // Ash
+
+
 
 
 
