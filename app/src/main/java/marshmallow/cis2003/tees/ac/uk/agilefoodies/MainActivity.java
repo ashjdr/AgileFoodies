@@ -1,10 +1,20 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
+
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 // Juli
 
 
@@ -24,7 +34,14 @@ import com.google.android.gms.ads.MobileAds;
 
 
 // Ash
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 
+import android.util.Log;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     // Ash
+    private FirebaseAuth mAuth;
+    private StorageReference mStorageRef;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    int RC_SIGN_IN = 0;
 
 
     @Override
@@ -54,7 +75,35 @@ public class MainActivity extends AppCompatActivity {
         // Juli
 
 
-        // Jack
+//    public void goToSignOut(View signOutView)
+//    {switch (signOutView.getId()) {
+//        // ...
+//        case R.id.action_sign_out:
+//            googleSignOut();
+//            break;
+//        // ...
+//    }
+//    }
+//
+////    GoogleSignInClient mGoogleSignInClient =getIntent().getParcelableExtra();
+//
+////need to pass the sign in client from login in to main
+//            private void googleSignOut() {
+//                GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getParent());
+//
+//                acct.signOut()
+//                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//
+//                    }
+//                });
+//    }
+
+
+
+
+    // Jack
 
 
         // Matthew
@@ -79,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Ash
+        mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -111,6 +161,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     // Ash
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null) {
+            updateUI(currentUser);
+        }
+        else {
 
+            Log.d("getInitialLogin", "USER NOT LOGGED IN");
+        }
+    }
+
+
+
+    public void updateUI(FirebaseUser user) {
+        Log.d("TEST", "USER LOGGED IN");
+    }
 
 }
