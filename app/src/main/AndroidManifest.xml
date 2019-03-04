@@ -76,18 +76,31 @@
             </intent-filter>
         </activity>
         <activity
+
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:parentActivityName=".HomePage">
+
             <intent-filter>
                 <action android:name="android.intent.action.view" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ProfileActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
         <activity
             android:name=".HomePage"
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".shopLinkActivity"></activity>
+
     </application>
 
 </manifest>
