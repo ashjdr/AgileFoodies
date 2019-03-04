@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -21,6 +22,13 @@ import com.google.android.gms.ads.MobileAds;
 public class HomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private AdView mAdView;
+    ImageButton imageB1;
+    ImageButton imageB2;
+    ImageButton imageB3;
+    ImageButton imageB4;
+    ImageButton imageB5;
+    ImageButton imageB6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +59,61 @@ public class HomePage extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        imageB1 = (ImageButton) findViewById(R.id.imageButton1);
+        imageB1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Intent intent=new Intent(HomePage.this,?enter location?.class);
+               // startActivity(intent);
+            }
+        });
+
+        imageB2 = (ImageButton) findViewById(R.id.imageButton2);
+        imageB2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent intent=new Intent(HomePage.this,?enter location?.class);
+                // startActivity(intent);
+            }
+        });
+
+        imageB3 = (ImageButton) findViewById(R.id.imageButton3);
+        imageB3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent intent=new Intent(HomePage.this,?enter location?.class);
+                // startActivity(intent);
+            }
+        });
+
+        imageB4 = (ImageButton) findViewById(R.id.imageButton4);
+        imageB4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent intent=new Intent(HomePage.this,?enter location?.class);
+                // startActivity(intent);
+            }
+        });
+
+        imageB5 = (ImageButton) findViewById(R.id.imageButton5);
+        imageB5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent intent=new Intent(HomePage.this,?enter location?.class);
+                // startActivity(intent);
+            }
+        });
+
+        imageB6 = (ImageButton) findViewById(R.id.imageButton6);
+        imageB6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent intent=new Intent(HomePage.this,?enter location?.class);
+                // startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -96,16 +159,16 @@ public class HomePage extends AppCompatActivity
             // Handle the camera action
             Intent intent=new Intent(HomePage.this,tescoLab.class);
             startActivity(intent);
-            finish();
+
         } else if (id == R.id.login_activity) {
             Intent intent=new Intent(HomePage.this,LoginActivity.class);
             startActivity(intent);
-            finish();
+
 
         } else if (id == R.id.timer_activity) {
             Intent intent=new Intent(HomePage.this,TimerActivity.class);
             startActivity(intent);
-            finish();
+
 
         } else if (id == R.id.nav_manage) {
             //action needed
