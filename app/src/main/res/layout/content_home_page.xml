@@ -8,22 +8,7 @@
     tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.HomePage"
     tools:showIn="@layout/app_bar_home_page">
 
-    <!--ad stuff -->
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true">
-
-
-        </FrameLayout>
-
-    </RelativeLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -91,6 +76,22 @@
             tools:layout_editor_absoluteX="195dp"
             tools:layout_editor_absoluteY="278dp" />
 
+
+
+    </RelativeLayout>
+    <!--ad stuff -->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+        </FrameLayout>
         <fragment
             android:id="@+id/adFragment"
             android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
@@ -98,7 +99,7 @@
             android:layout_height="75dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
-    </RelativeLayout>
 
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

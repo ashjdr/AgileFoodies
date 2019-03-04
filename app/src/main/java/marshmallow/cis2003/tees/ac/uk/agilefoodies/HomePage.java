@@ -64,8 +64,8 @@ public class HomePage extends AppCompatActivity
         imageB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent intent=new Intent(HomePage.this,?enter location?.class);
-               // startActivity(intent);
+                // Intent intent=new Intent(HomePage.this,?enter location?.class);
+                // startActivity(intent);
             }
         });
 
