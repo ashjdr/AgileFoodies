@@ -1,5 +1,6 @@
 package uk.ac.tees.cis2003.marshmallow.sr28parser.objects;
 
+import uk.ac.tees.cis2003.marshmallow.sr28parser.managers.ObjectManager;
 import static uk.ac.tees.cis2003.marshmallow.sr28parser.util.SR28Helper.*;
 
 public class NutrientDatum
@@ -49,14 +50,13 @@ public class NutrientDatum
     public NutrientDatum(String inLine)
     {
         String[] splitLine = inLine.split(FIELD_DELIMITER);
+        
         int foodId = Integer.parseInt(trimEnds(splitLine[0]));
-        /*
-        TODO: assign Food object from foodID
-        */
+        food = ObjectManager.getObjectManager().getFoodById(foodId);
+        
         int nutrientId = Integer.parseInt(trimEnds(splitLine[1]));
-        /*
-        TODO: assign Nutrient object from nutrient ID
-        */
+        nutrient = ObjectManager.getObjectManager().getNutrientDefById(nutrientId);
+        
         value = Double.parseDouble(splitLine[2]);
     }
 }

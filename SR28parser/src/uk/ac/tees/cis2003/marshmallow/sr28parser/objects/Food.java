@@ -1,5 +1,6 @@
 package uk.ac.tees.cis2003.marshmallow.sr28parser.objects;
 
+import uk.ac.tees.cis2003.marshmallow.sr28parser.managers.ObjectManager;
 import static uk.ac.tees.cis2003.marshmallow.sr28parser.util.SR28Helper.*;
 
 public class Food 
@@ -56,10 +57,7 @@ public class Food
         String[] splitLine = lineIn.split(FIELD_DELIMITER);
         id = Integer.parseInt(trimEnds(splitLine[0]));
         int groupId = Integer.parseInt(trimEnds(splitLine[1]));
-        group = null;
-        /*
-        TODO: use groupId to find and set FoodGroup object
-        */
+        group = ObjectManager.getObjectManager().getFoodGroupById(id);
         longDesc = trimEnds(splitLine[2]);
         shortDesc = trimEnds(splitLine[3]);
         manufacturer = trimEnds(splitLine[5]);

@@ -82,6 +82,11 @@ public class ObjectManager
         return foodGroupMap.get(id);
     }
     
+    public NutrientDef getNutrientDefById(int id)
+    {
+        return nutrientDefMap.get(id);
+    }
+    
     public NutrientDatum[] getNutrientDataByFoodId(int id)
     {
         ArrayList<NutrientDatum> returnArray = new ArrayList<>();
