@@ -24,7 +24,7 @@
             android:id="@+id/nav_locate"
             android:icon="@drawable/mapicon"
             android:title="Locate stores near you" />
-        <!--the icon used here is under the following licence: https://www.iconbros.com/license-->
+        <!--the icon used here is under the following licence: https://www.iconbros.com/license -->
         <!--It can therefore be used for the purposes of this app-->
 
         <item
