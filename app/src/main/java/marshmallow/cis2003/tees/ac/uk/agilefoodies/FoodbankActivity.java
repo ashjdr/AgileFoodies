@@ -42,20 +42,12 @@ public class FoodbankActivity extends AppCompatActivity {
 
         switch(view.getId()) {
             case R.id.FBmapbutton:
-                exitstring = "Food Bank";
-
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.google.com/maps/search/" + exitstring + "/"));
-                startActivity(mapIntent);
+                exitstring = "https://www.google.com/maps/search/Food+Bank/";
 
                 break;
 
             case R.id.FBsearchbutton:
-                exitstring = "Food banks near me";
-
-                Intent searchintent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.google.com/maps/search/" + exitstring + "/"));
-                startActivity(searchintent);
+                exitstring = "https://www.google.com/search?q=oodbanks+near+me";
 
                 break;
 
@@ -75,8 +67,8 @@ public class FoodbankActivity extends AppCompatActivity {
                 throw new RuntimeException("Unknown button ID");
         }
 
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://www.google.com/maps/search/" + exitstring + "/"));
-        startActivity(intent);
+        Intent searchintent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse(exitstring));
+        startActivity(searchintent);
     }
 }
