@@ -98,6 +98,7 @@
         <activity android:name=".UploadYourRecipeActivity">
          <intent-filter>
              <action android:name="android.intent.action.VIEW" />
+             <action android:name="android.intent.action.PICK" />
          </intent-filter>
         </activity>
     </application>

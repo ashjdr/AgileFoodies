@@ -25,11 +25,17 @@
     <ImageView
 
         android:layout_centerHorizontal="true"
-        android:id="@+id/profile_image"
+        android:id="@+id/uploadedImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintTop_toBottomOf="@id/edit_text1"
-    app:layout_constraintLeft_toRightOf="@id/imageButtonAddImage"/>
+        app:layout_constraintLeft_toRightOf="@id/imageButtonAddImage"/>
+
+    <Button
+        android:id="@+id/save_upload"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    app:layout_constraintTop_toBottomOf="@id/profile_image"/>
 
 
 </android.support.constraint.ConstraintLayout>
