@@ -98,37 +98,38 @@ public class ObjectManager
     
     /**
     * Constructs a new Food object from a line of FOOD_DES.txt and registers it
+    * @param inLine Single line from FOOD_DES.txt
     * @return Food The created object
     */
-    public Food newFoodFromLine(String inLine)
+    public static Food newFoodFromLine(String inLine)
     {
         Food food = new Food(inLine);
         getObjectManager().registerFood(food);
         return food;
     }
 
-    public FoodGroup newFoodGroupFromLine(String inLine)
+    public static FoodGroup newFoodGroupFromLine(String inLine)
     {
         FoodGroup fg = new FoodGroup(inLine);
         getObjectManager().registerFoodGroup(fg);
         return fg;
     }
     
-    public NutrientDatum newNutrientDatumFromLine(String inLine)
+    public static NutrientDatum newNutrientDatumFromLine(String inLine)
     {
         NutrientDatum nut = new NutrientDatum(inLine);
         getObjectManager().registerNutrientDatum(nut);
         return nut;
     }
     
-    public NutrientDef newNutrientDefFromLine(String inLine)
+    public static NutrientDef newNutrientDefFromLine(String inLine)
     {
         NutrientDef nut = new NutrientDef(inLine);
         getObjectManager().registerNutrientDef(nut);
         return nut;
     }
     
-    public Weight newWeightFromLine(String inLine)
+    public static Weight newWeightFromLine(String inLine)
     {
         Weight wt = new Weight(inLine);
         getObjectManager().registerWeight(wt);
