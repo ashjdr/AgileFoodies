@@ -2,8 +2,6 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -145,6 +143,11 @@ public class HomePage extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        else if(id == R.id.action_account){
+            Intent intent=new Intent(HomePage.this,LoginActivity.class);
+            startActivity(intent);
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -160,8 +163,8 @@ public class HomePage extends AppCompatActivity
             Intent intent=new Intent(HomePage.this,tescoLab.class);
             startActivity(intent);
 
-        } else if (id == R.id.login_activity) {
-            Intent intent=new Intent(HomePage.this,LoginActivity.class);
+        } else if (id == R.id.recipe_activity) {
+            Intent intent=new Intent(HomePage.this,UploadYourRecipeActivity.class);
             startActivity(intent);
 
 

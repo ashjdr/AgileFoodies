@@ -9,9 +9,9 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Tesco Lab" />
         <item
-            android:id="@+id/login_activity"
+            android:id="@+id/recipe_activity"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Login" />
+            android:title="Upload a Recipe" />
         <item
             android:id="@+id/timer_activity"
             android:icon="@drawable/ic_menu_slideshow"
