@@ -9,9 +9,10 @@
 
     <EditText
         android:id="@+id/edit_text1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/hint_instructions"
+        app:layout_constraintLeft_toRightOf="@id/save_upload"
          />
 
     <ImageButton
@@ -19,8 +20,15 @@
         android:layout_width="@dimen/imageview_width"
         android:layout_height="@dimen/imageview_height"
         android:contentDescription="@string/add_image"
-        android:src="@drawable/ic_menu_gallery"
-        app:layout_constraintTop_toBottomOf="@id/edit_text1" />
+        android:src="@drawable/ic_menu_gallery"/>
+
+    <ImageButton
+        android:id="@+id/takePhoto"
+        android:layout_width="@dimen/imageview_width"
+        android:layout_height="@dimen/imageview_height"
+        android:contentDescription="@string/add_image"
+        android:src="@drawable/ic_menu_camera"
+        app:layout_constraintTop_toBottomOf="@id/imageButtonAddImage" />
 
     <ImageView
 
@@ -31,11 +39,12 @@
         app:layout_constraintTop_toBottomOf="@id/edit_text1"
         app:layout_constraintLeft_toRightOf="@id/imageButtonAddImage"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/save_upload"
         android:layout_width="50dp"
         android:layout_height="50dp"
-    app:layout_constraintTop_toBottomOf="@id/profile_image"/>
+        android:src="@drawable/ic_menu_manage"
+    app:layout_constraintTop_toBottomOf="@id/takePhoto"/>
 
 
 </android.support.constraint.ConstraintLayout>
