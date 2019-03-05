@@ -83,7 +83,7 @@ public class TimerActivity extends AppCompatActivity {
                 resetTimer();
             }
         });
-        
+
         //START OF AD CODE
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
