@@ -2,6 +2,7 @@
     <string name="app_name">AgileFoodies</string>
 
 
+
   <!-- Juli -->
     <string name="action_sign_out">Sign out</string>
   <string name="title_activity_login">Sign in</string>
@@ -17,6 +18,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
 
 
   <!-- Jack -->
