@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.FindNearestShopActivity">
+    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.FoodbankActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="food bank location assistance:"
+        android:text="@string/food_bank_location_assistance"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,8 +31,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="toGMaps"
-        android:text="Google Maps"
+        android:onClick="goFind"
+        android:text="@string/google_maps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,8 +47,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="toGMaps"
-        android:text="search the web"
+        android:onClick="goFind"
+        android:text="@string/search_the_web"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

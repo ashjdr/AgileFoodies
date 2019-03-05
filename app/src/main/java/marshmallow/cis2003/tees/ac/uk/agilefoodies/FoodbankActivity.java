@@ -47,7 +47,7 @@ public class FoodbankActivity extends AppCompatActivity {
                 break;
 
             case R.id.FBsearchbutton:
-                exitstring = "https://www.google.com/search?q=oodbanks+near+me";
+                exitstring = "https://www.google.com/search?q=Food+Banks+near+me";
 
                 break;
 
