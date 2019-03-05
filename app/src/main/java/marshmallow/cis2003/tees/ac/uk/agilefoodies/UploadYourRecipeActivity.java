@@ -19,6 +19,5 @@ public class UploadYourRecipeActivity extends AppCompatActivity {
         edittext  = findViewById(R.id.edit_text1);
         addimage  = findViewById(R.id.imageView);
 
-
     }
 }
