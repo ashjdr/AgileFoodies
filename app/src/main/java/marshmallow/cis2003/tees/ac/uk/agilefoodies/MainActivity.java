@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Matthew
 
+        //private AdView mAdView;
         //START OF AD CODE
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()

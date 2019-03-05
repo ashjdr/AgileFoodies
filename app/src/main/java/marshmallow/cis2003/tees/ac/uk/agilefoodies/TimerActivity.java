@@ -11,6 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.Locale;
 
 public class TimerActivity extends AppCompatActivity {
@@ -27,6 +31,8 @@ public class TimerActivity extends AppCompatActivity {
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
+
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +83,22 @@ public class TimerActivity extends AppCompatActivity {
                 resetTimer();
             }
         });
+        
+        //START OF AD CODE
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new AdFragment())
+                    .commit();
+        }
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //END OF AD CODE
+
+
     }
 
     private void setTime(long milliseconds) {
