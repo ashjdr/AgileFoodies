@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/tesco_lab"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Tesco Lab" />
+        <item
+            android:id="@+id/recipe_activity"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Upload a Recipe" />
+        <item
+            android:id="@+id/timer_activity"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Timer" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_locate"
+            android:icon="@drawable/mapicon"
+            android:title="Locate stores near you" />
+        <!--the icon used here is under the following licence: https://www.iconbros.com/license -->
+        <!--It can therefore be used for the purposes of this app-->
+
+        <item
+            android:id="@+id/nav_review"
+            android:icon="@drawable/reviewicon"
+            android:title="Leave a review" />
+        <!--the icon used here is under the following licence: https://www.iconbros.com/license-->
+        <!--It can therefore be used for the purposes of this app-->
+        <item
+            android:id="@+id/nav_foodbank"
+            android:icon="@drawable/basketicon"
+            android:title="Locate Free Food" />
+        <!--<item
+            android:id="@+id/nav_revieww"
+            android:icon="@drawable/reviewicon"
+            android:title="Leave a review" />-->
+    </group>
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>

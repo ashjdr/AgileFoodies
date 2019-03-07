@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.HomePage"
+    tools:showIn="@layout/app_bar_home_page">
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="173dp"
+            android:layout_height="139dp"
+            android:layout_alignTop="@+id/imageButton2"
+            android:layout_toStartOf="@+id/imageButton2"
+            android:background="@drawable/carbonara"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="173dp"
+            android:layout_height="140dp"
+            android:layout_above="@+id/imageButton4"
+            android:layout_toEndOf="@+id/imageButton3"
+            android:background="@drawable/greek_salad"
+            tools:layout_editor_absoluteX="195dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="173dp"
+            android:layout_height="139dp"
+            android:layout_above="@+id/imageButton5"
+            android:layout_alignStart="@+id/imageButton5"
+            android:background="@drawable/letterbox_summer_20paella"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="139dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="173dp"
+            android:layout_height="139dp"
+            android:layout_above="@+id/imageButton6"
+            android:layout_toEndOf="@+id/imageButton5"
+            android:background="@drawable/massamancurry"
+            tools:layout_editor_absoluteX="195dp"
+            tools:layout_editor_absoluteY="139dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="173dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/imageButton6"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/steak"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="278dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="173dp"
+            android:layout_height="150dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="75dp"
+            android:layout_toEndOf="@+id/imageButton5"
+            android:background="@drawable/healthy_meal"
+            tools:layout_editor_absoluteX="195dp"
+            tools:layout_editor_absoluteY="278dp" />
+
+
+
+    </RelativeLayout>
+    <!--ad stuff -->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+        </FrameLayout>
+        <fragment
+            android:id="@+id/adFragment"
+            android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
