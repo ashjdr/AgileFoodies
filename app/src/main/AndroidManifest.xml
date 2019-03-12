@@ -37,20 +37,7 @@
             </intent-filter>
         </activity>
         <!-- Matthew -->
-        <activity
-            android:name=".FindNearestShopActivity"
-            android:parentActivityName=".HomePage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".review"
-            android:parentActivityName=".HomePage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
+
         <!-- Marshall -->
         <!-- Ash -->
 
@@ -61,15 +48,6 @@
         </activity>
         <!-- Juli -->
 
-        <activity
-            android:name=".TimerActivity"
-            android:parentActivityName=".HomePage">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -96,16 +74,6 @@
             android:name=".HomePage"
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".shopLinkActivity" />
-        <activity android:name=".UploadYourRecipeActivity">
-         <intent-filter>
-             <action android:name="android.intent.action.VIEW" />
-             <action android:name="android.intent.action.PICK" />
-         </intent-filter>
-        </activity>
-
-        <activity android:name=".FoodbankActivity" />
 
 
     </application>

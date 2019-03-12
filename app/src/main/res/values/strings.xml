@@ -16,9 +16,10 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+  
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <!-- Jack -->
@@ -52,11 +53,27 @@
 
     <string name="account">Account</string>
     <string name="food_bank_location_assistance">food bank location assistance:</string>
-  <string name="google_maps">Google Maps</string>
-  <string name="search_the_web">search the web</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="search_the_web">search the web</string>
+  
+    <string name="home">Home</string>
+    <string name="tesco_lab">Tesco Lab</string>
+    <string name="upload_a_recipe">Upload a Recipe</string>
+    <string name="timer">Timer</string>
+    <string name="settings">Settings</string>
+    <string name="locate_stores_near_you">Locate stores near you</string>
+    <string name="leave_a_review">Leave a review</string>
+    <string name="locate_free_food">Locate Free Food</string>
+    <string name="communicate">Communicate</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+    <string name="select_a_shop_to_locate_near_you">select a shop to locate near you</string>
+    <string name="temp_image_msg">temp image, will be replaced with link to database</string>
+    <string name="food_bank_text">A food-bank can give assistance to those who need it, so that they can get enough food to feed themselves. If you require this service, please have a look through the buttons below to find a food-bank near you that might be able to help you.</string>
 
 
-  <!-- Marshall -->
+
+    <!-- Marshall -->
 
 
     <!-- Ash -->

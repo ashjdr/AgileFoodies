@@ -2,19 +2,10 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
 // Juli
 
@@ -41,8 +32,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 
 import android.util.Log;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -113,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     // Juli
 
     public void goToTimerActivity(View view) {
-        Intent intent = new Intent(this, TimerActivity.class);
+        Intent intent = new Intent(this, TimerFragment.class);
         startActivity(intent);
     }
 
@@ -123,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
     // Matthew
 
     public void openReview(View view) {
-        Intent intent = new Intent(this, review.class);
+        Intent intent = new Intent(this, ReviewFragment.class);
         startActivity(intent);
     }
 
     public void openmapspage(View view) {
-        Intent intent = new Intent(this, FindNearestShopActivity.class);
+        Intent intent = new Intent(this, FindNearestShopFragment.class);
         startActivity(intent);
     }
 
