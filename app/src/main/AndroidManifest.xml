@@ -61,15 +61,6 @@
         </activity>
         <!-- Juli -->
 
-        <activity
-            android:name=".TimerActivity"
-            android:parentActivityName=".HomePage">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

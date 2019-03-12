@@ -21,4 +21,6 @@ public class AdFragment extends Fragment
 
         return inflater.inflate(R.layout.ad_fragment, container, false);
     }
+
+
 }

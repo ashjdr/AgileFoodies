@@ -1,13 +1,17 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +21,9 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.util.Locale;
 
-public class TimerActivity extends AppCompatActivity {
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
+public class TimerFragment extends Fragment {
     private EditText mEditTextInput;
     private TextView mTextViewCountDown;
     private Button mButtonSet;
@@ -31,75 +37,68 @@ public class TimerActivity extends AppCompatActivity {
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
-
     private AdView mAdView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timer);
-
-        mEditTextInput = findViewById(R.id.edit_text_input);
-        mTextViewCountDown = findViewById(R.id.text_view_countdown);
-
-        mButtonSet = findViewById(R.id.button_set);
-        mButtonStartPause = findViewById(R.id.button_start_pause);
-        mButtonReset = findViewById(R.id.button_reset);
-
-        mButtonSet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String input = mEditTextInput.getText().toString();
-                if (input.length() == 0) {
-                    Toast.makeText(TimerActivity.this, "Field can't be empty", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                long millisInput = Long.parseLong(input) * 60000;
-                if (millisInput == 0) {
-                    Toast.makeText(TimerActivity.this, "Please enter a positive number", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                setTime(millisInput);
-                mEditTextInput.setText("");
-            }
-        });
-
-        mButtonStartPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mTimerRunning) {
-                    pauseTimer();
-                } else {
-                    startTimer();
-                }
-            }
-        });
-
-        mButtonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetTimer();
-            }
-        });
-
-        //START OF AD CODE
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new AdFragment())
-                    .commit();
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_timer, container, false);
         }
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        //END OF AD CODE
+        @Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            View v = getView();
 
 
-    }
+            mEditTextInput = v.findViewById(R.id.edit_text_input);
+            mTextViewCountDown = v.findViewById(R.id.text_view_countdown);
+            mButtonSet = v.findViewById(R.id.button_set);
+
+            mButtonStartPause = v.findViewById(R.id.button_start_pause);
+            mButtonReset = v.findViewById(R.id.button_reset);
+
+            mButtonSet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String input = mEditTextInput.getText().toString();
+                    if (input.length() == 0) {
+                        Toast.makeText(TimerFragment.this.getContext(), "Field can't be empty", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    long millisInput = Long.parseLong(input) * 60000;
+                    if (millisInput == 0) {
+                        Toast.makeText(TimerFragment.this.getContext(), "Please enter a positive number", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    setTime(millisInput);
+                    mEditTextInput.setText("");
+                }
+            });
+
+            mButtonStartPause.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mTimerRunning) {
+                        pauseTimer();
+                    } else {
+                        startTimer();
+                    }
+                }
+            });
+
+            mButtonReset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    resetTimer();
+                }
+            });}
+
+
+
+
+
 
     private void setTime(long milliseconds) {
         mStartTimeInMillis = milliseconds;
@@ -184,18 +183,18 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     private void closeKeyboard() {
-        View view = this.getCurrentFocus();
+        View view = this.getActivity().getCurrentFocus();
         if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
+        }}
 
-    @Override
-    protected void onStop() {
+
+@Override
+    public void onStop() {
         super.onStop();
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putLong("startTimeInMillis", mStartTimeInMillis);
@@ -211,10 +210,10 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
 
         mStartTimeInMillis = prefs.getLong("startTimeInMillis", 600000);
         mTimeLeftInMillis = prefs.getLong("millisLeft", mStartTimeInMillis);
@@ -236,5 +235,9 @@ public class TimerActivity extends AppCompatActivity {
                 startTimer();
             }
         }
-    }}
+        }}
+
+
+
+
 

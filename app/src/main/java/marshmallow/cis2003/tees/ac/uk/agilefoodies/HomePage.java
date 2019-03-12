@@ -2,6 +2,8 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +28,8 @@ public class HomePage extends AppCompatActivity
     ImageButton imageB4;
     ImageButton imageB5;
     ImageButton imageB6;
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,9 +172,11 @@ public class HomePage extends AppCompatActivity
             startActivity(intent);
 
 
-        } else if (id == R.id.timer_activity) {
-            Intent intent=new Intent(HomePage.this,TimerActivity.class);
-            startActivity(intent);
+        } else if (id == R.id.timer_fragment){
+            TimerFragment fragment = new TimerFragment();
+            fragmentTransaction.add(R.id.timer_fragment, fragment);
+            fragmentTransaction.commit();
+
 
 
         } else if (id == R.id.nav_manage) {

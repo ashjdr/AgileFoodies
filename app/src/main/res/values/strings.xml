@@ -52,11 +52,14 @@
 
     <string name="account">Account</string>
     <string name="food_bank_location_assistance">food bank location assistance:</string>
-  <string name="google_maps">Google Maps</string>
-  <string name="search_the_web">search the web</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="search_the_web">search the web</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-  <!-- Marshall -->
+    <!-- Marshall -->
 
 
     <!-- Ash -->
