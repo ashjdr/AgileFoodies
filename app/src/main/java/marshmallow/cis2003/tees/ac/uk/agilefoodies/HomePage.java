@@ -183,7 +183,7 @@ public class HomePage extends AppCompatActivity
 
         } else if (id == R.id.nav_review) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new AdFragment())
+                    .add(R.id.container, new review())
                     .commit();
 
         } else if (id == R.id.nav_foodbank) {
