@@ -112,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
     // Matthew
 
     public void openReview(View view) {
-        Intent intent = new Intent(this, review.class);
+        Intent intent = new Intent(this, ReviewFragment.class);
         startActivity(intent);
     }
 
     public void openmapspage(View view) {
-        Intent intent = new Intent(this, FindNearestShopActivity.class);
+        Intent intent = new Intent(this, FindNearestShopFragment.class);
         startActivity(intent);
     }
 

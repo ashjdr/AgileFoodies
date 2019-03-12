@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.FindNearestShopActivity">
+    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.FindNearestShopFragment">
 
     <Button
         android:id="@+id/tescoButton"
@@ -14,7 +15,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="toGMaps"
         android:text="@string/tesco"
         app:layout_constraintBottom_toTopOf="@+id/aldiButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,6 @@
         android:layout_marginBottom="216dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="toGMaps"
         android:text="@string/lidl"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/waitroseButton"
@@ -43,7 +42,6 @@
         android:layout_marginBottom="216dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="toGMaps"
         android:text="@string/aldi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +56,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="toGMaps"
         android:text="@string/waitrose"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +72,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="toGMaps"
         android:text="@string/sainsbury_s"
         app:layout_constraintBottom_toTopOf="@+id/lidlButton"
         app:layout_constraintEnd_toStartOf="@+id/asdaButton"
@@ -91,7 +87,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="toGMaps"
         android:text="@string/asda"
         app:layout_constraintBottom_toTopOf="@+id/waitroseButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +103,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="select a shop to locate near you"
+        android:text="@string/select_a_shop_to_locate_near_you"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,27 +112,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083" />
 
-    <!--ad stuff -->
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/adFragment">
-        </FrameLayout>
-
-        <fragment
-            android:id="@+id/adFragment"
-            android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
-    </RelativeLayout>
-    <!--/ad stuff -->
 
 </android.support.constraint.ConstraintLayout>
