@@ -16,14 +16,14 @@ import com.google.android.gms.ads.MobileAds;
 
 public class review extends Fragment {
 
-    
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+            View view = inflater.inflate(R.layout.activity_review, container, false);
 
-
-            RatingBar ratingBar = getView().findViewById(R.id.ratingBar);
+            RatingBar ratingBar = view.findViewById(R.id.ratingBar);
             ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
 
                 @Override
@@ -31,10 +31,7 @@ public class review extends Fragment {
                     openReview();
                 }
             });
-
-
-
-        return inflater.inflate(R.layout.activity_review, container, false);
+        return view;
     }
 
 
