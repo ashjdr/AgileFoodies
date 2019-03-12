@@ -84,16 +84,6 @@
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".shopLinkActivity" />
-        <activity android:name=".UploadYourRecipeActivity">
-         <intent-filter>
-             <action android:name="android.intent.action.VIEW" />
-             <action android:name="android.intent.action.PICK" />
-         </intent-filter>
-        </activity>
-
-        <activity android:name=".FoodbankActivity" />
-
 
     </application>
 

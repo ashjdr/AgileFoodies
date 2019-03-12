@@ -112,8 +112,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.recipe_activity) {
-            Intent intent=new Intent(HomePage.this,UploadYourRecipeActivity.class);
-            startActivity(intent);
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new UploadYourRecipeActivity())
+                    .commit();
         }
 
         else if (id == R.id.timer_activity) {
@@ -127,8 +128,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         else if (id == R.id.nav_locate) {
             getFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new FindNearestShopActivity())
+                    .replace(R.id.contentFragment, new FindNearestShopFragment())
                     .commit();
+        }
+
+        else if (id == R.id.nav_home) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new HomePageFragment())
+                    .commit();
+
         }
 
         else if (id == R.id.nav_review) {
@@ -138,8 +146,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_foodbank) {
-            Intent intent=new Intent(HomePage.this,FoodbankActivity.class);
-            startActivity(intent);
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new FoodbankFragment())
+                    .commit();
         }
 
         else if (id == R.id.nav_share) {
@@ -150,12 +159,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             //action needed
         }
 
-        else if (id == R.id.nav_home) {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new HomePageFragment())
-                    .commit();
 
-        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

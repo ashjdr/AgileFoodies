@@ -66,8 +66,8 @@
     <string name="share">Share</string>
     <string name="send">Send</string>
     <string name="select_a_shop_to_locate_near_you">select a shop to locate near you</string>
-    <string name="temp_image_will_be_replaced_with_link_to_database">temp image, will be replaced with link to database</string>
-
+    <string name="temp_image_msg">temp image, will be replaced with link to database</string>
+    <string name="food_bank_text">A food-bank can give assistance to those who need it, so that they can get enough food to feed themselves. If you require this service, please have a look through the buttons below to find a food-bank near you that might be able to help you.</string>
 
 
     <!-- Marshall -->

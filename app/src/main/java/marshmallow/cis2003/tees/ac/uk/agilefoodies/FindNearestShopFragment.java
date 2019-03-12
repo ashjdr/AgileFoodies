@@ -14,19 +14,13 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class FindNearestShopActivity extends Fragment {
-    Button B1;
-    Button B2;
-    Button B3;
-    Button B4;
-    Button B5;
-    Button B6;
+public class FindNearestShopFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_find_nearest_shop, container, false);
 
-        B1 = v.findViewById(R.id.tescoButton);
+        Button B1 = v.findViewById(R.id.tescoButton);
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +30,7 @@ public class FindNearestShopActivity extends Fragment {
             }
         });
 
-        B2 = v.findViewById(R.id.sainsButton);
+        Button B2 = v.findViewById(R.id.sainsButton);
         B2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +40,7 @@ public class FindNearestShopActivity extends Fragment {
             }
         });
 
-        B3 = v.findViewById(R.id.asdaButton);
+        Button B3 = v.findViewById(R.id.asdaButton);
         B3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +50,7 @@ public class FindNearestShopActivity extends Fragment {
             }
         });
 
-        B4 = v.findViewById(R.id.lidlButton);
+        Button B4 = v.findViewById(R.id.lidlButton);
         B4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +60,7 @@ public class FindNearestShopActivity extends Fragment {
             }
         });
 
-        B5 = v.findViewById(R.id.aldiButton);
+        Button B5 = v.findViewById(R.id.aldiButton);
         B5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +70,7 @@ public class FindNearestShopActivity extends Fragment {
             }
         });
 
-        B6 = v.findViewById(R.id.waitroseButton);
+        Button B6 = v.findViewById(R.id.waitroseButton);
         B6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

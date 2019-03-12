@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openmapspage(View view) {
-        Intent intent = new Intent(this, FindNearestShopActivity.class);
+        Intent intent = new Intent(this, FindNearestShopFragment.class);
         startActivity(intent);
     }
 
