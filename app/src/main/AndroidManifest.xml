@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -76,31 +78,35 @@
             </intent-filter>
         </activity>
         <activity
-
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:parentActivityName=".HomePage">
-
             <intent-filter>
-                <action android:name="android.intent.action.view" />
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
-
         <activity
             android:name=".HomePage"
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".shopLinkActivity"></activity>
+
+        <activity android:name=".shopLinkActivity" />
+        <activity android:name=".UploadYourRecipeActivity">
+         <intent-filter>
+             <action android:name="android.intent.action.VIEW" />
+             <action android:name="android.intent.action.PICK" />
+         </intent-filter>
+        </activity>
+
         <activity android:name=".FoodbankActivity" />
+
 
     </application>
 
