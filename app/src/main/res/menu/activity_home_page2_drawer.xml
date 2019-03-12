@@ -19,7 +19,7 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/upload_a_recipe" />
         <item
-            android:id="@+id/timer_activity"
+            android:id="@+id/timer_fragment"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/timer" />
         <item

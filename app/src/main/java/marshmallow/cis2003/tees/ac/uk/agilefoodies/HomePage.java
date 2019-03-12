@@ -2,7 +2,13 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+
 import android.support.annotation.NonNull;
+
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -117,10 +123,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     .commit();
         }
 
-        else if (id == R.id.timer_activity) {
-            Intent intent=new Intent(HomePage.this,TimerActivity.class);
-            startActivity(intent);
+
+        } else if (id == R.id.timer_fragment){
+            
+             getFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new TimerFragment())
+                    .commit();
         }
+
+
 
         else if (id == R.id.nav_manage) {
             //action needed

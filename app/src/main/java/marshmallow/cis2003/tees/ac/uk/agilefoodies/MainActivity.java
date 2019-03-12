@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     // Juli
 
     public void goToTimerActivity(View view) {
-        Intent intent = new Intent(this, TimerActivity.class);
+        Intent intent = new Intent(this, TimerFragment.class);
         startActivity(intent);
     }
 
