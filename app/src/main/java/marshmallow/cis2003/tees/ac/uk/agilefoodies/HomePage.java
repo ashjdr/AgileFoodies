@@ -33,13 +33,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         //START OF AD CODE
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new AdFragment())
+                    .replace(R.id.container, new AdFragment())
                     .commit();
         }
 
         //setting the initial view of the page to the homepage
         getFragmentManager().beginTransaction()
-                .add(R.id.contentFragment, new HomePageFragment())
+                .replace(R.id.contentFragment, new HomePageFragment())
                 .commit();
         //end
 
