@@ -2,6 +2,7 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -31,7 +32,7 @@ public class HomePage extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 //        //START OF AD CODE
@@ -49,16 +50,16 @@ public class HomePage extends AppCompatActivity
 //        //END OF AD CODE
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        imageB1 = (ImageButton) findViewById(R.id.imageButton1);
+        imageB1 =  findViewById(R.id.imageButton1);
         imageB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +68,7 @@ public class HomePage extends AppCompatActivity
             }
         });
 
-        imageB2 = (ImageButton) findViewById(R.id.imageButton2);
+        imageB2 =  findViewById(R.id.imageButton2);
         imageB2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +77,7 @@ public class HomePage extends AppCompatActivity
             }
         });
 
-        imageB3 = (ImageButton) findViewById(R.id.imageButton3);
+        imageB3 =  findViewById(R.id.imageButton3);
         imageB3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +86,7 @@ public class HomePage extends AppCompatActivity
             }
         });
 
-        imageB4 = (ImageButton) findViewById(R.id.imageButton4);
+        imageB4 =  findViewById(R.id.imageButton4);
         imageB4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +95,7 @@ public class HomePage extends AppCompatActivity
             }
         });
 
-        imageB5 = (ImageButton) findViewById(R.id.imageButton5);
+        imageB5 =  findViewById(R.id.imageButton5);
         imageB5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +104,7 @@ public class HomePage extends AppCompatActivity
             }
         });
 
-        imageB6 = (ImageButton) findViewById(R.id.imageButton6);
+        imageB6 =  findViewById(R.id.imageButton6);
         imageB6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +118,7 @@ public class HomePage extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -154,7 +155,7 @@ public class HomePage extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -181,8 +182,9 @@ public class HomePage extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_review) {
-            Intent intent=new Intent(HomePage.this,review.class);
-            startActivity(intent);
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new AdFragment())
+                    .commit();
 
         } else if (id == R.id.nav_foodbank) {
             Intent intent=new Intent(HomePage.this,FoodbankActivity.class);
@@ -195,7 +197,7 @@ public class HomePage extends AppCompatActivity
 //action needed
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
