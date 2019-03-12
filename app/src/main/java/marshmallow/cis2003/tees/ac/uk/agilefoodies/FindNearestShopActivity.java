@@ -1,72 +1,91 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class FindNearestShopActivity extends AppCompatActivity {
-
-    private AdView mAdView;
+public class FindNearestShopActivity extends Fragment {
+    Button B1;
+    Button B2;
+    Button B3;
+    Button B4;
+    Button B5;
+    Button B6;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_nearest_shop);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_find_nearest_shop, container, false);
 
+        B1 = v.findViewById(R.id.tescoButton);
+        B1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/Tesco/"));
+                startActivity(intent);
+            }
+        });
 
-        //START OF AD CODE
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new AdFragment())
-                    .commit();
-        }
+        B2 = v.findViewById(R.id.sainsButton);
+        B2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/Sainsbury's/"));
+                startActivity(intent);
+            }
+        });
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        B3 = v.findViewById(R.id.asdaButton);
+        B3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/Asda/"));
+                startActivity(intent);
+            }
+        });
 
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        //END OF AD CODE
+        B4 = v.findViewById(R.id.lidlButton);
+        B4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/Lidl/"));
+                startActivity(intent);
+            }
+        });
 
-    }
+        B5 = v.findViewById(R.id.aldiButton);
+        B5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/Aldi/"));
+                startActivity(intent);
+            }
+        });
 
+        B6 = v.findViewById(R.id.waitroseButton);
+        B6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/Waitrose/"));
+                startActivity(intent);
+            }
+        });
 
-    public void toGMaps(View view) {
-
-        String shop;
-
-        switch(view.getId()) {
-            case R.id.tescoButton:
-                shop = "Tesco";
-                break;
-            case R.id.sainsButton:
-                shop = "Sainsbury's";
-                break;
-            case R.id.asdaButton:
-                shop = "Asda";
-                break;
-            case R.id.lidlButton:
-                shop = "Lidl";
-                break;
-            case R.id.aldiButton:
-                shop = "Aldi";
-                break;
-            case R.id.waitroseButton:
-                shop = "Waitrose";
-                break;
-            default:
-                throw new RuntimeException("Unknown button ID");
-        }
-
-        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                Uri.parse("https://www.google.com/maps/search/" + shop + "/"));
-        startActivity(intent);
+        return v;
     }
 }

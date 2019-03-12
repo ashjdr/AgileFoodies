@@ -3,7 +3,6 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,42 +11,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageButton;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class HomePage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private AdView mAdView;
-    ImageButton imageB1;
-    ImageButton imageB2;
-    ImageButton imageB3;
-    ImageButton imageB4;
-    ImageButton imageB5;
-    ImageButton imageB6;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home_page2);
+
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        //START OF AD CODE
+        //START OF AD CODE
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new AdFragment())
                     .commit();
         }
 
+        //setting the initial view of the page to the homepage
+        getFragmentManager().beginTransaction()
+                .add(R.id.contentFragment, new HomePageFragment())
+                .commit();
+        //end
+
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-//        //END OF AD CODE
+        //END OF AD CODE
 
 
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
@@ -58,61 +59,6 @@ public class HomePage extends AppCompatActivity
 
         NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        imageB1 =  findViewById(R.id.imageButton1);
-        imageB1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent intent=new Intent(HomePage.this,?enter location?.class);
-                // startActivity(intent);
-            }
-        });
-
-        imageB2 =  findViewById(R.id.imageButton2);
-        imageB2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent intent=new Intent(HomePage.this,?enter location?.class);
-                // startActivity(intent);
-            }
-        });
-
-        imageB3 =  findViewById(R.id.imageButton3);
-        imageB3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent intent=new Intent(HomePage.this,?enter location?.class);
-                // startActivity(intent);
-            }
-        });
-
-        imageB4 =  findViewById(R.id.imageButton4);
-        imageB4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent intent=new Intent(HomePage.this,?enter location?.class);
-                // startActivity(intent);
-            }
-        });
-
-        imageB5 =  findViewById(R.id.imageButton5);
-        imageB5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent intent=new Intent(HomePage.this,?enter location?.class);
-                // startActivity(intent);
-            }
-        });
-
-        imageB6 =  findViewById(R.id.imageButton6);
-        imageB6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent intent=new Intent(HomePage.this,?enter location?.class);
-                // startActivity(intent);
-            }
-        });
-
 
     }
 
@@ -163,38 +109,52 @@ public class HomePage extends AppCompatActivity
             // Handle the camera action
             Intent intent=new Intent(HomePage.this,tescoLab.class);
             startActivity(intent);
+        }
 
-        } else if (id == R.id.recipe_activity) {
+        else if (id == R.id.recipe_activity) {
             Intent intent=new Intent(HomePage.this,UploadYourRecipeActivity.class);
             startActivity(intent);
+        }
 
-
-        } else if (id == R.id.timer_activity) {
+        else if (id == R.id.timer_activity) {
             Intent intent=new Intent(HomePage.this,TimerActivity.class);
             startActivity(intent);
+        }
 
-
-        } else if (id == R.id.nav_manage) {
+        else if (id == R.id.nav_manage) {
             //action needed
+        }
 
-        } else if (id == R.id.nav_locate) {
-            Intent intent=new Intent(HomePage.this,FindNearestShopActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_review) {
+        else if (id == R.id.nav_locate) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new review())
+                    .replace(R.id.contentFragment, new FindNearestShopActivity())
                     .commit();
+        }
 
-        } else if (id == R.id.nav_foodbank) {
+        else if (id == R.id.nav_review) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new ReviewFragment())
+                    .commit();
+        }
+
+        else if (id == R.id.nav_foodbank) {
             Intent intent=new Intent(HomePage.this,FoodbankActivity.class);
             startActivity(intent);
+        }
 
+        else if (id == R.id.nav_share) {
+            //action needed
+            }
 
-    } else if (id == R.id.nav_share) {
-//action needed
-        } else if (id == R.id.nav_send) {
-//action needed
+        else if (id == R.id.nav_send) {
+            //action needed
+        }
+
+        else if (id == R.id.nav_home) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new HomePageFragment())
+                    .commit();
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
