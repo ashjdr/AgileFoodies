@@ -174,7 +174,7 @@ public class HomePage extends AppCompatActivity
 
         } else if (id == R.id.timer_fragment){
             TimerFragment fragment = new TimerFragment();
-            fragmentTransaction.add(R.id.timer_fragment, fragment);
+            fragmentTransaction.add(R.id.mainLayout, fragment);
             fragmentTransaction.commit();
 
 

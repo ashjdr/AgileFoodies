@@ -41,13 +41,10 @@ public class TimerFragment extends Fragment {
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_timer, container, false);
-        }
 
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-            View v = getView();
+        View v =  inflater.inflate(R.layout.fragment_timer, container, false);
+
+
 
 
             mEditTextInput = v.findViewById(R.id.edit_text_input);
@@ -93,7 +90,9 @@ public class TimerFragment extends Fragment {
                 public void onClick(View v) {
                     resetTimer();
                 }
-            });}
+            });
+
+    return v;}
             
 
 

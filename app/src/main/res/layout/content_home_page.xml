@@ -2,12 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.HomePage"
     tools:showIn="@layout/app_bar_home_page">
-
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -77,7 +77,6 @@
             tools:layout_editor_absoluteY="278dp" />
 
 
-
     </RelativeLayout>
     <!--ad stuff -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -92,6 +91,7 @@
             android:layout_alignParentTop="true">
 
         </FrameLayout>
+
         <fragment
             android:id="@+id/adFragment"
             android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
