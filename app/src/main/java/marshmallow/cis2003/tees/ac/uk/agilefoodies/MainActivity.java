@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         //private AdView mAdView;
         //START OF AD CODE
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new AdFragment())
                     .commit();
         }

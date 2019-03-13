@@ -1,10 +1,15 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +19,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Fragment;
-
+//import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -44,6 +49,7 @@ public class TimerFragment extends Fragment {
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v =  inflater.inflate(R.layout.fragment_timer, container, false);
+
 
 
 
@@ -119,8 +125,11 @@ public class TimerFragment extends Fragment {
 
             @Override
             public void onFinish() {
+
                 mTimerRunning = false;
                 updateWatchInterface();
+                showNotification();
+
 
             }
         }.start();
@@ -157,6 +166,17 @@ public class TimerFragment extends Fragment {
 
         mTextViewCountDown.setText(timeLeftFormatted);
     }
+
+    public void showNotification(){
+
+        // define sound URI, the sound to be played when there's a notification
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        Notification mNotification = new Notification.Builder(getContext())
+
+                .setContentTitle("New Post!")
+                .setContentText("Here's an awesome update for you!")
+                .setSound(soundUri)
+                .build();}
 
     private void updateWatchInterface() {
         if (mTimerRunning) {

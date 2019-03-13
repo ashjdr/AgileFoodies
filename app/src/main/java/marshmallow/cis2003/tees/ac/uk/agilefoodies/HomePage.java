@@ -2,7 +2,7 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -38,13 +38,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         //START OF AD CODE
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new AdFragment())
                     .commit();
         }
 
         //setting the initial view of the page to the homepage
-        getFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, new HomePageFragment())
                 .commit();
         //end
@@ -122,26 +122,26 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                         .replace(R.id.contentFragment, new UploadYourRecipeActivity())
                         .commit();
         } else if (id == R.id.timer_fragment) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
         } else if (id == R.id.nav_manage) {
             //action needed
         } else if (id == R.id.nav_locate) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FindNearestShopFragment())
                     .commit();
         } else if (id == R.id.nav_home) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
 
         } else if (id == R.id.nav_review) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new ReviewFragment())
                     .commit();
         } else if (id == R.id.nav_foodbank) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
         } else if (id == R.id.nav_share) {

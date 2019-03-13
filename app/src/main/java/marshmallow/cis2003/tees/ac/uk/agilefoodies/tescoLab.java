@@ -79,7 +79,7 @@ public class tescoLab extends AppCompatActivity {
 
         //START OF AD CODE
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new AdFragment())
                     .commit();
         }
