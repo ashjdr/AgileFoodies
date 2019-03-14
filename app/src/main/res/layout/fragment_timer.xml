@@ -1,49 +1,74 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
 
     <!-- TODO: Update blank fragment layout -->
 
-    <EditText android:id="@+id/edit_text_input"
-        android:layout_width="120dp"
+    <EditText
+        android:id="@+id/edit_text_input"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/text_view_countdown"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/minutes"
+
+        android:layout_alignEnd="@+id/text_view_countdown"
+        android:layout_alignStart="@+id/text_view_countdown"
+        android:layout_below="@+id/text_view_countdown"
+        android:hint="Set Minutes"
+
         android:inputType="number"
-        android:maxLength="4"/>
+        android:maxLength="4" />
 
     <Button android:id="@+id/button_set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/edit_text_input"
-        android:layout_toEndOf="@+id/edit_text_input"
-        android:text="@string/set"/>
+
+        android:text="Set"/>
+
 
     <TextView android:id="@+id/text_view_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/_00_00"
+
+
+        android:text="00:00"
+
         android:textColor="@android:color/black"
         android:textSize="60sp"/>
 
     <Button android:id="@+id/button_start_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_countdown"
-        android:layout_centerHorizontal="true"
-        android:text="@string/start"/>
+
+        android:layout_below="@+id/button_reset"
+
+        android:text="start"/>
     <Button android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_countdown"
-        android:layout_marginStart="11dp"
-        android:layout_toEndOf="@+id/button_start_pause"
-        android:text="@string/reset"
+        android:layout_below="@+id/button_set"
+
+        android:text="reset"
+
         android:visibility="invisible" tools:visibility="visible"/>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="34dp"
+        app:srcCompat="@drawable/timericon" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/TimerProcessName" />
+
+
+</RelativeLayout>

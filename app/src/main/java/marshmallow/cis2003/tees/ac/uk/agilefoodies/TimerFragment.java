@@ -1,9 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.app.NotificationManager;
-
-import android.annotation.SuppressLint;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
@@ -30,7 +27,6 @@ import java.util.Locale;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class TimerFragment extends Fragment {
-
     private EditText mEditTextInput;
     private TextView mTextViewCountDown;
     private Button mButtonSet;
@@ -73,7 +69,7 @@ public class TimerFragment extends Fragment {
                     long millisInput = Long.parseLong(input) * 60000;
                     if (millisInput == 0) {
                         Toast.makeText(TimerFragment.this.getContext(), "Please enter a positive number", Toast.LENGTH_SHORT).show();
-                        return;
+                        return; 
                     }
 
                     setTime(millisInput);
@@ -100,7 +96,7 @@ public class TimerFragment extends Fragment {
             });
 
     return v;}
-            
+
 
 
 
@@ -169,14 +165,10 @@ public class TimerFragment extends Fragment {
     }
 
 
-    private void playNotification(){
-//        try {
-//            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//            Ringtone r = RingtoneManager.getRingtone(getContext(), notification);
-//            r.play();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    public void playNotification(){
+
+
+
         NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 
 //Define sound URI
@@ -193,8 +185,6 @@ public class TimerFragment extends Fragment {
         notificationManager.notify(0, mBuilder.build());
     }
 
-
-    @SuppressLint("SetTextI18n")
     private void updateWatchInterface() {
         if (mTimerRunning) {
             mEditTextInput.setVisibility(View.INVISIBLE);
@@ -224,7 +214,6 @@ public class TimerFragment extends Fragment {
         View view = this.getActivity().getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
-            assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }}
 
