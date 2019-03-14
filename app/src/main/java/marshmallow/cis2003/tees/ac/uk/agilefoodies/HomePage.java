@@ -2,7 +2,7 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -113,6 +113,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         if (id == R.id.tesco_lab) {
             // Handle the camera action
+
             Intent intent=new Intent(HomePage.this,tescoLab.class);
             startActivity(intent);
         }
@@ -127,14 +128,12 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         else if (id == R.id.timer_fragment){
             
              getSupportFragmentManager().beginTransaction()
+
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
-        }
-
-
-
-        else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_manage) {
             //action needed
+
         }
 
         else if (id == R.id.nav_locate) {
@@ -144,9 +143,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_home) {
+
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
+
 
         }
 
@@ -157,16 +158,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_foodbank) {
+
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
-        }
-
-        else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_share) {
             //action needed
-            }
-
-        else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_send) {
             //action needed
         }
 
@@ -175,5 +173,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-}
+    }}
+
+

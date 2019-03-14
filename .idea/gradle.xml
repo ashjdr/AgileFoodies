@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="/home/scm-studs/s6068159/AndroidStudioProjects/AgileFoodies" />
+            <option value="/home/scm-studs/s6068159/AndroidStudioProjects/AgileFoodies/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
