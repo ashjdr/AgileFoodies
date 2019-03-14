@@ -48,10 +48,10 @@
         android:layout_height="56dp"
         android:onClick="goToTimerActivity"
 
-        android:text=" Recipe Timer"
+        android:text="@string/recipe_timer"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <!--<Button
         android:id="@+id/action_sign_out"
         android:layout_width="269dp"
         android:layout_height="55dp"
@@ -63,7 +63,7 @@
 
         android:layout_height="wrap_content"
         android:onClick="goToTimerActivity"
-        android:text="next activity" />
+        android:text="next activity" />-->
 
     <Button
         android:id="@+id/reviewButton"

@@ -1,6 +1,8 @@
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="wrap_content">
+
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -8,30 +10,37 @@
         android:id="@+id/edit_text_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_alignEnd="@+id/text_view_countdown"
         android:layout_alignStart="@+id/text_view_countdown"
         android:layout_below="@+id/text_view_countdown"
         android:hint="Set Minutes"
+
         android:inputType="number"
         android:maxLength="4" />
 
     <Button android:id="@+id/button_set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="Set"/>
+
 
     <TextView android:id="@+id/text_view_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
 
+
         android:text="00:00"
+
         android:textColor="@android:color/black"
         android:textSize="60sp"/>
 
     <Button android:id="@+id/button_start_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/button_reset"
 
         android:text="start"/>
@@ -41,6 +50,7 @@
         android:layout_below="@+id/button_set"
 
         android:text="reset"
+
         android:visibility="invisible" tools:visibility="visible"/>
 
     <ImageView

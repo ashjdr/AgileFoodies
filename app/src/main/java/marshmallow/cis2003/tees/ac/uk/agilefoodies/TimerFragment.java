@@ -40,7 +40,6 @@ public class TimerFragment extends Fragment {
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
-    private AdView mAdView;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -165,26 +164,24 @@ public class TimerFragment extends Fragment {
         mTextViewCountDown.setText(timeLeftFormatted);
     }
 
+
     public void playNotification(){
-//        try {
-//            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//            Ringtone r = RingtoneManager.getRingtone(getContext(), notification);
-//            r.play();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
+
+
         NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 
 //Define sound URI
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getContext())
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getContext())          //TODO: fix depreciated resource
                 .setSmallIcon(R.drawable.timericon)
                 .setContentTitle("Times Up")
                 .setContentText("Time to check your recipe!")
                 .setSound(soundUri); //This sets the sound to play
 
 //Display notification
+        assert notificationManager != null;
         notificationManager.notify(0, mBuilder.build());
     }
 
