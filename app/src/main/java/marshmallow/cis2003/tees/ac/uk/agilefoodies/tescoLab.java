@@ -40,7 +40,6 @@ public class tescoLab extends AppCompatActivity {
     private TextView mTextViewResult;
     private RequestQueue mQueue;
     private EditText querys;
-    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +86,7 @@ public class tescoLab extends AppCompatActivity {
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         //END OF AD CODE
@@ -107,7 +106,7 @@ public class tescoLab extends AppCompatActivity {
 
 
 
-    private void jsonParse(EditText q) throws AuthFailureError {
+    private void jsonParse(EditText q) throws AuthFailureError {            //TODO: check this, the warnings clain the throw is never going to be thrown?
 
         String urlStart = "https://dev.tescolabs.com/grocery/products/?query=";
 
@@ -183,7 +182,7 @@ public class tescoLab extends AppCompatActivity {
             @Override
             public Map getHeaders() throws AuthFailureError {
                 HashMap headers = new HashMap();
-                headers.put("Ocp-Apim-Subscription-Key", readMetadata());
+                headers.put("Ocp-Apim-Subscription-Key", readMetadata());           //TODO: fix unchecked overriding
                 return headers;
             }
         };

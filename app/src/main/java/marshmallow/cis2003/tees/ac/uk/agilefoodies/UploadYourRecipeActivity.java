@@ -1,41 +1,23 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
-import android.support.v4.app.Fragment;
 import android.content.Intent;
-import android.os.Environment;
-import android.provider.ContactsContract;
-import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import android.net.Uri;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.view.View.OnClickListener;
 
 import static android.app.Activity.RESULT_OK;
 
 
 public class UploadYourRecipeActivity extends Fragment {
-    private ImageButton addImage;
-    private ImageButton takePhoto;
     private ImageButton saveUpload;
-    private EditText edittext;
     private ImageView uploadedImage;
 
 
@@ -45,10 +27,10 @@ public class UploadYourRecipeActivity extends Fragment {
         View v = inflater.inflate(R.layout.activity_upload_your_recipe, container, false);
 
 
-        edittext = v.findViewById(R.id.edit_text1);
+        EditText edittext = v.findViewById(R.id.edit_text1);
         uploadedImage = v.findViewById(R.id.uploadedImage);
-        takePhoto = v.findViewById(R.id.takePhoto);
-        addImage = v.findViewById(R.id.imageButtonAddImage);
+        ImageButton takePhoto = v.findViewById(R.id.takePhoto);
+        ImageButton addImage = v.findViewById(R.id.imageButtonAddImage);
 
         /*ImageButton B1 = addImage;
         B1.setOnClickListener(new View.OnClickListener() {
