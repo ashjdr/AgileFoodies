@@ -63,6 +63,7 @@ public class ProfileActivity extends AppCompatActivity  {
         profileEmail.setText(googleSignInAccount.getEmail());
     }
 
+    @SuppressWarnings("EmptyMethod")
     public void onClick(View view)
     {
 

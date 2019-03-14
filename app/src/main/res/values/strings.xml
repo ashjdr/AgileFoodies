@@ -7,6 +7,7 @@
     <string name="title_activity_login">Sign in</string>
     <string name="add_image">Add Image</string>
     <string name="hint_instructions">Type instructions here</string>
+    <string name="TimerProcessName">Timer for X part of Meal</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -78,10 +79,12 @@
     <string name="recipe_timer">Recipe Timer</string>
     <string name="search">search</string>
     <string name="minutes">Minutes</string>
-    <string name="set">Set</string>
-    <string name="_00_00">00:00</string>
-    <string name="start">start</string>
     <string name="reset">reset</string>
+    <string name="start">start</string>
+    <string name="_00_00">00:00</string>
+    <string name="timer_icon">timer Icon</string>
+    <string name="set">Set</string>
+    <string name="set_minutes">Set Minutes</string>
 
 
     <!-- Marshall -->
