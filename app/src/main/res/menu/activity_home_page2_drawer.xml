@@ -20,7 +20,7 @@
             android:title="@string/upload_a_recipe" />
         <item
             android:id="@+id/timer_fragment"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/timericon"
             android:title="@string/timer" />
         <item
             android:id="@+id/nav_manage"

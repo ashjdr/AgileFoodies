@@ -125,7 +125,7 @@ public class TimerFragment extends Fragment {
 
                 mTimerRunning = false;
                 playNotification();
-                updateWatchInterface(); 
+                updateWatchInterface();
 
 
 
