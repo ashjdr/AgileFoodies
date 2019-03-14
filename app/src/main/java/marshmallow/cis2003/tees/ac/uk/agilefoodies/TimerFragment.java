@@ -70,7 +70,7 @@ public class TimerFragment extends Fragment {
                     long millisInput = Long.parseLong(input) * 60000;
                     if (millisInput == 0) {
                         Toast.makeText(TimerFragment.this.getContext(), "Please enter a positive number", Toast.LENGTH_SHORT).show();
-                        return;
+                        return; 
                     }
 
                     setTime(millisInput);
