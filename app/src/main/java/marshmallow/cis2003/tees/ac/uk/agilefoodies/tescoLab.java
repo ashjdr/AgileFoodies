@@ -30,6 +30,7 @@ import java.util.Map;
 
 /**
  * Created by t7062534 on 26/02/19.
+ *
  */
 
 public class tescoLab extends AppCompatActivity {
@@ -39,7 +40,6 @@ public class tescoLab extends AppCompatActivity {
     private TextView mTextViewResult;
     private RequestQueue mQueue;
     private EditText querys;
-    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,14 +79,14 @@ public class tescoLab extends AppCompatActivity {
 
         //START OF AD CODE
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new AdFragment())
                     .commit();
         }
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         //END OF AD CODE
@@ -96,8 +96,7 @@ public class tescoLab extends AppCompatActivity {
         try {
             final ApplicationInfo ai = getPackageManager()
                     .getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-            String key = ai.metaData.getString("key_tesco");
-            return key;
+            return ai.metaData.getString("key_tesco");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -107,7 +106,7 @@ public class tescoLab extends AppCompatActivity {
 
 
 
-    private void jsonParse(EditText q) throws AuthFailureError {
+    private void jsonParse(EditText q) throws AuthFailureError {            //TODO: check this, the warnings clain the throw is never going to be thrown?
 
         String urlStart = "https://dev.tescolabs.com/grocery/products/?query=";
 
@@ -183,7 +182,7 @@ public class tescoLab extends AppCompatActivity {
             @Override
             public Map getHeaders() throws AuthFailureError {
                 HashMap headers = new HashMap();
-                headers.put("Ocp-Apim-Subscription-Key", readMetadata());
+                headers.put("Ocp-Apim-Subscription-Key", readMetadata());           //TODO: fix unchecked overriding
                 return headers;
             }
         };

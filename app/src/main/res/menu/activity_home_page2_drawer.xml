@@ -5,55 +5,58 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/home" />
+        <!--the icon used here is under the following licence: https://www.iconbros.com/license -->
+        <!--It can therefore be used for the purposes of this app-->
+        <item
             android:id="@+id/tesco_lab"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Tesco Lab" />
+            android:title="@string/tesco_lab" />
         <item
             android:id="@+id/recipe_activity"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Upload a Recipe" />
+            android:title="@string/upload_a_recipe" />
         <item
-            android:id="@+id/timer_activity"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Timer" />
+            android:id="@+id/timer_fragment"
+            android:icon="@drawable/timericon"
+            android:title="@string/timer" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Settings" />
+            android:title="@string/settings" />
         <item
             android:id="@+id/nav_locate"
             android:icon="@drawable/mapicon"
-            android:title="Locate stores near you" />
+            android:title="@string/locate_stores_near_you" />
         <!--the icon used here is under the following licence: https://www.iconbros.com/license -->
         <!--It can therefore be used for the purposes of this app-->
 
         <item
             android:id="@+id/nav_review"
             android:icon="@drawable/reviewicon"
-            android:title="Leave a review" />
+            android:title="@string/leave_a_review" />
         <!--the icon used here is under the following licence: https://www.iconbros.com/license-->
         <!--It can therefore be used for the purposes of this app-->
         <item
             android:id="@+id/nav_foodbank"
             android:icon="@drawable/basketicon"
-            android:title="Locate Free Food" />
-        <!--<item
-            android:id="@+id/nav_revieww"
-            android:icon="@drawable/reviewicon"
-            android:title="Leave a review" />-->
+            android:title="@string/locate_free_food" />
+
     </group>
 
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/send" />
         </menu>
     </item>
 

@@ -1,23 +1,31 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-
 import java.util.Locale;
 
-public class TimerActivity extends AppCompatActivity {
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
+//import android.app.Fragment;
+
+public class TimerFragment extends Fragment {
     private EditText mEditTextInput;
     private TextView mTextViewCountDown;
     private Button mButtonSet;
@@ -32,74 +40,67 @@ public class TimerActivity extends AppCompatActivity {
     private long mTimeLeftInMillis;
     private long mEndTime;
 
-    private AdView mAdView;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timer);
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mEditTextInput = findViewById(R.id.edit_text_input);
-        mTextViewCountDown = findViewById(R.id.text_view_countdown);
+        View v =  inflater.inflate(R.layout.fragment_timer, container, false);
 
-        mButtonSet = findViewById(R.id.button_set);
-        mButtonStartPause = findViewById(R.id.button_start_pause);
-        mButtonReset = findViewById(R.id.button_reset);
 
-        mButtonSet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String input = mEditTextInput.getText().toString();
-                if (input.length() == 0) {
-                    Toast.makeText(TimerActivity.this, "Field can't be empty", Toast.LENGTH_SHORT).show();
-                    return;
+
+
+
+            mEditTextInput = v.findViewById(R.id.edit_text_input);
+            mTextViewCountDown = v.findViewById(R.id.text_view_countdown);
+            mButtonSet = v.findViewById(R.id.button_set);
+
+            mButtonStartPause = v.findViewById(R.id.button_start_pause);
+            mButtonReset = v.findViewById(R.id.button_reset);
+
+            mButtonSet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String input = mEditTextInput.getText().toString();
+                    if (input.length() == 0) {
+                        Toast.makeText(TimerFragment.this.getContext(), "Field can't be empty", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    long millisInput = Long.parseLong(input) * 60000;
+                    if (millisInput == 0) {
+                        Toast.makeText(TimerFragment.this.getContext(), "Please enter a positive number", Toast.LENGTH_SHORT).show();
+                        return; 
+                    }
+
+                    setTime(millisInput);
+                    mEditTextInput.setText("");
                 }
+            });
 
-                long millisInput = Long.parseLong(input) * 60000;
-                if (millisInput == 0) {
-                    Toast.makeText(TimerActivity.this, "Please enter a positive number", Toast.LENGTH_SHORT).show();
-                    return;
+            mButtonStartPause.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mTimerRunning) {
+                        pauseTimer();
+                    } else {
+                        startTimer();
+                    }
                 }
+            });
 
-                setTime(millisInput);
-                mEditTextInput.setText("");
-            }
-        });
-
-        mButtonStartPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mTimerRunning) {
-                    pauseTimer();
-                } else {
-                    startTimer();
+            mButtonReset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    resetTimer();
                 }
-            }
-        });
+            });
 
-        mButtonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetTimer();
-            }
-        });
-
-        //START OF AD CODE
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new AdFragment())
-                    .commit();
-        }
-
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        //END OF AD CODE
+    return v;}
 
 
-    }
+
+
+
+
 
     private void setTime(long milliseconds) {
         mStartTimeInMillis = milliseconds;
@@ -119,8 +120,12 @@ public class TimerActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+
                 mTimerRunning = false;
+                playNotification();
                 updateWatchInterface();
+
+
 
             }
         }.start();
@@ -158,6 +163,28 @@ public class TimerActivity extends AppCompatActivity {
         mTextViewCountDown.setText(timeLeftFormatted);
     }
 
+
+    private void playNotification(){
+
+
+
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+
+//Define sound URI
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getContext())          //TODO: fix depreciated resource
+                .setSmallIcon(R.drawable.timericon)
+                .setContentTitle("Times Up")
+                .setContentText("Time to check your recipe!")
+                .setSound(soundUri); //This sets the sound to play
+
+//Display notification
+        assert notificationManager != null;
+        notificationManager.notify(0, mBuilder.build());
+    }
+
+    @SuppressLint("SetTextI18n")
     private void updateWatchInterface() {
         if (mTimerRunning) {
             mEditTextInput.setVisibility(View.INVISIBLE);
@@ -184,18 +211,19 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     private void closeKeyboard() {
-        View view = this.getCurrentFocus();
+        View view = this.getActivity().getCurrentFocus();
         if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+            assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
+        }}
 
-    @Override
-    protected void onStop() {
+
+@Override
+    public void onStop() {
         super.onStop();
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putLong("startTimeInMillis", mStartTimeInMillis);
@@ -211,10 +239,10 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
 
         mStartTimeInMillis = prefs.getLong("startTimeInMillis", 600000);
         mTimeLeftInMillis = prefs.getLong("millisLeft", mStartTimeInMillis);
@@ -236,5 +264,9 @@ public class TimerActivity extends AppCompatActivity {
                 startTimer();
             }
         }
-    }}
+        }}
+
+
+
+
 
