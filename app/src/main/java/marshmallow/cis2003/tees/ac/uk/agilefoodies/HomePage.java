@@ -2,13 +2,7 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-
 import android.support.annotation.NonNull;
-
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,8 +17,6 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    private AdView mAdView;
 
 
     @Override
@@ -51,7 +43,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         //END OF AD CODE

@@ -4,30 +4,23 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
-import static marshmallow.cis2003.tees.ac.uk.agilefoodies.R.id.sign_in_button;
 
 
 public class LoginActivity extends AppCompatActivity {
         private static final String TAG = "AndroidClarified";
-        private SignInButton googleSignInButton;
-        private GoogleSignInClient googleSignInClient;
+    private GoogleSignInClient googleSignInClient;
 
 
         @Override
@@ -35,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
 
-            googleSignInButton = findViewById(R.id.sign_in_button);
+            SignInButton googleSignInButton = findViewById(R.id.sign_in_button);
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
                    .build();

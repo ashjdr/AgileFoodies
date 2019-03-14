@@ -1,4 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -7,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/text_view_countdown"
         android:layout_centerHorizontal="true"
-        android:hint="Minutes"
+        android:hint="@string/minutes"
         android:inputType="number"
         android:maxLength="4"/>
 
@@ -16,14 +19,14 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/edit_text_input"
         android:layout_toEndOf="@+id/edit_text_input"
-        android:text="Set"/>
+        android:text="@string/set"/>
 
     <TextView android:id="@+id/text_view_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="00:00"
+        android:text="@string/_00_00"
         android:textColor="@android:color/black"
         android:textSize="60sp"/>
 
@@ -32,14 +35,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_view_countdown"
         android:layout_centerHorizontal="true"
-        android:text="start"/>
+        android:text="@string/start"/>
     <Button android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_view_countdown"
         android:layout_marginStart="11dp"
         android:layout_toEndOf="@+id/button_start_pause"
-        android:text="reset"
+        android:text="@string/reset"
         android:visibility="invisible" tools:visibility="visible"/>
 
 

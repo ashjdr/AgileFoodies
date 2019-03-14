@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Matthew
 
-    private AdView mAdView;
-
     // Marshall
 
 
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         //END OF AD CODE
@@ -143,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void updateUI(FirebaseUser user) {
+    private void updateUI(FirebaseUser user) {
         Log.d("TEST", "USER LOGGED IN");
     }
 

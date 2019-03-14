@@ -1,18 +1,13 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 public class ReviewFragment extends Fragment {
 
@@ -35,7 +30,7 @@ public class ReviewFragment extends Fragment {
     }
 
 
-    public void openReview() {
+    private void openReview() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(
                 "https://play.google.com/store/apps/details?id=" + getActivity().getPackageName()));

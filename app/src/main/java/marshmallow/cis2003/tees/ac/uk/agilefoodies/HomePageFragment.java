@@ -10,19 +10,14 @@ import android.widget.ImageButton;
 
 public class HomePageFragment extends Fragment {
 
-    ImageButton imageB1;
-    ImageButton imageB2;
-    ImageButton imageB3;
-    ImageButton imageB4;
-    ImageButton imageB5;
-    ImageButton imageB6;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View v = inflater.inflate(R.layout.homepage_fragment, container, false);
 
-        imageB1 =  v.findViewById(R.id.imageButton1);
+        ImageButton imageB1 =  v.findViewById(R.id.imageButton1);
         imageB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +26,7 @@ public class HomePageFragment extends Fragment {
             }
         });
 
-        imageB2 =  v.findViewById(R.id.imageButton2);
+        ImageButton imageB2 =  v.findViewById(R.id.imageButton2);
         imageB2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +35,7 @@ public class HomePageFragment extends Fragment {
             }
         });
 
-        imageB3 =  v.findViewById(R.id.imageButton3);
+        ImageButton imageB3 =  v.findViewById(R.id.imageButton3);
         imageB3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +44,7 @@ public class HomePageFragment extends Fragment {
             }
         });
 
-        imageB4 =  v.findViewById(R.id.imageButton4);
+        ImageButton imageB4 =  v.findViewById(R.id.imageButton4);
         imageB4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +53,7 @@ public class HomePageFragment extends Fragment {
             }
         });
 
-        imageB5 =  v.findViewById(R.id.imageButton5);
+        ImageButton imageB5 =  v.findViewById(R.id.imageButton5);
         imageB5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +62,7 @@ public class HomePageFragment extends Fragment {
             }
         });
 
-        imageB6 =  v.findViewById(R.id.imageButton6);
+        ImageButton imageB6 =  v.findViewById(R.id.imageButton6);
         imageB6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
