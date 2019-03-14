@@ -21,7 +21,7 @@
             android:background="@drawable/carbonara"
             tools:layout_editor_absoluteX="22dp"
             tools:layout_editor_absoluteY="0dp"
-            android:contentDescription="@string/temp_image_will_be_replaced_with_link_to_database" />
+            android:contentDescription="@string/food_bank_text" />
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -32,7 +32,7 @@
             android:background="@drawable/greek_salad"
             tools:layout_editor_absoluteX="195dp"
             tools:layout_editor_absoluteY="0dp"
-            android:contentDescription="@string/temp_image_will_be_replaced_with_link_to_database" />
+            android:contentDescription="@string/food_bank_text" />
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -43,7 +43,7 @@
             android:background="@drawable/letterbox_summer_20paella"
             tools:layout_editor_absoluteX="22dp"
             tools:layout_editor_absoluteY="139dp"
-            android:contentDescription="@string/temp_image_will_be_replaced_with_link_to_database" />
+            android:contentDescription="@string/food_bank_text" />
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -54,7 +54,7 @@
             android:background="@drawable/massamancurry"
             tools:layout_editor_absoluteX="195dp"
             tools:layout_editor_absoluteY="139dp"
-            android:contentDescription="@string/temp_image_will_be_replaced_with_link_to_database" />
+            android:contentDescription="@string/food_bank_text" />
 
         <ImageButton
             android:id="@+id/imageButton5"
@@ -66,7 +66,7 @@
             android:background="@drawable/steak"
             tools:layout_editor_absoluteX="22dp"
             tools:layout_editor_absoluteY="278dp"
-            android:contentDescription="@string/temp_image_will_be_replaced_with_link_to_database" />
+            android:contentDescription="@string/food_bank_text" />
 
         <ImageButton
             android:id="@+id/imageButton6"
@@ -78,7 +78,7 @@
             android:background="@drawable/healthy_meal"
             tools:layout_editor_absoluteX="195dp"
             tools:layout_editor_absoluteY="278dp"
-            android:contentDescription="@string/temp_image_will_be_replaced_with_link_to_database" />
+            android:contentDescription="@string/food_bank_text" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -38,13 +38,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         //START OF AD CODE
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new AdFragment())
                     .commit();
         }
 
         //setting the initial view of the page to the homepage
-        getFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, new HomePageFragment())
                 .commit();
         //end
@@ -118,15 +118,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.recipe_activity) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new UploadYourRecipeActivity())
                     .commit();
         }
 
 
-        } else if (id == R.id.timer_fragment){
+        else if (id == R.id.timer_fragment){
             
-             getFragmentManager().beginTransaction()
+             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
         }
@@ -138,26 +138,26 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_locate) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FindNearestShopFragment())
                     .commit();
         }
 
         else if (id == R.id.nav_home) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
 
         }
 
         else if (id == R.id.nav_review) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new ReviewFragment())
                     .commit();
         }
 
         else if (id == R.id.nav_foodbank) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
         }
