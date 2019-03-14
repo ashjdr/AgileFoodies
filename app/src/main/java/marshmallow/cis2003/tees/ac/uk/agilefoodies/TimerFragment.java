@@ -1,6 +1,9 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.app.NotificationManager;
+
+import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
@@ -27,6 +30,7 @@ import java.util.Locale;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class TimerFragment extends Fragment {
+
     private EditText mEditTextInput;
     private TextView mTextViewCountDown;
     private Button mButtonSet;
@@ -165,6 +169,7 @@ public class TimerFragment extends Fragment {
         mTextViewCountDown.setText(timeLeftFormatted);
     }
 
+
     public void playNotification(){
 //        try {
 //            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -188,6 +193,8 @@ public class TimerFragment extends Fragment {
         notificationManager.notify(0, mBuilder.build());
     }
 
+
+    @SuppressLint("SetTextI18n")
     private void updateWatchInterface() {
         if (mTimerRunning) {
             mEditTextInput.setVisibility(View.INVISIBLE);
@@ -217,6 +224,7 @@ public class TimerFragment extends Fragment {
         View view = this.getActivity().getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+            assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }}
 

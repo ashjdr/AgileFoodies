@@ -113,34 +113,52 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         if (id == R.id.tesco_lab) {
             // Handle the camera action
-            Intent intent = new Intent(HomePage.this, tescoLab.class);
-            startActivity(intent);}
 
+            Intent intent=new Intent(HomePage.this,tescoLab.class);
+            startActivity(intent);
+        }
 
         else if (id == R.id.recipe_activity) {
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.contentFragment, new UploadYourRecipeActivity())
-                        .commit();
-        } else if (id == R.id.timer_fragment) {
             getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new UploadYourRecipeActivity())
+                    .commit();
+        }
+
+
+        else if (id == R.id.timer_fragment){
+            
+             getSupportFragmentManager().beginTransaction()
+
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
         } else if (id == R.id.nav_manage) {
             //action needed
-        } else if (id == R.id.nav_locate) {
+
+        }
+
+        else if (id == R.id.nav_locate) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FindNearestShopFragment())
                     .commit();
-        } else if (id == R.id.nav_home) {
+        }
+
+        else if (id == R.id.nav_home) {
+
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
 
-        } else if (id == R.id.nav_review) {
+
+        }
+
+        else if (id == R.id.nav_review) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new ReviewFragment())
                     .commit();
-        } else if (id == R.id.nav_foodbank) {
+        }
+
+        else if (id == R.id.nav_foodbank) {
+
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();

@@ -30,6 +30,7 @@ import java.util.Map;
 
 /**
  * Created by t7062534 on 26/02/19.
+ *
  */
 
 public class tescoLab extends AppCompatActivity {
@@ -96,8 +97,7 @@ public class tescoLab extends AppCompatActivity {
         try {
             final ApplicationInfo ai = getPackageManager()
                     .getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-            String key = ai.metaData.getString("key_tesco");
-            return key;
+            return ai.metaData.getString("key_tesco");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
