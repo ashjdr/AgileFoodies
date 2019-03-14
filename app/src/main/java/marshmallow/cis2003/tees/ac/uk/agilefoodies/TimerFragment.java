@@ -1,9 +1,8 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
-import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,14 +15,12 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 //import android.app.Fragment;
 import android.support.v4.app.Fragment;
-import com.google.android.gms.ads.AdRequest;
+
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 import java.util.Locale;
 
@@ -127,8 +124,9 @@ public class TimerFragment extends Fragment {
             public void onFinish() {
 
                 mTimerRunning = false;
+                playNotification();
                 updateWatchInterface();
-                showNotification();
+
 
 
             }
@@ -167,16 +165,28 @@ public class TimerFragment extends Fragment {
         mTextViewCountDown.setText(timeLeftFormatted);
     }
 
-    public void showNotification(){
+    public void playNotification(){
+//        try {
+//            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+//            Ringtone r = RingtoneManager.getRingtone(getContext(), notification);
+//            r.play();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 
-        // define sound URI, the sound to be played when there's a notification
+//Define sound URI
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        Notification mNotification = new Notification.Builder(getContext())
 
-                .setContentTitle("New Post!")
-                .setContentText("Here's an awesome update for you!")
-                .setSound(soundUri)
-                .build();}
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getContext())
+                .setSmallIcon(R.drawable.timericon)
+                .setContentTitle("Times Up")
+                .setContentText("Time to check your recipe!")
+                .setSound(soundUri); //This sets the sound to play
+
+//Display notification
+        notificationManager.notify(0, mBuilder.build());
+    }
 
     private void updateWatchInterface() {
         if (mTimerRunning) {
