@@ -1,5 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +8,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-
+import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +18,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-//import android.app.Fragment;
-import android.support.v4.app.Fragment;
-
-import com.google.android.gms.ads.AdView;
 
 import java.util.Locale;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
+
+//import android.app.Fragment;
 
 public class TimerFragment extends Fragment {
     private EditText mEditTextInput;
@@ -165,7 +164,7 @@ public class TimerFragment extends Fragment {
     }
 
 
-    public void playNotification(){
+    private void playNotification(){
 
 
 
@@ -185,6 +184,7 @@ public class TimerFragment extends Fragment {
         notificationManager.notify(0, mBuilder.build());
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateWatchInterface() {
         if (mTimerRunning) {
             mEditTextInput.setVisibility(View.INVISIBLE);
@@ -214,6 +214,7 @@ public class TimerFragment extends Fragment {
         View view = this.getActivity().getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+            assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }}
 

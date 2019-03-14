@@ -10,47 +10,40 @@
         android:id="@+id/edit_text_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_alignEnd="@+id/text_view_countdown"
         android:layout_alignStart="@+id/text_view_countdown"
         android:layout_below="@+id/text_view_countdown"
-        android:hint="Set Minutes"
-
+        android:hint="@string/set_minutes"
         android:inputType="number"
         android:maxLength="4" />
 
     <Button android:id="@+id/button_set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Set"/>
+        android:text="@string/set"
+        tools:ignore="RelativeOverlap" />
 
 
     <TextView android:id="@+id/text_view_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-
-
-        android:text="00:00"
-
+        android:text="@string/_00_00"
         android:textColor="@android:color/black"
-        android:textSize="60sp"/>
+        android:textSize="60sp"
+        tools:ignore="RelativeOverlap" />
 
     <Button android:id="@+id/button_start_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_below="@+id/button_reset"
+        android:text="@string/start"/>
 
-        android:text="start"/>
     <Button android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_set"
-
-        android:text="reset"
-
+        android:text="@string/reset"
         android:visibility="invisible" tools:visibility="visible"/>
 
     <ImageView
@@ -60,7 +53,8 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="34dp"
-        app:srcCompat="@drawable/timericon" />
+        app:srcCompat="@drawable/timericon"
+        android:contentDescription="@string/timer_icon" />
 
     <TextView
         android:id="@+id/textView5"
@@ -68,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/TimerProcessName" />
-
+        android:text="@string/TimerProcessName"
+        tools:ignore="RelativeOverlap" />
 
 </RelativeLayout>
