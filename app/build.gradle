@@ -38,6 +38,9 @@ dependencies {
     // Marshall
 
     // Ash
+
+    // FIREBASE LINK: https://console.firebase.google.com/project/agilefoodies/database/agilefoodies/data
+
     //noinspection GradleDependency
     implementation 'com.google.firebase:firebase-auth:11.8.0'
     //noinspection GradleDependency
