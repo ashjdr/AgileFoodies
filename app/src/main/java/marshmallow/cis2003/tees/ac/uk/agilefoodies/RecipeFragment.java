@@ -56,7 +56,7 @@ public class RecipeFragment extends Fragment {
                 recipetext.append(s);}
 
 
-  
+   
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
