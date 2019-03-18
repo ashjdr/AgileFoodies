@@ -65,6 +65,4 @@ dependencies {
 // Ash
 
 
-
-
-
+apply plugin: 'com.google.gms.google-services'
