@@ -23,13 +23,14 @@ dependencies {
 
     //noinspection GradleDependency
     implementation 'com.google.android.gms:play-services-auth:11.8.0'
-
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.google.firebase:firebase-firestore:11.8.0'
 
     // Jack
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.android.support:appcompat-v7:26.1.'
     implementation 'com.android.support:design:26.1.0'
+
 
     // Matthew
     //noinspection GradleDependency
@@ -76,6 +77,4 @@ dependencies {
 // Ash
 
 
-
-
-
+apply plugin: 'com.google.gms.google-services'

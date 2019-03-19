@@ -18,9 +18,9 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-  
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recipe_name">"Recipe Name: "</string>
+
+
 
 
     <!-- Jack -->
@@ -56,7 +56,7 @@
     <string name="food_bank_location_assistance">food bank location assistance:</string>
     <string name="google_maps">Google Maps</string>
     <string name="search_the_web">search the web</string>
-  
+
     <string name="home">Home</string>
     <string name="tesco_lab">Tesco Lab</string>
     <string name="upload_a_recipe">Upload a Recipe</string>
@@ -85,7 +85,6 @@
     <string name="timer_icon">timer Icon</string>
     <string name="set">Set</string>
     <string name="set_minutes">Set Minutes</string>
-
 
     <!-- Marshall -->
 
