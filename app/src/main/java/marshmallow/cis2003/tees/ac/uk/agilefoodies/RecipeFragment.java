@@ -10,7 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.support.annotation.NonNull;
+import android.util.Log;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.SetOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
@@ -31,7 +43,7 @@ import static android.content.ContentValues.TAG;
 
 public class RecipeFragment extends Fragment {
     public TextView recipetext;
-
+  FirebaseFirestore database;
 
 
     @Override
@@ -44,51 +56,50 @@ public class RecipeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
     Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
     recipetext = v.findViewById(R.id.recipe_text);
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    final DatabaseReference ref = database.getReference("jack/0/ingredients/0/name");
+     database = FirebaseFirestore.getInstance();
+        CollectionReference recipes = database.collection("recipes");
 
+        DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
 
-    ref.addListenerForSingleValueEvent(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            String value = (String) dataSnapshot.getValue();
-            recipetext.append(value);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
 
+                    if (document.exists()) {
+                        recipetext.append(document.getData().toString());
 
-        }
-
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-
-
-    });
-
-                // do your stuff here with value
-
-
-
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        final DatabaseReference ref = database.getReference("https://console.firebase.google.com/project/agilefoodies/database/agilefoodies/data");
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+//    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    final DatabaseReference ref = database.getReference().child("jack/0/ingredients/0/name");
 //
-//        ValueEventListener recipeListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // Get Post object and use the values to update the UI
-//                RecipeFragment recipe = dataSnapshot(database.getReference("0").child(getString()));
-//                recipetext.append(recipe.toString());
-//            }
 //
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-//            }
+//    ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//        @Override
+//        public void onDataChange(DataSnapshot dataSnapshot) {
+//            String value = (String) dataSnapshot.getValue();
+//            recipetext.append(value);
 //
-//        };
-//        ref.addValueEventListener(recipeListener);
 //
+//        }
+//
+//
+//        @Override
+//        public void onCancelled(DatabaseError databaseError) {
+//
+//        }
+//
+//
+//    });
+
 
         return v;
     }
