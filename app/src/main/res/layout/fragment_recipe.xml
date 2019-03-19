@@ -9,6 +9,6 @@
         android:id="@+id/recipe_text"
         android:layout_width="355dp"
         android:layout_height="333dp"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/recipe_name" />
 
 </FrameLayout>

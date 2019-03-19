@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.io.IOException;
 
+import static android.content.ContentValues.TAG;
+
 
 public class RecipeFragment extends Fragment {
     public TextView recipetext;
@@ -39,35 +42,53 @@ public class RecipeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        View v = inflater.inflate(R.layout.fragment_recipe, container, false);
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference ref = database.getReference("jack/0");
-
-        recipetext = v.findViewById(R.id.recipe_text);
+    Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
+    recipetext = v.findViewById(R.id.recipe_text);
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference ref = database.getReference("jack/0/ingredients/0/name");
 
 
-
-        ref.addValueEventListener(new ValueEventListener() {
-
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String s = (String) dataSnapshot.getValue();
-                recipetext.append(s);}
-
-
-   
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-
-        });
+    ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            String value = (String) dataSnapshot.getValue();
+            recipetext.append(value);
 
 
+        }
 
 
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+
+
+    });
+
+                // do your stuff here with value
+
+
+
+//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        final DatabaseReference ref = database.getReference("https://console.firebase.google.com/project/agilefoodies/database/agilefoodies/data");
+//
+//        ValueEventListener recipeListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                // Get Post object and use the values to update the UI
+//                RecipeFragment recipe = dataSnapshot(database.getReference("0").child(getString()));
+//                recipetext.append(recipe.toString());
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+//            }
+//
+//        };
+//        ref.addValueEventListener(recipeListener);
+//
 
         return v;
     }
