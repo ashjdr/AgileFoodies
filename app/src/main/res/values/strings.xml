@@ -71,7 +71,18 @@
     <string name="select_a_shop_to_locate_near_you">select a shop to locate near you</string>
     <string name="temp_image_msg">temp image, will be replaced with link to database</string>
     <string name="food_bank_text">A food-bank can give assistance to those who need it, so that they can get enough food to feed themselves. If you require this service, please have a look through the buttons below to find a food-bank near you that might be able to help you.</string>
-
+    <string name="sign_out">SIGN OUT</string>
+    <string name="google_profile_picture">google profile picture</string>
+    <string name="logo">logo</string>
+    <string name="agilefoodies">AgileFoodies</string>
+    <string name="immage_of_food">immage of food</string>
+    <string name="recipe_timer">Recipe Timer</string>
+    <string name="search">search</string>
+    <string name="minutes">Minutes</string>
+    <string name="set">Set</string>
+    <string name="_00_00">00:00</string>
+    <string name="start">start</string>
+    <string name="reset">reset</string>
 
     <!-- Marshall -->
 
