@@ -123,8 +123,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
-        } else if (id == R.id.nav_manage) {
-            //action needed
+
+        } else if (id == R.id.recipe_fragment) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new RecipeFragment())
+                    .commit();
 
         }
 

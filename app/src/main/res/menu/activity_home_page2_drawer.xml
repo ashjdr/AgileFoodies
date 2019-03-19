@@ -23,9 +23,9 @@
             android:icon="@drawable/timericon"
             android:title="@string/timer" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/settings" />
+            android:id="@+id/recipe_fragment"
+            android:icon="@drawable/recipe"
+            android:title="Show Recipe" />
         <item
             android:id="@+id/nav_locate"
             android:icon="@drawable/mapicon"
