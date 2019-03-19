@@ -1,5 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.app.VoiceInteractor;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -55,13 +58,17 @@ public class RecipeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
     Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
+
     recipetext = v.findViewById(R.id.recipe_text);
+
      database = FirebaseFirestore.getInstance();
+
         CollectionReference recipes = database.collection("recipes");
 
         DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -78,28 +85,6 @@ public class RecipeFragment extends Fragment {
                 }
             }
         });
-//    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//    final DatabaseReference ref = database.getReference().child("jack/0/ingredients/0/name");
-//
-//
-//    ref.addListenerForSingleValueEvent(new ValueEventListener() {
-//        @Override
-//        public void onDataChange(DataSnapshot dataSnapshot) {
-//            String value = (String) dataSnapshot.getValue();
-//            recipetext.append(value);
-//
-//
-//        }
-//
-//
-//        @Override
-//        public void onCancelled(DatabaseError databaseError) {
-//
-//        }
-//
-//
-//    });
-
 
         return v;
     }
