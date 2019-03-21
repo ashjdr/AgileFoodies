@@ -19,9 +19,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import static android.content.ContentValues.TAG;
 
 
-public class RecipeFragment extends Fragment {
+public class RecipeFragment extends Fragment  {
     public TextView recipetext;
-  FirebaseFirestore database;
+    FirebaseFirestore database;
+    RecipeClass recipe;
 
 
     @Override
@@ -37,7 +38,7 @@ public class RecipeFragment extends Fragment {
      database = FirebaseFirestore.getInstance();
         CollectionReference recipes = database.collection("recipes");
 
-        DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
+        final DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -46,7 +47,15 @@ public class RecipeFragment extends Fragment {
                     DocumentSnapshot document = task.getResult();
 
                     if (document.exists()) {
-                        recipetext.append(document.getData().toString());
+                        StringBuilder fields = new StringBuilder ("");
+                        fields.append("Name: ").append(document.get("name"));
+                        fields.append("\nTime: ").append(document.get("Time"));
+                        fields.append("\nVegan?: ").append(document.get("Vegan"));
+                        fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
+                        fields.append("\nCategory: ").append(document.get("category"));
+                        fields.append("\nIngredients: ").append(document.get("ingredients"));
+                        fields.append("\n\nInstructions?: ").append(document.get("instructions"));
+                        recipetext.setText(fields.toString());
 
                     } else {
                         Log.d(TAG, "No such document");
