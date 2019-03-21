@@ -33,7 +33,7 @@
         android:layout_height="@dimen/imageview_height"
         android:contentDescription="@string/add_image"
         android:src="@drawable/ic_menu_gallery"/>
-                                                            <!--ToDo: fix these missing values-->
+                                                            
     <ImageButton
         android:id="@+id/takePhoto"
         android:layout_width="@dimen/imageview_width"
