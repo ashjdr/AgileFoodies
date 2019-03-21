@@ -20,7 +20,7 @@ import static android.content.ContentValues.TAG;
 
 
 public class RecipeFragment extends Fragment  {
-    public TextView recipetext;
+    public TextView recipeText;
     FirebaseFirestore database;
     RecipeClass recipe;
 
@@ -34,7 +34,7 @@ public class RecipeFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
     Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
-    recipetext = v.findViewById(R.id.recipe_text);
+    recipeText = v.findViewById(R.id.recipe_text);
      database = FirebaseFirestore.getInstance();
         CollectionReference recipes = database.collection("recipes");
 
@@ -55,13 +55,13 @@ public class RecipeFragment extends Fragment  {
                         fields.append("\nCategory: ").append(document.get("category"));
                         fields.append("\nIngredients: ").append(document.get("ingredients"));
                         fields.append("\n\nInstructions?: ").append(document.get("instructions"));
-                        recipetext.setText(fields.toString());
+                        recipeText.setText(fields.toString());
 
                     } else {
                         Log.d(TAG, "No such document");
                     }
                 } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+                    Log.d(TAG, "Get failed with ", task.getException());
                 }
             }
         });

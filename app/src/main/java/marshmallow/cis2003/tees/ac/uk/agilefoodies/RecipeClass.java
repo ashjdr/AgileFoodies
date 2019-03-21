@@ -39,6 +39,25 @@ public class RecipeClass {
         this.instructions = instructions;
     }
 
+
+    public void addIngredient(String ing)
+    {
+        ingredients.add(ing);
+        //to add an ingredient to the list
+    }
+
+    public void addStep(String step, int position)
+    {
+        //needs to itterate through to the position and then add the step.
+    }
+
+    public void addStep(String step)
+    {
+        instructions.add(step);
+        //to add a step onto the end
+    }
+
+
     public String getName() {
         return name;
     }
