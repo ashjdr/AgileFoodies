@@ -85,6 +85,13 @@
     <string name="timer_icon">timer Icon</string>
     <string name="set">Set</string>
     <string name="set_minutes">Set Minutes</string>
+    <string name="image_uploaded">image uploaded</string>
+    <string name="type_recipe_name_here">type recipe name here</string>
+    <string name="type_your_ingredients_here_one_per_line">type your ingredients here (one per line)</string>
+    <string name="type_your_instructions_here">type your instructions here</string>
+    <string name="vegan">vegan?</string>
+    <string name="vegetarian">Vegetarian?</string>
+    <string name="time_taken_in_total">time taken in total</string>
 
     <!-- Marshall -->
 
