@@ -16,9 +16,10 @@ import android.widget.ImageView;
 import static android.app.Activity.RESULT_OK;
 
 
-public class UploadYourRecipeActivity extends Fragment {
+public class UploadYourRecipeFragment extends Fragment {
     private ImageButton saveUpload;
     private ImageView uploadedImage;
+    private RecipeClass recipe;
 
 
     @Override
@@ -27,30 +28,13 @@ public class UploadYourRecipeActivity extends Fragment {
         View v = inflater.inflate(R.layout.activity_upload_your_recipe, container, false);
 
 
-        EditText edittext = v.findViewById(R.id.edit_text1);
+        EditText edittext = v.findViewById(R.id.your_recipe_name);
+
         uploadedImage = v.findViewById(R.id.uploadedImage);
         ImageButton takePhoto = v.findViewById(R.id.takePhoto);
         ImageButton addImage = v.findViewById(R.id.imageButtonAddImage);
 
-        /*ImageButton B1 = addImage;
-        B1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto, 1);
-            }
-        });
 
-        ImageButton B2 = takePhoto;
-        B2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto, 1);
-            }
-        });*/
 
         addImage.setOnClickListener(new OnClickListener() {
             @Override

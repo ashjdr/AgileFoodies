@@ -4,17 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.UploadYourRecipeActivity">
+    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.UploadYourRecipeFragment">
 
 
     <EditText
-        android:id="@+id/edit_text1"
-        android:layout_width="wrap_content"
+        android:id="@+id/your_recipe_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_instructions"
-        app:layout_constraintLeft_toRightOf="@id/save_upload"
-         />
-
+        android:hint="Type recipe name here"
+        app:layout_constraintTop_toBottomOf="@id/save_upload"
+        />
+    <EditText
+        android:id="@+id/your_recipe_ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="type your ingredients here(one per line)"
+        app:layout_constraintTop_toBottomOf="@id/your_recipe_name"
+        />
+    <EditText
+        android:id="@+id/your_recipe_instructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="type your instructions here"
+        app:layout_constraintTop_toBottomOf="@id/your_recipe_ingredients"/>
     <ImageButton
         android:id="@+id/imageButtonAddImage"
         android:layout_width="@dimen/imageview_width"
@@ -32,13 +44,13 @@
 
     <ImageView
 
-        android:layout_centerHorizontal="true"
         android:id="@+id/uploadedImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_text1"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="Image uploaded"
         app:layout_constraintLeft_toRightOf="@id/imageButtonAddImage"
-        android:contentDescription="@string/immage_of_food" />
+         />
 
     <ImageButton
         android:id="@+id/save_upload"
@@ -48,5 +60,28 @@
     app:layout_constraintTop_toBottomOf="@id/takePhoto"
         android:contentDescription="@string/settings" />
 
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vegan?"
+        app:layout_constraintLeft_toRightOf="@id/uploadedImage"
+         />
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vegetarian?"
+        app:layout_constraintTop_toBottomOf="@id/switch1"
+        app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
 
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Time taken in total "
+        app:layout_constraintTop_toBottomOf="@id/switch2"
+        app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
 </android.support.constraint.ConstraintLayout>

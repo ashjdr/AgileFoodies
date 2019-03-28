@@ -112,7 +112,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         else if (id == R.id.recipe_activity) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new UploadYourRecipeActivity())
+                    .replace(R.id.contentFragment, new UploadYourRecipeFragment())
                     .commit();
         }
 
