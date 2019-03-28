@@ -3,6 +3,7 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
 import android.app.VoiceInteractor;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -33,7 +36,6 @@ public class RecipeFragment extends Fragment  {
     FirebaseFirestore database;
     RecipeClass recipe;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +43,8 @@ public class RecipeFragment extends Fragment  {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-    Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+                             Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
 
     recipetext = v.findViewById(R.id.recipe_text);
 
@@ -56,6 +58,7 @@ public class RecipeFragment extends Fragment  {
 
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                LinearLayout ingrediant = getActivity().findViewById(R.id.ingrediant);
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
 
@@ -68,8 +71,20 @@ public class RecipeFragment extends Fragment  {
                         fields.append("\nCategory: ").append(document.get("category"));
                         fields.append("\n\nIngredients:");
                         List<String> group = (List<String>) document.get("ingredients");
-                        for (String element: group){
-                            fields.append("\n" + element);
+                        for (final String element: group){
+                            //TO LOOK AT ??
+
+                            TextView tView = new TextView(getContext());
+                            tView.setText(element);
+                            ingrediant.addView(tView);
+                            tView.setOnClickListener(new View.OnClickListener(){
+                                public void onClick(View v){
+                                    Intent intent = new Intent(RecipeFragment.this.getActivity(), tescoLab.class);
+                                    intent.putExtra("ingredient",element);
+                                    startActivity(intent);
+                                }
+                            });
+                            //fields.append("\n" + element);
                         }
                         fields.append("\n\nInstructions:");
                         List<String> group2 = (List<String>) document.get("instructions");
@@ -91,6 +106,7 @@ public class RecipeFragment extends Fragment  {
 
         return v;
     }
+
 
 
 }

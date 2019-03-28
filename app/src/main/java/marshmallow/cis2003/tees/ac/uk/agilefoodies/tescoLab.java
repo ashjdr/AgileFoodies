@@ -39,7 +39,9 @@ public class tescoLab extends AppCompatActivity {
     //private static final String TAG = "";
     private TextView mTextViewResult;
     private RequestQueue mQueue;
-    private EditText querys;
+    private String querys;
+    private EditText qu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +55,16 @@ public class tescoLab extends AppCompatActivity {
 
         Button buttonParse = findViewById(R.id.button_parse);
 
-        querys = findViewById(R.id.editText);
+        qu = findViewById(R.id.editText);
 
+        querys= qu.getText().toString();
+
+        querys = intent.getStringExtra("ingredient");
+        try {
+            jsonParse(querys);
+        } catch (AuthFailureError authFailureError) {
+            authFailureError.printStackTrace();
+        }
 
         mQueue = Volley.newRequestQueue(this);
 
@@ -106,13 +116,13 @@ public class tescoLab extends AppCompatActivity {
 
 
 
-    private void jsonParse(EditText q) throws AuthFailureError {            //TODO: check this, the warnings clain the throw is never going to be thrown?
+    private void jsonParse(String q) throws AuthFailureError {            //TODO: check this, the warnings clain the throw is never going to be thrown?
 
         String urlStart = "https://dev.tescolabs.com/grocery/products/?query=";
 
         String urlEnd ="&offset=0&limit=";
         String limt = "10";
-        String query = q.getText().toString();
+        String query = q;
 
         String url= urlStart+query+urlEnd+limt;
 
@@ -190,4 +200,7 @@ public class tescoLab extends AppCompatActivity {
 
         mQueue.add(request);
     }
+
+
+
 }
