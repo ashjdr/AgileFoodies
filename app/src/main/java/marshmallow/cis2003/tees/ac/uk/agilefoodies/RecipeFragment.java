@@ -1,5 +1,10 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+
+import android.app.VoiceInteractor;
+import android.content.Context;
+import android.net.Uri;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -9,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -36,13 +43,17 @@ public class RecipeFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
     Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
+
     recipetext = v.findViewById(R.id.recipe_text);
+
      database = FirebaseFirestore.getInstance();
+
         CollectionReference recipes = database.collection("recipes");
 
         final DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -76,7 +87,6 @@ public class RecipeFragment extends Fragment  {
                 }
             }
         });
-
 
 
         return v;
