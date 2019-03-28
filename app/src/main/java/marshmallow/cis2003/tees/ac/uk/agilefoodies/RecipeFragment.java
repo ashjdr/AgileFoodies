@@ -16,6 +16,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.List;
+
 import static android.content.ContentValues.TAG;
 
 
@@ -53,10 +55,19 @@ public class RecipeFragment extends Fragment  {
                         fields.append("\nVegan?: ").append(document.get("Vegan"));
                         fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
                         fields.append("\nCategory: ").append(document.get("category"));
-                        fields.append("\nIngredients: ").append(document.get("ingredients"));
-                        fields.append("\n\nInstructions?: ").append(document.get("instructions"));
-                        recipetext.setText(fields.toString());
-
+                        fields.append("\n\nIngredients:");
+                        List<String> group = (List<String>) document.get("ingredients");
+                        for (String element: group){
+                            fields.append("\n" + element);
+                        }
+                        fields.append("\n\nInstructions:");
+                        List<String> group2 = (List<String>) document.get("instructions");
+                        int num = 1;
+                        for (String element: group2){
+                            fields.append("\n" + num + ") " + element + "\n" );
+                            num++;
+                        }
+                        recipetext.setText(fields);
                     } else {
                         Log.d(TAG, "No such document");
                     }
