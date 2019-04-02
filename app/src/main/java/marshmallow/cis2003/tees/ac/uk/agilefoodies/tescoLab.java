@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -20,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -213,8 +215,16 @@ public class tescoLab extends AppCompatActivity {
 
         String urlEnd ="&offset=0&limit=";
         String limt = "10";
-        
-        String url= urlStart+q+urlEnd+limt;
+        String query;
+
+        if(q != null){
+           query = q;
+        }
+        else {
+            query = "egg";
+        }
+
+        String url= urlStart+query+urlEnd+limt;
 
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,url, null,
@@ -255,9 +265,9 @@ public class tescoLab extends AppCompatActivity {
 
                                 double unitprice = items.getDouble("unitprice");
 
-                                //ImageView iv = new ImageView;
-
-                                // Picasso.with(Context).load(image).into(iv);
+//                                ImageView iv = new ImageView;
+//
+//                                 Picasso.with(Context).load(image).into(iv);
 
 
                                 mTextViewResult.append(name  + ", £" + String.valueOf(price) + "\n\n");
