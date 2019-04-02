@@ -67,7 +67,6 @@ public class Parser
             String line;
             while ((line = br.readLine()) != null)
             {
-                System.out.println(line);
                 ObjectManager.newNutrientDefFromLine(line);
             }
         } finally
