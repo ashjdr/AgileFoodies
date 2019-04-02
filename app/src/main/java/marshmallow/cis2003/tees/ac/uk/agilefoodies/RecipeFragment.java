@@ -28,8 +28,10 @@ import java.util.Timer;
 import static android.content.ContentValues.TAG;
 
 public class RecipeFragment extends Fragment  {
+
     public TextView recipetext;
     public TextView timeView;
+
     FirebaseFirestore database;
     RecipeClass recipe;
     Timer timer;
@@ -47,12 +49,14 @@ public class RecipeFragment extends Fragment  {
         super.onCreate(savedInstanceState);
     }
     @Override
+
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
 
         recipetext = v.findViewById(R.id.recipe_text);
         timeView = v.findViewById(R.id.timer);
         database = FirebaseFirestore.getInstance();
+
 
         CollectionReference recipes = database.collection("recipes");
         final DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
@@ -105,12 +109,12 @@ public class RecipeFragment extends Fragment  {
                             fields.append("\n" + num + ") " + element + "\n" );
                             num++;
                         }
-                        recipetext.setText(fields);
+                        recipeText.setText(fields);
                     } else {
                         Log.d(TAG, "No such document");
                     }
                 } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+                    Log.d(TAG, "Get failed with ", task.getException());
                 }
             }
         });

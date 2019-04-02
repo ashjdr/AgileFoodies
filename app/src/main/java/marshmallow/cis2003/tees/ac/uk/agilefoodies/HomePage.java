@@ -24,7 +24,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_home_page2);
+        setContentView(R.layout.fragment_home_page2);
 
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -90,7 +90,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             return true;
         }
         else if(id == R.id.action_account){
-            Intent intent=new Intent(HomePage.this,LoginActivity.class);
+            Intent intent=new Intent(HomePage.this,LoginFragment.class);
             startActivity(intent);
 
         }
@@ -159,6 +159,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
         } else if (id == R.id.nav_share) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new UnitConverterFragment())
+                    .commit();
             //action needed
         } else if (id == R.id.nav_send) {
             //action needed

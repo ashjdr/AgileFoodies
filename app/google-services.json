@@ -45,10 +45,13 @@
             "package_name": "marshmallow.cis2003.tees.ac.uk.agilefoodies",
             "certificate_hash": "5bc091d47c62ffb1bd130a6fb89a8db230c147f5"
           }
+<<<<<<< HEAD
+=======
         },
         {
           "client_id": "920652972852-aclaad8g317eaehdrlgomfm9js7dvthh.apps.googleusercontent.com",
           "client_type": 3
+>>>>>>> 44aeb19d07202ec19d396da18f39989d10b2e951
         }
       ],
       "api_key": [
@@ -57,20 +60,27 @@
         }
       ],
       "services": {
+<<<<<<< HEAD
+        "appinvite_service": {
+=======
         "analytics_service": {
           "status": 1
         },
         "appinvite_service": {
           "status": 2,
+>>>>>>> 44aeb19d07202ec19d396da18f39989d10b2e951
           "other_platform_oauth_client": [
             {
               "client_id": "920652972852-aclaad8g317eaehdrlgomfm9js7dvthh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
+<<<<<<< HEAD
+=======
         },
         "ads_service": {
           "status": 2
+>>>>>>> 44aeb19d07202ec19d396da18f39989d10b2e951
         }
       }
     }

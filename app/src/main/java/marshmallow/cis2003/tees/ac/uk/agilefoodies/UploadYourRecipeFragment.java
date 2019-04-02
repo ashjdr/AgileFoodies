@@ -25,7 +25,7 @@ public class UploadYourRecipeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View v = inflater.inflate(R.layout.activity_upload_your_recipe, container, false);
+        View v = inflater.inflate(R.layout.fragment_upload_your_recipe, container, false);
 
 
         EditText edittext = v.findViewById(R.id.your_recipe_name);

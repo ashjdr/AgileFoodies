@@ -22,7 +22,7 @@ import com.google.android.gms.tasks.Task;
 import java.lang.reflect.Array;
 
 
-public class LoginActivity extends Fragment {
+public class LoginFragment extends Fragment {
         private static final String TAG = "AndroidClarified";
     private GoogleSignInClient googleSignInClient;
 
