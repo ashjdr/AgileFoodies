@@ -61,13 +61,18 @@ public class tescoLab extends AppCompatActivity {
 
         querys = intent.getStringExtra("ingredient");
 
+       if(querys != null) {
 
-
-        try {
-            jsonParse(querys);
-        } catch (AuthFailureError authFailureError) {
-            authFailureError.printStackTrace();
-        }
+           try {
+               jsonParse(querys);
+               mTextViewResult.append(querys);
+           } catch (AuthFailureError authFailureError) {
+               authFailureError.printStackTrace();
+           }
+       }
+       else {
+           mTextViewResult.append("No Search results");
+       }
 
         mQueue = Volley.newRequestQueue(this);
 
@@ -129,9 +134,7 @@ public class tescoLab extends AppCompatActivity {
 
         String url= urlStart+query+urlEnd+limt;
 
-        //Host: dev.tescolabs.com
-        //Ocp-Apim-Subscription-Key: a78d89bd412f49c8b8c9532af8e1d4c2
-        // need to edit this !!!
+
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,url, null,
                 new Response.Listener<JSONObject>() {
@@ -210,13 +213,9 @@ public class tescoLab extends AppCompatActivity {
 
         String urlEnd ="&offset=0&limit=";
         String limt = "10";
-        String query = q;
+        
+        String url= urlStart+q+urlEnd+limt;
 
-        String url= urlStart+query+urlEnd+limt;
-
-        //Host: dev.tescolabs.com
-        //Ocp-Apim-Subscription-Key: a78d89bd412f49c8b8c9532af8e1d4c2
-        // need to edit this !!!
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,url, null,
                 new Response.Listener<JSONObject>() {

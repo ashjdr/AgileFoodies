@@ -22,8 +22,8 @@ public class HomePageFragment extends Fragment {
         imageB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Intent intent = new Intent(HomePageFragment.this.getActivity(),RecipeFragment.class);
-                 startActivity(intent);
+//                 Intent intent = new Intent(HomePageFragment.this.getActivity(),RecipeFragment.class);
+//                 startActivity(intent);
             }
         });
 
