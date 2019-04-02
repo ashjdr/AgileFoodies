@@ -158,6 +158,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
         } else if (id == R.id.nav_share) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new UnitConverterFragment())
+                    .commit();
             //action needed
         } else if (id == R.id.nav_send) {
             //action needed
