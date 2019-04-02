@@ -16,8 +16,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener {
+    static RecipeFragment fragOne;
+    static TimerFragment fragTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,15 +119,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
 
         else if (id == R.id.timer_fragment){
-            
+            fragTwo = new TimerFragment();
              getSupportFragmentManager().beginTransaction()
-
-                    .replace(R.id.contentFragment, new TimerFragment())
+                    .replace(R.id.contentFragment, fragTwo)
                     .commit();
 
         } else if (id == R.id.recipe_fragment) {
+            fragOne = new RecipeFragment();
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new RecipeFragment())
+                    .replace(R.id.contentFragment, fragOne)
                     .commit();
 
         }
@@ -168,6 +169,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }}
+    }
+
+    @Override
+    public void onFragmentInteraction(Long time) {
+        fragTwo = new TimerFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragTwo)
+                .commitNow();
+        fragTwo.onFragmentInteraction(time);
+    }
+}
 
 
