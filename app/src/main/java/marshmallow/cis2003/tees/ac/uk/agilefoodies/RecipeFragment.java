@@ -36,6 +36,7 @@ public class RecipeFragment extends Fragment  {
 
     private OnFragmentInteractionListener mListener;
 
+
     public RecipeFragment(){
 
 
@@ -48,9 +49,11 @@ public class RecipeFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
+
         recipetext = v.findViewById(R.id.recipe_text);
         timeView = v.findViewById(R.id.timer);
         database = FirebaseFirestore.getInstance();
+
         CollectionReference recipes = database.collection("recipes");
         final DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -69,6 +72,7 @@ public class RecipeFragment extends Fragment  {
                         List<String> group = (List<String>) document.get("ingredients");
                         for (final String element: group){
                             //TO LOOK AT ??
+
                             TextView tView = new TextView(getContext());
                             tView.setText(element);
                             ingredient.addView(tView);
@@ -134,6 +138,10 @@ public class RecipeFragment extends Fragment  {
         void onFragmentInteraction(Long time);
 
     }
+
+}
+
+
 
 }
 

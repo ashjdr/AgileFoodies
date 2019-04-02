@@ -1,6 +1,7 @@
 
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,8 +22,8 @@ public class HomePageFragment extends Fragment {
         imageB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Intent intent=new Intent(HomePage.this,?enter location?.class);
-                // startActivity(intent);
+//                 Intent intent = new Intent(HomePageFragment.this.getActivity(),RecipeFragment.class);
+//                 startActivity(intent);
             }
         });
 
