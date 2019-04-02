@@ -58,7 +58,7 @@ public class RecipeFragment extends Fragment  {
 
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                LinearLayout ingrediant = getActivity().findViewById(R.id.ingrediant);
+                LinearLayout ingredient = getActivity().findViewById(R.id.ingredient);
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
 
@@ -76,7 +76,7 @@ public class RecipeFragment extends Fragment  {
 
                             TextView tView = new TextView(getContext());
                             tView.setText(element);
-                            ingrediant.addView(tView);
+                            ingredient.addView(tView);
                             tView.setOnClickListener(new View.OnClickListener(){
                                 public void onClick(View v){
                                     Intent intent = new Intent(RecipeFragment.this.getActivity(), tescoLab.class);

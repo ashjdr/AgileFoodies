@@ -57,9 +57,12 @@ public class tescoLab extends AppCompatActivity {
 
         qu = findViewById(R.id.editText);
 
-        querys= qu.getText().toString();
+
 
         querys = intent.getStringExtra("ingredient");
+
+
+
         try {
             jsonParse(querys);
         } catch (AuthFailureError authFailureError) {
@@ -76,10 +79,9 @@ public class tescoLab extends AppCompatActivity {
 //                    Tesco LAb
 //                    Recycler layout
 //                    Array adapter
-
                     // Intent intent=new Intent(tescoLab.this,tescoLab.class);
                  //   startActivity(intent);
-                    jsonParse(querys);
+                    jsonParse(qu);
                   //  finish();
                 } catch (AuthFailureError authFailureError) {
                     authFailureError.printStackTrace();
@@ -101,6 +103,7 @@ public class tescoLab extends AppCompatActivity {
         mAdView.loadAd(adRequest);
         //END OF AD CODE
     }
+
     private String readMetadata(){
 
         try {
@@ -115,6 +118,91 @@ public class tescoLab extends AppCompatActivity {
     }
 
 
+
+    private void jsonParse(EditText q) throws AuthFailureError {            //TODO: check this, the warnings clain the throw is never going to be thrown?
+
+        String urlStart = "https://dev.tescolabs.com/grocery/products/?query=";
+
+        String urlEnd ="&offset=0&limit=";
+        String limt = "10";
+        String query = q.getText().toString();
+
+        String url= urlStart+query+urlEnd+limt;
+
+        //Host: dev.tescolabs.com
+        //Ocp-Apim-Subscription-Key: a78d89bd412f49c8b8c9532af8e1d4c2
+        // need to edit this !!!
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+
+
+                            JSONArray result = response
+                                    .getJSONObject("uk")
+                                    .getJSONObject("ghs")
+                                    .getJSONObject("products")
+                                    .getJSONArray("results");
+
+
+                            for (int i = 0; i < result.length(); i++) {
+                                JSONObject items = result.getJSONObject(i);
+
+
+
+                                String image = items.getString("image");
+
+                                String superDepartment = items.getString("superDepartment");
+                                int tpnb = items.getInt("tpnb");
+                                String ContentsMeasureType = items.getString("ContentsMeasureType"); // no value
+                                String name = items.getString("name");
+
+                                int unitOfSale = items.getInt("UnitOfSale");
+                                String des = items.getString("description");
+                                int AverageSellingUnitWeight = items.getInt("AverageSellingUnitWeight");
+                                String UnitQuantity = items.getString("UnitQuantity");
+                                int id = items.getInt("id");
+                                int ContentsQuantity = items.getInt("ContentsQuantity");
+                                String department = items.getString("department");
+
+                                double price = items.getDouble("price");
+
+                                double unitprice = items.getDouble("unitprice");
+
+                                //ImageView iv = new ImageView;
+
+                                // Picasso.with(Context).load(image).into(iv);
+
+
+                                mTextViewResult.append(name  + ", £" + String.valueOf(price) + "\n\n");
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        })
+        {
+            /** Passing some request headers* */
+            @Override
+            public Map getHeaders() throws AuthFailureError {
+                HashMap headers = new HashMap();
+                headers.put("Ocp-Apim-Subscription-Key", readMetadata());           //TODO: fix unchecked overriding
+                return headers;
+            }
+        };
+
+
+        mQueue.add(request);
+    }
 
     private void jsonParse(String q) throws AuthFailureError {            //TODO: check this, the warnings clain the throw is never going to be thrown?
 
@@ -200,7 +288,5 @@ public class tescoLab extends AppCompatActivity {
 
         mQueue.add(request);
     }
-
-
 
 }
