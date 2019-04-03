@@ -62,7 +62,7 @@ public class UploadYourRecipeFragment extends Fragment {
                 recipe.setName(pname);
 
                 }
-        });
+        }); 
 
 
 
