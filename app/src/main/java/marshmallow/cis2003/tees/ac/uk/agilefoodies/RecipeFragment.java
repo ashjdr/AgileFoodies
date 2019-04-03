@@ -29,6 +29,7 @@ import static android.content.ContentValues.TAG;
 
 public class RecipeFragment extends Fragment  {
     public TextView recipetext;
+    public TextView nameView;
     public TextView timeView;
     FirebaseFirestore database;
     RecipeClass recipe;
@@ -50,6 +51,7 @@ public class RecipeFragment extends Fragment  {
                              Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
         recipetext = v.findViewById(R.id.recipe_text);
         timeView = v.findViewById(R.id.timer);
+        nameView = v.findViewById(R.id.recipe_name);
         database = FirebaseFirestore.getInstance();
         CollectionReference recipes = database.collection("recipes");
         final DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
@@ -61,11 +63,11 @@ public class RecipeFragment extends Fragment  {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         StringBuilder fields = new StringBuilder ("");
-                        fields.append("Name: ").append(document.get("name"));
                         fields.append("\nVegan?: ").append(document.get("Vegan"));
                         fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
                         fields.append("\nCategory: ").append(document.get("category"));
-                        fields.append("\n\nIngredients:");
+
+
                         List<String> group = (List<String>) document.get("ingredients");
                         for (final String element: group){
                             //TO LOOK AT ??
@@ -82,17 +84,18 @@ public class RecipeFragment extends Fragment  {
                             //fields.append("\n" + element);
                         }
                         final long timing = (long)document.get("Time");
-                        timeView.setText("Time: "+ timing) ;
 
+                        timeView.setText("Time: "+ timing) ;
+                        final String name = (String)document.get("name");
+                        nameView.setText("Recipe Name: "+ name) ;
                         timeView.setOnClickListener(new View.OnClickListener(){
                             public void onClick(View v){
-
-                                    mListener.onFragmentInteraction(timing);
-
-                                }
+                                mListener.onFragmentInteraction(timing, name);
+                            }
 
 
                         });
+
 
                         fields.append("\n\nInstructions:");
                         List<String> group2 = (List<String>) document.get("instructions");
@@ -131,7 +134,7 @@ public class RecipeFragment extends Fragment  {
     }
 
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Long time);
+        void onFragmentInteraction(Long time, String name);
 
     }
 

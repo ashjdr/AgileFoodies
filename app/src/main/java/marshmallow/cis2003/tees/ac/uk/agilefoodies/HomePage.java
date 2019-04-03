@@ -172,12 +172,12 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     @Override
-    public void onFragmentInteraction(Long time) {
+    public void onFragmentInteraction(Long time, String name) {
         fragTwo = new TimerFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, fragTwo)
                 .commitNow();
-        fragTwo.onFragmentInteraction(time);
+        fragTwo.onFragmentInteraction(time, name);
     }
 }
 
