@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,26 +14,26 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.util.Arrays;
+
 import static android.app.Activity.RESULT_OK;
 
 
 public class UploadYourRecipeFragment extends Fragment {
-    private ImageButton saveUpload;
     private ImageView uploadedImage;
-    private RecipeClass recipe;
+    public RecipeClass recipe;
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View v = inflater.inflate(R.layout.activity_upload_your_recipe, container, false);
-
-
-        EditText edittext = v.findViewById(R.id.your_recipe_name);
-
+        final EditText nametext = v.findViewById(R.id.your_recipe_name);
         uploadedImage = v.findViewById(R.id.uploadedImage);
         ImageButton takePhoto = v.findViewById(R.id.takePhoto);
         ImageButton addImage = v.findViewById(R.id.imageButtonAddImage);
+        ImageButton saveUpload = v.findViewById(R.id.save_upload);
 
 
 
@@ -52,6 +53,20 @@ public class UploadYourRecipeFragment extends Fragment {
                 startActivityForResult(takePicture, 0);
             }
         });
+
+        saveUpload.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String pname  = nametext.getText().toString();
+                Log.i("Info log","Button Clicked" + pname );
+                recipe.setName(pname);
+
+                }
+        });
+
+
+
+
 
 
         return v;

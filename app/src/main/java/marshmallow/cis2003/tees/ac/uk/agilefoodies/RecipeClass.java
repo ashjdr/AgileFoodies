@@ -1,8 +1,14 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import java.lang.reflect.Array;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.List;
 
 public class RecipeClass {
@@ -24,7 +30,7 @@ public class RecipeClass {
     }
 
 
-    public RecipeClass(String name, int time, boolean vegan, boolean vegetarian, String category, int ratingCount, int ratingValue, Timestamp timeCreated, List<String> ingredients, List<String> instructions) {
+    public RecipeClass(String name, int time, boolean vegan, boolean vegetarian, String category, int ratingCount, int ratingValue,  List<String> ingredients, List<String> instructions) {
         // [START_EXCLUDE]
         this.name = name;
         this.time = time;
@@ -42,80 +48,42 @@ public class RecipeClass {
     public String getName() {
         return name;
     }
+    public int getTime() {
+        return time;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
     public boolean isVegan() {
         return vegan;
     }
-
-    public void setVegan(boolean vegan) {
-        this.vegan = vegan;
-    }
-
     public boolean isVegetarian() {
         return vegetarian;
     }
-
-    public void setVegetarian(boolean vegetarian) {
-        this.vegetarian = vegetarian;
-    }
-
     public String getCategory() {
         return category;
     }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public int getRatingCount() {
         return ratingCount;
     }
-
-    public void setRatingCount(int ratingCount) {
-        this.ratingCount = ratingCount;
-    }
-
     public int getRatingValue() {
         return ratingValue;
     }
-
-    public void setRatingValue(int ratingValue) {
-        this.ratingValue = ratingValue;
-    }
-
     public Timestamp getTimeCreated() {
         return timeCreated;
     }
-
-    public void setTimeCreated(Timestamp timeCreated) {
-        this.timeCreated = timeCreated;
-    }
-
     public List<String> getIngredients() {
         return ingredients;
     }
-
-    public void setIngredients(List<String> ingredients) {
-        this.ingredients = ingredients;
-    }
-
     public List<String> getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(List<String> instructions) {
-        this.instructions = instructions;
-    }
+
+
+
+
+
 }
