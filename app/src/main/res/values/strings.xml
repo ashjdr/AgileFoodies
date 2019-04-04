@@ -19,6 +19,24 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="recipe_name">"Recipe Name: "</string>
     <string name="Time">"Time: "</string>
+    <string-array name="category_theme_array">
+        <item>English</item>
+        <item>Mexican</item>
+        <item>Italian</item>
+        <item>Chinese</item>
+        <item>Thai</item>
+        <item>EasternEuropean</item>
+        <item>Spanish</item>
+        <item>French</item>
+    </string-array>
+    <string-array name="category_meal_array">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Main Meal</item>
+        <item>Snack</item>
+        <item>Side</item>
+        <item>Kids</item>
+    </string-array>
 
 
 

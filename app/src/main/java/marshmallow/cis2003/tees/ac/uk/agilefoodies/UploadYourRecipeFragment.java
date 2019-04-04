@@ -13,10 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -55,6 +57,10 @@ public class UploadYourRecipeFragment extends Fragment {
         final EditText ingredientsText = v.findViewById(R.id.your_recipe_ingredients);
         final EditText timeText = v.findViewById(R.id.editText2);
         database = FirebaseFirestore.getInstance();
+        Spinner categorySpinner = v.findViewById(R.id.category_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.category_theme_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(adapter);
 
                     for (int i = 0; i < ingredientsText.getMaxLines(); i++) {
                         Log.i("Info log", "result is" + i);
