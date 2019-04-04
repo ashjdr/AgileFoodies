@@ -17,14 +17,16 @@
     <EditText
         android:id="@+id/your_recipe_ingredients"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="type your ingredients here(one per line)"
+        android:layout_height="100dp"
+        android:scrollbars = "vertical"
+        android:maxLines="12"
         app:layout_constraintTop_toBottomOf="@id/your_recipe_name"
         />
     <EditText
         android:id="@+id/your_recipe_instructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="12"
         android:hint="type your instructions here"
         app:layout_constraintTop_toBottomOf="@id/your_recipe_ingredients"/>
     <ImageButton
@@ -84,4 +86,10 @@
         android:hint="Time taken in total "
         app:layout_constraintTop_toBottomOf="@id/switch2"
         app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
+
+    <Spinner
+        android:id="@+id/category_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
 </android.support.constraint.ConstraintLayout>
