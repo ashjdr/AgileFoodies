@@ -39,7 +39,6 @@
     </string-array>
 
 
-
     <!-- Jack -->
     <string name="search_param">Enter item</string>
     <string name="breakfast">Breakfast</string>
@@ -102,6 +101,9 @@
     <string name="timer_icon">timer Icon</string>
     <string name="set">Set</string>
     <string name="set_minutes">Set Minutes</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Marshall -->
 
