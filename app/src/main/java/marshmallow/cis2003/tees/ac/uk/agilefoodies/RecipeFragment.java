@@ -96,7 +96,6 @@ public class RecipeFragment extends Fragment  {
 
                         });
 
-
                         fields.append("\n\nInstructions:");
                         List<String> group2 = (List<String>) document.get("instructions");
                         int num = 1;

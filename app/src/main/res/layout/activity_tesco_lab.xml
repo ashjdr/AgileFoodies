@@ -64,6 +64,6 @@ android:id="@+id/adFragment"
 android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
 android:layout_width="match_parent"
 android:layout_height="75dp"
-android:layout_alignParentBottom="true"
-android:layout_alignParentEnd="true" />
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true" />
     </RelativeLayout>

@@ -132,6 +132,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         }
 
+
         else if (id == R.id.nav_locate) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FindNearestShopFragment())
@@ -141,7 +142,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         else if (id == R.id.nav_home) {
 
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new HomePageFragment())
+                    .replace(R.id.contentFragment, new SearchRecipeFragment())
                     .commit();
 
 

@@ -43,7 +43,9 @@ FirebaseFirestore database;
 
      View v =  inflater.inflate(R.layout.fragment_search_recipe, container, false);
         searchText = v.findViewById(R.id.recipe_text);
-        textEntered= searchText.getText().toString();
+
+        
+        textEntered = searchText.getText().toString();
         database.collection ("recipes")
                 .whereEqualTo(textEntered,true)
                 .get()
