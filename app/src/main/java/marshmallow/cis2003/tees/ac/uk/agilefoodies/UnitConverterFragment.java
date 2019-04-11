@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
+import static java.util.Locale.UK;
+
 /**
  * Created by t7039352 on 02/04/19.
  *
@@ -41,8 +43,15 @@ public class UnitConverterFragment extends Fragment {
 
     private String toUnit;
     private String fromUnit;
+
     private double toValue;
     private double fromValue;
+
+    private Spinner fromSpin;
+    private Spinner toSpin;
+
+    private TextView fromTxt;
+
 
     private View v;
 
@@ -52,37 +61,36 @@ public class UnitConverterFragment extends Fragment {
         flag = true;
         v = inflater.inflate(R.layout.fragment_unit_converter, container, false);
 
-        final Spinner fromSpin = v.findViewById(R.id.spinnerFrom);
+        fromSpin = v.findViewById(R.id.spinnerFrom);
+        toSpin = v.findViewById(R.id.spinnerTo);
+
+        fromTxt = v.findViewById(R.id.fromTxt);
+
         fromSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 fromUnit = fromSpin.getSelectedItem().toString();
+                callConvert(getFromUnit(), getToUnit(), getFromValue(), "from");
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-
-        final Spinner toSpin = v.findViewById(R.id.spinnerTo);
         toSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 toUnit = toSpin.getSelectedItem().toString();
+                callConvert(getFromUnit(), getToUnit(), getFromValue(), "from");
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
 
 
-        final TextView fromTxt = v.findViewById(R.id.fromTxt);
+        /*final TextView fromTxt = v.findViewById(R.id.fromTxt);
 
         Button sadButton = v.findViewById(R.id.sadbutton);
 
@@ -93,7 +101,7 @@ public class UnitConverterFragment extends Fragment {
                 fromValue = Double.parseDouble(fromTxt.getText().toString());
                 callConvert(fromUnit, toUnit, fromValue, "from");
             }
-        });
+        });*/
 
 
         /*final TextView toTxt = v.findViewById(R.id.toTxt);
@@ -117,10 +125,10 @@ public class UnitConverterFragment extends Fragment {
                 else
                     flag = true;
             }
-        });
+        });*/
 
 
-        //final TextView fromTxt = v.findViewById(R.id.fromTxt);
+
         fromTxt.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -132,21 +140,34 @@ public class UnitConverterFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s)
             {
-                if (flag)
+                if (fromTxt.getText().toString().equals("") )
                 {
-                    fromValue = Double.parseDouble(toTxt.getText().toString());
+                    fromValue = Double.parseDouble("0");
                     callConvert(fromUnit, toUnit, fromValue, "from");
-                    flag = false;
                 }
                 else
-                    flag = true;
+                    fromValue = Double.parseDouble(fromTxt.getText().toString());
+                callConvert(fromUnit, toUnit, fromValue, "from");
             }
-        });*/
-
+        });
 
         return v;
     }
 
+    private String getFromUnit()
+    {
+        return fromSpin.getSelectedItem().toString();
+    }
+
+    private String getToUnit()
+    {
+        return toSpin.getSelectedItem().toString();
+    }
+
+    private Double getFromValue()
+    {
+        return Double.parseDouble(fromTxt.getText().toString());
+    }
 
 
     @SuppressLint("SetTextI18n")
@@ -155,12 +176,12 @@ public class UnitConverterFragment extends Fragment {
         if (tofrm.equals("to"))
         {
             EditText fromTxt = v.findViewById(R.id.fromTxt);
-            fromTxt.setText(convert(to, from, value).toString());
+            fromTxt.setText(String.format(UK,"%.2f", convert(to, from, value)));
         }
         else if (tofrm.equals("from"))
         {
             EditText toTxt = v.findViewById(R.id.toTxt);
-            toTxt.setText(convert(from, to, value).toString());
+            toTxt.setText(String.format(UK,"%.2f", convert(from, to, value)));
         }
 }
 
