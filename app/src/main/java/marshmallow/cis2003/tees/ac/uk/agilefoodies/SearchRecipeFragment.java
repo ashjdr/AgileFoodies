@@ -9,10 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -22,6 +25,7 @@ public class SearchRecipeFragment extends Fragment {
 EditText searchText;
 private String textEntered;
 FirebaseFirestore database;
+Button searchButton;
 
 
     public SearchRecipeFragment() {
@@ -42,31 +46,38 @@ FirebaseFirestore database;
                              Bundle savedInstanceState) {
 
      View v =  inflater.inflate(R.layout.fragment_search_recipe, container, false);
-        searchText = v.findViewById(R.id.recipe_text);
+        searchText = v.findViewById(R.id.search_term);
+        searchButton = v.findViewById(R.id.buttonSearch);
+        database = FirebaseFirestore.getInstance();
 
-        
-        textEntered = searchText.getText().toString();
-        database.collection ("recipes")
-                .whereEqualTo(textEntered,true)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (DocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textEntered = searchText.getText().toString();
+                database.collection("recipes")
+                        .whereEqualTo(textEntered, true)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (DocumentSnapshot document : task.getResult()) {
+                                        Log.d(TAG, document.getId() + " => " + document.getData());
+                                        Log.d(TAG, "checking progress of extraction");
+                                    }
+                                } else {
+                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                }
                             }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-
+                        });
+            }
+            });
 
 
 
         return v;
-    }
+
+}}
 
 
-}

@@ -58,8 +58,9 @@ public class UploadYourRecipeFragment extends Fragment {
         final EditText timeText = v.findViewById(R.id.editText2);
         database = FirebaseFirestore.getInstance();
         Spinner categorySpinner = v.findViewById(R.id.category_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.category_theme_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.category_theme_array, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         categorySpinner.setAdapter(adapter);
 
                     for (int i = 0; i < ingredientsText.getMaxLines(); i++) {

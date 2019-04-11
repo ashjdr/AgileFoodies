@@ -89,9 +89,9 @@
 
     <Spinner
         android:id="@+id/category_spinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/editText2"
-        app:layout_constraintLeft_toRightOf="@id/save_upload"/>
+        android:layout_width="336dp"
+        android:layout_height="25dp"
+        app:layout_constraintLeft_toRightOf="@id/save_upload"
+        app:layout_constraintTop_toBottomOf="@id/editText2" />
 
 </android.support.constraint.ConstraintLayout>
