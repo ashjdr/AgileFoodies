@@ -109,7 +109,7 @@ public class RecipeFragment extends Fragment  {
                             fields.append("\n" + num + ") " + element + "\n" );
                             num++;
                         }
-                        recipeText.setText(fields);
+                        recipetext.setText(fields);
                     } else {
                         Log.d(TAG, "No such document");
                     }
@@ -147,5 +147,5 @@ public class RecipeFragment extends Fragment  {
 
 
 
-}
+
 
