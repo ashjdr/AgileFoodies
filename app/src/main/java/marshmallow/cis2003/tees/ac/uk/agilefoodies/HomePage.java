@@ -17,8 +17,6 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener {
-    static RecipeFragment fragOne;
-    static TimerFragment fragTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,17 +117,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
 
         else if (id == R.id.timer_fragment){
-            fragTwo = new TimerFragment();
+
              getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, fragTwo)
+                    .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
+        }
 
-        } else if (id == R.id.recipe_fragment) {
-            fragOne = new RecipeFragment();
+        else if (id == R.id.recipe_fragment) {
+
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, fragOne)
+                    .replace(R.id.contentFragment, new RecipeFragment())
                     .commit();
-
         }
 
         else if (id == R.id.nav_locate) {
@@ -143,8 +141,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
-
-
         }
 
         else if (id == R.id.nav_review) {
@@ -158,10 +154,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
-        } else if (id == R.id.nav_share) {
+        }
+        else if (id == R.id.nav_converter) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new UnitConverterFragment())
                     .commit();
+
+        }
+
+        else if (id == R.id.nav_share) {
             //action needed
         } else if (id == R.id.nav_send) {
             //action needed
@@ -176,7 +177,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public void onFragmentInteraction(Long time) {
-        fragTwo = new TimerFragment();
+        TimerFragment fragTwo = new TimerFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, fragTwo)
                 .commitNow();

@@ -58,7 +58,7 @@
     <string name="from">From</string>
     <string name="go">Go</string>
     <!-- /unit converter -->
-
+    <string name="converter">Converter</string>
 
     <string name="review_button">Review</string>
     <string name="review_text">Please Leave a review</string>
@@ -112,6 +112,7 @@
     <string name="vegetarian">Vegetarian?</string>
     <string name="time_taken_in_total">time taken in total</string>
     <string name="_0">0</string>
+    <string name="show_recipe">Show Recipe</string>
 
 
     <!-- Marshall -->
