@@ -27,13 +27,15 @@ import java.util.List;
 import java.util.Timer;
 import static android.content.ContentValues.TAG;
 
-public class RecipeFragment extends Fragment  {
+public class RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentInteractionListener  {
     public TextView recipetext;
     public TextView nameView;
     public TextView timeView;
     FirebaseFirestore database;
     RecipeClass recipe;
     Timer timer;
+//    SearchRecipeFragment searchRecipe;
+    String mTextEntered;
 
     private OnFragmentInteractionListener mListener;
 
@@ -54,7 +56,7 @@ public class RecipeFragment extends Fragment  {
         nameView = v.findViewById(R.id.recipe_name);
         database = FirebaseFirestore.getInstance();
         CollectionReference recipes = database.collection("recipes");
-        final DocumentReference docRef = database.collection(recipes.getId()).document("JGamlzKMjXtoUsAncqcY");
+        final DocumentReference docRef = database.collection(recipes.getId()).document("" + mTextEntered);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -130,6 +132,14 @@ public class RecipeFragment extends Fragment  {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+
+    public void onFragmentInteraction(String textEntered) {
+        Log.d("SearchFragment", "onFragmentInteraction()");
+        mTextEntered = textEntered;
+
+
     }
 
     public interface OnFragmentInteractionListener {

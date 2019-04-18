@@ -23,9 +23,11 @@ import static com.android.volley.VolleyLog.TAG;
 
 public class SearchRecipeFragment extends Fragment {
 EditText searchText;
-private String textEntered;
+public static String textEntered;
 FirebaseFirestore database;
 Button searchButton;
+RecipeFragment recipe;
+private OnFragmentInteractionListener sListener;
 
 
     public SearchRecipeFragment() {
@@ -51,26 +53,12 @@ Button searchButton;
         database = FirebaseFirestore.getInstance();
 
 
+
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                textEntered = searchText.getText().toString();
-                database.collection("recipes")
-                        .whereEqualTo(textEntered, true)
-                        .get()
-                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    for (DocumentSnapshot document : task.getResult()) {
-                                        Log.d(TAG, document.getId() + " => " + document.getData());
-                                        Log.d(TAG, "checking progress of extraction");
-                                    }
-                                } else {
-                                    Log.d(TAG, "Error getting documents: ", task.getException());
-                                }
-                            }
-                        });
+            public void onClick(View view) { textEntered = searchText.getText().toString();
+                sListener.onFragmentInteraction(textEntered);
             }
             });
 
@@ -78,6 +66,32 @@ Button searchButton;
 
         return v;
 
-}}
+
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof SearchRecipeFragment.OnFragmentInteractionListener) {
+            sListener = (SearchRecipeFragment.OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        sListener = null;
+    }
+    public interface OnFragmentInteractionListener {
+        void onFragmentInteraction(String textEntered);
+
+    }
+
+
+   }
 
 
