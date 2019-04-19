@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,16 +8,29 @@
     <!-- TODO: Update blank fragment layout -->
 
     <EditText
-        android:id = "@+id/search_term"
+        android:id = "@+id/search_term_recipe_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="Search term: " />
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/buttonSearch_recipe_name"
+        android:hint="Search recipe names: " />
 
     <Button
-        android:id="@+id/buttonSearch"
+        android:id="@+id/buttonSearch_recipe_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="searchButton" />
 
+    <EditText
+        android:id="@+id/search_term_ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/buttonSearch_ingredients"
+        android:hint="Search recipe names: " />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/buttonSearch_ingredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="searchButton" />
+
+</RelativeLayout>
