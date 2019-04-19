@@ -24,13 +24,15 @@
         android:id="@+id/search_term_ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/search_term_recipe_name"
         android:layout_toRightOf="@id/buttonSearch_ingredients"
-        android:hint="Search recipe names: " />
+        android:hint="Search ingredients: " />
 
     <Button
         android:id="@+id/buttonSearch_ingredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="searchButton" />
+        android:layout_below="@+id/buttonSearch_recipe_name"
+        android:text="ingredient Search" />
 
 </RelativeLayout>

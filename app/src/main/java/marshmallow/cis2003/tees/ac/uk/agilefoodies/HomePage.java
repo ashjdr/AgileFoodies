@@ -183,13 +183,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         fragTwo.onFragmentInteraction(time, name);
     }
 
-    public void onFragmentInteraction(String textEntered) {
+    public void onFragmentInteraction(String textEntered, String queryType) {
         fragOne = new RecipeFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, fragOne)
                 .commit();
-        fragOne.onFragmentInteraction(textEntered);
+        fragOne.onFragmentInteraction(textEntered, queryType );
     }
+
+
 }
 
 

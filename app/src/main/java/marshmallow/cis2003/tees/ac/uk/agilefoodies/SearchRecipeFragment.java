@@ -26,6 +26,8 @@ EditText searchText;
 public static String textEntered;
 FirebaseFirestore database;
 Button searchButton;
+EditText ingredientSearchText;
+Button ingredientSearchButton;
 RecipeFragment recipe;
 private OnFragmentInteractionListener sListener;
 
@@ -48,8 +50,10 @@ private OnFragmentInteractionListener sListener;
                              Bundle savedInstanceState) {
 
      View v =  inflater.inflate(R.layout.fragment_search_recipe, container, false);
-        searchText = v.findViewById(R.id.search_term);
-        searchButton = v.findViewById(R.id.buttonSearch);
+        searchText = v.findViewById(R.id.search_term_recipe_name);
+        searchButton = v.findViewById(R.id.buttonSearch_recipe_name);
+        ingredientSearchText = v.findViewById(R.id.search_term_ingredients);
+        ingredientSearchButton = v.findViewById(R.id.buttonSearch_ingredients);
         database = FirebaseFirestore.getInstance();
 
 
@@ -58,11 +62,18 @@ private OnFragmentInteractionListener sListener;
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { textEntered = searchText.getText().toString();
-                sListener.onFragmentInteraction(textEntered);
+
+                sListener.onFragmentInteraction(textEntered,"recipeName");
             }
             });
 
+        ingredientSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { textEntered = ingredientSearchText.getText().toString();
 
+                sListener.onFragmentInteraction(textEntered,"ingredientName");
+            }
+        });
 
         return v;
 
@@ -87,7 +98,7 @@ private OnFragmentInteractionListener sListener;
         sListener = null;
     }
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(String textEntered);
+        void onFragmentInteraction(String textEntered, String queryType);
 
     }
 

@@ -36,6 +36,8 @@ public class RecipeFragment extends Fragment implements SearchRecipeFragment.OnF
     Timer timer;
 //    SearchRecipeFragment searchRecipe;
     String mTextEntered;
+    String mQueryType;
+    DocumentReference docRef;
 
     private OnFragmentInteractionListener mListener;
 
@@ -56,7 +58,9 @@ public class RecipeFragment extends Fragment implements SearchRecipeFragment.OnF
         nameView = v.findViewById(R.id.recipe_name);
         database = FirebaseFirestore.getInstance();
         CollectionReference recipes = database.collection("recipes");
-        final DocumentReference docRef = database.collection(recipes.getId()).document("" + mTextEntered);
+        if (mQueryType == "recipeName"){
+        docRef = database.collection(recipes.getId()).document("" + mTextEntered);}
+        else if (mQueryType == "ingredientName"){Log.d(TAG, "ingredient search");}
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -144,9 +148,10 @@ public class RecipeFragment extends Fragment implements SearchRecipeFragment.OnF
     }
 
 
-    public void onFragmentInteraction(String textEntered) {
+    public void onFragmentInteraction(String textEntered, String queryType) {
         Log.d("SearchFragment", "onFragmentInteraction()");
         mTextEntered = textEntered;
+        mQueryType = queryType;
 
 
     }
