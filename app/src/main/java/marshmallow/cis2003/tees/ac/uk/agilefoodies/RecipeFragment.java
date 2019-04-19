@@ -72,17 +72,23 @@ public class RecipeFragment extends Fragment implements SearchRecipeFragment.OnF
 
                         List<String> group = (List<String>) document.get("ingredients");
                         for (final String element: group){
+
                             //TO LOOK AT ??
                             TextView tView = new TextView(getContext());
-                            tView.setText(element);
-                            ingredient.addView(tView);
-                            tView.setOnClickListener(new View.OnClickListener(){
-                                public void onClick(View v){
-                                    Intent intent = new Intent(RecipeFragment.this.getActivity(), tescoLab.class);
-                                    intent.putExtra("ingredient",element);
-                                    startActivity(intent);
-                                }
-                            });
+                            if (group == null){
+                                tView.setText("No ingredients");
+                            }
+                            else {
+                                tView.setText(element);
+                                ingredient.addView(tView);
+                                tView.setOnClickListener(new View.OnClickListener() {
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(RecipeFragment.this.getActivity(), tescoLab.class);
+                                        intent.putExtra("ingredient", element);
+                                        startActivity(intent);
+                                    }
+                                });
+                            }
                             //fields.append("\n" + element);
                         }
                         final long timing = (long)document.get("Time");
@@ -100,12 +106,15 @@ public class RecipeFragment extends Fragment implements SearchRecipeFragment.OnF
 
                         fields.append("\n\nInstructions:");
                         List<String> group2 = (List<String>) document.get("instructions");
+                        if (group2 == null){
+                        fields.append("\n No instructions found");}
+                        else{
                         int num = 1;
                         for (String element: group2){
                             fields.append("\n" + num + ") " + element + "\n" );
                             num++;
                         }
-                        recipetext.setText(fields);
+                        recipetext.setText(fields);}
                     } else {
                         Log.d(TAG, "No such document");
                     }
