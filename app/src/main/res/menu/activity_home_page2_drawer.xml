@@ -6,8 +6,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/home"
-            android:title="@string/home" />
+            android:icon="@drawable/search"
+            android:title="Search for a recipe" />
         <!--the icon used here is under the following licence: https://www.iconbros.com/license -->
         <!--It can therefore be used for the purposes of this app-->
         <item

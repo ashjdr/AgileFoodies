@@ -75,14 +75,13 @@ public class RecipeFragment extends Fragment implements SearchRecipeFragment.OnF
 
 
                         List<String> group = (List<String>) document.get("ingredients");
+                        TextView tView = new TextView(getContext());
+                        if (group == null){
+                            tView.setText("No ingredients");
+                        }
+                        else {
                         for (final String element: group){
 
-                            //TO LOOK AT ??
-                            TextView tView = new TextView(getContext());
-                            if (group == null){
-                                tView.setText("No ingredients");
-                            }
-                            else {
                                 tView.setText(element);
                                 ingredient.addView(tView);
                                 tView.setOnClickListener(new View.OnClickListener() {
