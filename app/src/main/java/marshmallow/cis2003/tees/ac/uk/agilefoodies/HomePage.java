@@ -18,10 +18,6 @@ import com.google.android.gms.ads.MobileAds;
 
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener, SearchRecipeFragment.OnFragmentInteractionListener {
-    static RecipeFragment fragOne;
-    static TimerFragment fragTwo;
-    static SearchRecipeFragment fragThree;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,22 +116,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     .commit();
         }
 
-
         else if (id == R.id.timer_fragment){
-
-             getSupportFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
         }
 
         else if (id == R.id.recipe_search_fragment) {
-            fragThree = new SearchRecipeFragment();
-
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, fragThree)
+                    .replace(R.id.contentFragment, new SearchRecipeFragment())
                     .commit();
         }
-
 
         else if (id == R.id.nav_locate) {
             getSupportFragmentManager().beginTransaction()
@@ -156,16 +147,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_foodbank) {
-
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
         }
+
         else if (id == R.id.nav_converter) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new UnitConverterFragment())
                     .commit();
-
         }
 
         else if (id == R.id.nav_share) {
@@ -184,7 +174,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
 
     public void onFragmentInteraction(Long time, String name) {
-        fragTwo = new TimerFragment();
+        TimerFragment fragTwo = new TimerFragment();
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, fragTwo)
@@ -192,8 +182,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         fragTwo.onFragmentInteraction(time, name);
     }
 
-    public void onFragmentInteraction(String textEntered, String queryType) {
-        fragOne = new RecipeFragment();
+    public void onFragmentInteraction(String textEntered, String queryType)
+    {
+        RecipeFragment fragOne = new RecipeFragment();
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, fragOne)
                 .commit();
