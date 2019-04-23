@@ -17,14 +17,17 @@
     <EditText
         android:id="@+id/your_recipe_ingredients"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/type_your_ingredients_here_one_per_line"
+        android:layout_height="100dp"
+        android:scrollbars = "vertical"
+        android:maxLines="12"
         app:layout_constraintTop_toBottomOf="@id/your_recipe_name"
-        />
+        android:inputType="text"
+        tools:ignore="LabelFor" />
     <EditText
         android:id="@+id/your_recipe_instructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="12"
         android:hint="@string/type_your_instructions_here"
         app:layout_constraintTop_toBottomOf="@id/your_recipe_ingredients"/>
     <ImageButton
@@ -84,4 +87,12 @@
         android:hint="@string/time_taken_in_total"
         app:layout_constraintTop_toBottomOf="@id/switch2"
         app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
+
+    <Spinner
+        android:id="@+id/category_spinner"
+        android:layout_width="336dp"
+        android:layout_height="25dp"
+        app:layout_constraintLeft_toRightOf="@id/save_upload"
+        app:layout_constraintTop_toBottomOf="@id/editText2" />
+
 </android.support.constraint.ConstraintLayout>

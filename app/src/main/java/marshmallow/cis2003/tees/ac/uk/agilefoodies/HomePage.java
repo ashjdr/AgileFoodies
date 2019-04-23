@@ -16,7 +16,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener {
+
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener, SearchRecipeFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,18 +116,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     .commit();
         }
 
-
         else if (id == R.id.timer_fragment){
-
-             getSupportFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
         }
 
-        else if (id == R.id.recipe_fragment) {
-
+        else if (id == R.id.recipe_search_fragment) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new RecipeFragment())
+                    .replace(R.id.contentFragment, new SearchRecipeFragment())
                     .commit();
         }
 
@@ -137,7 +135,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_home) {
-
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
@@ -150,16 +147,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_foodbank) {
-
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
         }
+
         else if (id == R.id.nav_converter) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new UnitConverterFragment())
                     .commit();
-
         }
 
         else if (id == R.id.nav_share) {
@@ -176,13 +172,27 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     @Override
-    public void onFragmentInteraction(Long time) {
+
+    public void onFragmentInteraction(Long time, String name) {
         TimerFragment fragTwo = new TimerFragment();
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, fragTwo)
                 .commitNow();
-        fragTwo.onFragmentInteraction(time);
+        fragTwo.onFragmentInteraction(time, name);
     }
+
+    public void onFragmentInteraction(String textEntered, String queryType)
+    {
+        RecipeFragment fragOne = new RecipeFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragOne)
+                .commit();
+        fragOne.onFragmentInteraction(textEntered, queryType );
+    }
+
+
 }
 
 
