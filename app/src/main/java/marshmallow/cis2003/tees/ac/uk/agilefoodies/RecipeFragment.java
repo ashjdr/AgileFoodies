@@ -27,7 +27,7 @@ import static android.content.ContentValues.TAG;
 
 
 public class
-RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentInteractionListener  {
+RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentInteractionListener{
 
     private TextView recipetext;
     private TextView nameView;
@@ -40,9 +40,11 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
     String mTextEntered;
     String mQueryType;
     DocumentReference docRef;
+    String recipeNameFragmentInteraction;
 
 
     private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener bListener;
 
 
     public RecipeFragment(){
@@ -67,79 +69,80 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
 
         CollectionReference recipes = database.collection("recipes");
-        if (mQueryType.equals("ingredientName")) {
-
-           Query query =  recipes.whereEqualTo("ingredientName", mTextEntered);
-
-
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    LinearLayout ingredient = getActivity().findViewById(R.id.ingredient);
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            StringBuilder fields = new StringBuilder ("");
-                            fields.append("\nVegan?: ").append(document.get("Vegan"));
-                            fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
-                            fields.append("\nCategory: ").append(document.get("category"));
-
-
-                            List<String> group = (List<String>) document.get("ingredients");
-                            TextView tView = new TextView(getContext());
-                            if (group == null){
-                                tView.setText(R.string.no_ingredients);
-                            }
-                            else {
-                                tView.append("Ingredients:\n");
-                                for  (final String element: group){
-                                    tView.append(element + "\n");
-                                    tView.setOnClickListener(new View.OnClickListener() {
-                                        public void onClick(View v) {
-                                            Intent intent = new Intent(RecipeFragment.this.getActivity(), tescoLab.class);
-                                            intent.putExtra("ingredient", element);
-                                            startActivity(intent);
-                                        }
-                                    });
-                                }
-                                ingredient.addView(tView);
-                                //fields.append("\n" + element);
-                            }
-                            final long timing = (long)document.get("time");
-
-                            timeView.setText("Time: " + timing) ;
-                            final String name = (String)document.get("name");
-                            nameView.setText("Recipe Name: " + name) ;
-                            timeView.setOnClickListener(new View.OnClickListener(){
-                                public void onClick(View v){
-                                    mListener.onFragmentInteraction(timing, name);
-                                }
-
-
-                            });
-
-                            fields.append("\n\nInstructions:");
-                            List<String> group2 = (List<String>) document.get("instructions");
-                            if (group2 == null){
-                                fields.append("\n No instructions found");}
-                            else{
-                                int num = 1;
-                                for (String element: group2){
-                                    fields.append("\n" + num + ") " + element + "\n" );
-                                    num++;
-                                }
-                                recipetext.setText(fields);}
-                        } else {
-                            Log.d(TAG, "No such document");
-                        }
-                    } else {
-                        Log.d(TAG, "get failed with ", task.getException());
-                    }
-                }
-            });}
-
-
-        else if (mQueryType.equals("recipeName")){
+//        if (mQueryType.equals("ingredientName")) {
+//
+//           Query query =  recipes.whereEqualTo("ingredientName", mTextEntered);
+//
+//
+//            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                @Override
+//                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                    LinearLayout ingredient = getActivity().findViewById(R.id.ingredient);
+//                    if (task.isSuccessful()) {
+//                        DocumentSnapshot document = task.getResult();
+//                        if (document.exists()) {
+//                            StringBuilder fields = new StringBuilder ("");
+//                            fields.append("\nVegan?: ").append(document.get("Vegan"));
+//                            fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
+//                            fields.append("\nCategory: ").append(document.get("category"));
+//
+//
+//                            List<String> group = (List<String>) document.get("ingredients");
+//                            TextView tView = new TextView(getContext());
+//                            if (group == null){
+//                                tView.setText(R.string.no_ingredients);
+//                            }
+//                            else {
+//                                tView.append("Ingredients:\n");
+//                                for  (final String element: group){
+//                                    tView.append(element + "\n");
+//                                    tView.setOnClickListener(new View.OnClickListener() {
+//                                        public void onClick(View v) {
+//                                            Intent intent = new Intent(RecipeFragment.this.getActivity(), tescoLab.class);
+//                                            intent.putExtra("ingredient", element);
+//                                            startActivity(intent);
+//                                        }
+//                                    });
+//                                }
+//                                ingredient.addView(tView);
+//                                //fields.append("\n" + element);
+//                            }
+//                            final long timing = (long)document.get("time");
+//
+//                            timeView.setText("Time: " + timing) ;
+//                            final String name = (String)document.get("name");
+//                            nameView.setText("Recipe Name: " + name) ;
+//                            timeView.setOnClickListener(new View.OnClickListener(){
+//                                public void onClick(View v){
+//                                    mListener.onFragmentInteraction(timing, name);
+//                                }
+//
+//
+//                            });
+//
+//                            fields.append("\n\nInstructions:");
+//                            List<String> group2 = (List<String>) document.get("instructions");
+//                            if (group2 == null){
+//                                fields.append("\n No instructions found");}
+//                            else{
+//                                int num = 1;
+//                                for (String element: group2){
+//                                    fields.append("\n" + num + ") " + element + "\n" );
+//                                    num++;
+//                                }
+//                                recipetext.setText(fields);}
+//                        } else {
+//                            Log.d(TAG, "No such document");
+//                        }
+//                    } else {
+//                        Log.d(TAG, "get failed with ", task.getException());
+//                    }
+//                }
+//            });}
+//
+//
+//        else
+        if ((mQueryType != null) && mQueryType.equals("recipeName")){
         docRef = database.collection(recipes.getId()).document("" + mTextEntered);
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -203,11 +206,82 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                     } else {
                         Log.d(TAG, "No such document");
                     }
-                } else {
-                    Log.d(TAG, "Get failed with ", task.getException());
                 }
             }
         });}
+        else { docRef = database.collection(recipes.getId()).document("" +recipeNameFragmentInteraction);
+
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    LinearLayout ingredient = getActivity().findViewById(R.id.ingredient);
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            StringBuilder fields = new StringBuilder ("");
+                            fields.append("\nVegan?: ").append(document.get("Vegan"));
+                            fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
+                            fields.append("\nCategory: ").append(document.get("category"));
+
+
+                            List<String> group = (List<String>) document.get("ingredients");
+                            TextView tView = new TextView(getContext());
+                            if (group == null){
+                                tView.setText("No ingredients");
+                            }
+                            else {
+                                tView.append("Ingredients:\n");
+                                for  (final String element: group){
+                                    tView.append(element + "\n");
+                                    tView.setOnClickListener(new View.OnClickListener() {
+                                        public void onClick(View v) {
+                                            Intent intent = new Intent(RecipeFragment.this.getActivity(), tescoLab.class);
+                                            intent.putExtra("ingredient", element);
+                                            startActivity(intent);
+                                        }
+                                    });
+                                }
+
+                                ingredient.addView(tView);
+                                //fields.append("\n" + element);
+                            }
+                            final long timing = (long)document.get("time");
+
+                            timeView.setText("Time: "+ timing) ;
+                            final String name = (String)document.get("name");
+                            nameView.setText("Recipe Name: "+ name) ;
+                            timeView.setOnClickListener(new View.OnClickListener(){
+                                public void onClick(View v){
+                                    mListener.onFragmentInteraction(timing, name);
+                                }
+
+
+                            });
+
+                            fields.append("\n\nInstructions:");
+                            List<String> group2 = (List<String>) document.get("instructions");
+                            if (group2 == null){
+                                fields.append("\n No instructions found");}
+                            else{
+                                int num = 1;
+                                for (String element: group2){
+                                    fields.append("\n" + num + ") " + element + "\n" );
+                                    num++;
+                                }
+                                recipetext.setText(fields);}
+                        } else {
+                            Log.d(TAG, "No such document");
+                        }
+                    } else {
+                        Log.d(TAG, "Get failed with ", task.getException());
+                    }
+                }
+            });}
+
+
+
+
+
         return v;
     }
 
@@ -236,6 +310,14 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
 
     }
+
+
+    public void onFragmentInteraction(String recipeName) {
+        recipeNameFragmentInteraction = recipeName;
+
+    }
+
+
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Long time, String name);

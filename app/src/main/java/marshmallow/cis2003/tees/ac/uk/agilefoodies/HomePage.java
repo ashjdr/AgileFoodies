@@ -17,7 +17,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener, SearchRecipeFragment.OnFragmentInteractionListener {
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener,
+        SearchRecipeFragment.OnFragmentInteractionListener, HomePageFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, new HomePageFragment())
                 .commit();
+
+
+
         //end
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
@@ -181,6 +185,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 .commitNow();
         fragTwo.onFragmentInteraction(time, name);
     }
+
+
+
+    public void onFragmentInteraction(String recipeName) {
+        RecipeFragment fragFour = new RecipeFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragFour)
+                .commit();
+        fragFour.onFragmentInteraction(recipeName);
+    }
+
 
     public void onFragmentInteraction(String textEntered, String queryType)
     {
