@@ -52,6 +52,9 @@ public class UnitConverterFragment extends Fragment {
 
     private TextView fromTxt;
 
+    Boolean x;
+    Boolean y;
+
 
     private View v;
 
@@ -66,11 +69,23 @@ public class UnitConverterFragment extends Fragment {
 
         fromTxt = v.findViewById(R.id.fromTxt);
 
+        fromUnit = fromSpin.getSelectedItem().toString();
+        toUnit = toSpin.getSelectedItem().toString();
+
+        x = false;
+        y = false;
+
         fromSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                fromUnit = fromSpin.getSelectedItem().toString();
-                callConvert(getFromUnit(), getToUnit(), getFromValue(), "from");
+               /* if (x)
+                {*/
+                    fromUnit = fromSpin.getSelectedItem().toString();
+                    callConvert(getFromUnit(), getToUnit(), getFromValue());
+               /* }
+                else
+                    x = true;*/
+
             }
 
             @Override
@@ -80,52 +95,18 @@ public class UnitConverterFragment extends Fragment {
         toSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                toUnit = toSpin.getSelectedItem().toString();
-                callConvert(getFromUnit(), getToUnit(), getFromValue(), "from");
-
+                /*if (y)
+                {*/
+                    toUnit = toSpin.getSelectedItem().toString();
+                    callConvert(getFromUnit(), getToUnit(), getFromValue());
+                /*}
+                else
+                    y = true;*/
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
-
-
-        /*final TextView fromTxt = v.findViewById(R.id.fromTxt);
-
-        Button sadButton = v.findViewById(R.id.sadbutton);
-
-        sadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                fromValue = Double.parseDouble(fromTxt.getText().toString());
-                callConvert(fromUnit, toUnit, fromValue, "from");
-            }
-        });*/
-
-
-        /*final TextView toTxt = v.findViewById(R.id.toTxt);
-        toTxt.addTextChangedListener(new TextWatcher()
-        {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-                if (flag)
-                {
-                    toValue = Double.parseDouble(toTxt.getText().toString());
-                    callConvert(fromUnit, toUnit, toValue, "to");
-                    flag = false;
-                }
-                else
-                    flag = true;
-            }
-        });*/
 
 
 
@@ -143,11 +124,11 @@ public class UnitConverterFragment extends Fragment {
                 if (fromTxt.getText().toString().equals("") )
                 {
                     fromValue = Double.parseDouble("0");
-                    callConvert(fromUnit, toUnit, fromValue, "from");
+                    callConvert(fromUnit, toUnit, fromValue);
                 }
                 else
                     fromValue = Double.parseDouble(fromTxt.getText().toString());
-                callConvert(fromUnit, toUnit, fromValue, "from");
+                callConvert(fromUnit, toUnit, fromValue);
             }
         });
 
@@ -171,19 +152,12 @@ public class UnitConverterFragment extends Fragment {
 
 
     @SuppressLint("SetTextI18n")
-    private void callConvert(String from, String to, Double value, String tofrm)
+    private void callConvert(String from, String to, Double value)
     {
-        if (tofrm.equals("to"))
-        {
-            EditText fromTxt = v.findViewById(R.id.fromTxt);
-            fromTxt.setText(String.format(UK,"%.2f", convert(to, from, value)));
-        }
-        else if (tofrm.equals("from"))
-        {
+
             EditText toTxt = v.findViewById(R.id.toTxt);
             toTxt.setText(String.format(UK,"%.2f", convert(from, to, value)));
-        }
-}
+    }
 
 
     private Double convert(String from, String to, Double value)
