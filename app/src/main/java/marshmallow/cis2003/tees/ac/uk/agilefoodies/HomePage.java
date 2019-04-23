@@ -128,10 +128,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     .commit();
         }
 
-        else if (id == R.id.recipe_fragment) {
+        else if (id == R.id.recipe_search_fragment) {
+            fragThree = new SearchRecipeFragment();
 
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new RecipeFragment())
+                    .replace(R.id.contentFragment, fragThree)
                     .commit();
         }
 
@@ -143,10 +144,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_home) {
-            fragThree = new SearchRecipeFragment();
-
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, fragThree)
+                    .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
         }
 
