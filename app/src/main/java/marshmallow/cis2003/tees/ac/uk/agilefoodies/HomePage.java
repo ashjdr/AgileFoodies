@@ -16,7 +16,12 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener {
+
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener, SearchRecipeFragment.OnFragmentInteractionListener {
+    static RecipeFragment fragOne;
+    static TimerFragment fragTwo;
+    static SearchRecipeFragment fragThree;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +135,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     .commit();
         }
 
+
         else if (id == R.id.nav_locate) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FindNearestShopFragment())
@@ -137,9 +143,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_home) {
+            fragThree = new SearchRecipeFragment();
 
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new HomePageFragment())
+                    .replace(R.id.contentFragment, fragThree)
                     .commit();
         }
 
@@ -176,13 +183,25 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     @Override
-    public void onFragmentInteraction(Long time) {
-        TimerFragment fragTwo = new TimerFragment();
+
+    public void onFragmentInteraction(Long time, String name) {
+        fragTwo = new TimerFragment();
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, fragTwo)
                 .commitNow();
-        fragTwo.onFragmentInteraction(time);
+        fragTwo.onFragmentInteraction(time, name);
     }
+
+    public void onFragmentInteraction(String textEntered, String queryType) {
+        fragOne = new RecipeFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragOne)
+                .commit();
+        fragOne.onFragmentInteraction(textEntered, queryType );
+    }
+
+
 }
 
 

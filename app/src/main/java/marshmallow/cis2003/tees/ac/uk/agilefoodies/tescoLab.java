@@ -61,18 +61,19 @@ public class tescoLab extends AppCompatActivity {
 
         querys = intent.getStringExtra("ingredient");
 
-       if(querys != null) {
+        if(querys != null) {
 
-           try {
-               jsonParse(querys);
-               mTextViewResult.append(querys);
-           } catch (AuthFailureError authFailureError) {
-               authFailureError.printStackTrace();
-           }
-       }
-       else {
-           mTextViewResult.append("No Search results");
-       }
+            try {
+                jsonParse(querys);
+                mTextViewResult.append(querys);
+            } catch (AuthFailureError authFailureError) {
+                authFailureError.printStackTrace();
+            }
+        }
+        else {
+            mTextViewResult.append("No Search results");
+        }
+
 
         buttonParse.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -172,6 +173,7 @@ public class tescoLab extends AppCompatActivity {
         mQueue.add(request);
     }
 
-  
+
 
 }
+

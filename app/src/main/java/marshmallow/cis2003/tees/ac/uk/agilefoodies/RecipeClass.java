@@ -1,8 +1,14 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import java.lang.reflect.Array;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.List;
 
 public class RecipeClass {
@@ -24,7 +30,7 @@ public class RecipeClass {
     }
 
 
-    public RecipeClass(String name, int time, boolean vegan, boolean vegetarian, String category, int ratingCount, int ratingValue, Timestamp timeCreated, List<String> ingredients, List<String> instructions) {
+    public RecipeClass(String name, int time, boolean vegan, boolean vegetarian, String category, int ratingCount, int ratingValue,  List<String> ingredients, List<String> instructions) {
         // [START_EXCLUDE]
         this.name = name;
         this.time = time;

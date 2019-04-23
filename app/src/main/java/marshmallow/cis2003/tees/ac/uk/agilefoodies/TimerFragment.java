@@ -31,6 +31,7 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class TimerFragment extends Fragment implements RecipeFragment.OnFragmentInteractionListener {
     private EditText mEditTextInput;
+    private TextView mTextViewName;
     private TextView mTextViewCountDown;
     private Button mButtonSet;
     private Button mButtonStartPause;
@@ -68,7 +69,7 @@ public class TimerFragment extends Fragment implements RecipeFragment.OnFragment
             mEditTextInput = v.findViewById(R.id.edit_text_input);
             mTextViewCountDown = v.findViewById(R.id.text_view_countdown);
             mButtonSet = v.findViewById(R.id.button_set);
-
+            mTextViewName = v.findViewById(R.id.textView5);
             mButtonStartPause = v.findViewById(R.id.button_start_pause);
             mButtonReset = v.findViewById(R.id.button_reset);
 
@@ -288,9 +289,10 @@ public class TimerFragment extends Fragment implements RecipeFragment.OnFragment
         }
 
     @Override
-    public void onFragmentInteraction(Long time) {
+    public void onFragmentInteraction(Long time, String name) {
         Log.d("TimerFragment", "onFragmentInteraction()");
         mEditTextInput.setText("" + time);
+        mTextViewName.setText("Timer for " + name);
 
     }
 }
