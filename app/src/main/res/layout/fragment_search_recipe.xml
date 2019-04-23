@@ -11,28 +11,28 @@
         android:id = "@+id/search_term_recipe_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/buttonSearch_recipe_name"
-        android:hint="Search recipe names: " />
+        android:layout_toEndOf="@id/buttonSearch_recipe_name"
+        android:hint="@string/search_recipe_names" />
 
     <Button
         android:id="@+id/buttonSearch_recipe_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="searchButton" />
+        android:text="@string/searchbutton" />
 
     <EditText
         android:id="@+id/search_term_ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_term_recipe_name"
-        android:layout_toRightOf="@id/buttonSearch_ingredients"
-        android:hint="Search ingredients: " />
+        android:layout_toEndOf="@id/buttonSearch_ingredients"
+        android:hint="@string/search_ingredients" />
 
     <Button
         android:id="@+id/buttonSearch_ingredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonSearch_recipe_name"
-        android:text="ingredient Search" />
+        android:text="@string/ingredient_search" />
 
 </RelativeLayout>

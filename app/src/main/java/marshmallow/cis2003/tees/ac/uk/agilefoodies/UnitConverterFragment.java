@@ -9,12 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import java.util.Objects;
 
 import static java.util.Locale.UK;
 
@@ -34,10 +31,10 @@ public class UnitConverterFragment extends Fragment {
      * tbsp-tsp =  1-3
      */
 
-    private double cupToml = 284.131;
-    private double pintToml = 568.261;
-    private double tbspToml = 17.7582;
-    private double tspToml = 5.91939;
+    private final double cupToml = 284.131;
+    private final double pintToml = 568.261;
+    private final double tbspToml = 17.7582;
+    private final double tspToml = 5.91939;
 
     private boolean flag;
 
@@ -52,8 +49,8 @@ public class UnitConverterFragment extends Fragment {
 
     private TextView fromTxt;
 
-    Boolean x;
-    Boolean y;
+    private Boolean x;
+    private Boolean y;
 
 
     private View v;
