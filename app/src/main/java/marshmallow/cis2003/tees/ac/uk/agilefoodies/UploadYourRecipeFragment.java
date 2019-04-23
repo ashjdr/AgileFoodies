@@ -48,6 +48,7 @@ public class UploadYourRecipeFragment extends Fragment {
     {
         View v = inflater.inflate(R.layout.activity_upload_your_recipe, container, false);
         final EditText nametext = v.findViewById(R.id.your_recipe_name);
+
         uploadedImage = v.findViewById(R.id.uploadedImage);
         ImageButton takePhoto = v.findViewById(R.id.takePhoto);
         ImageButton addImage = v.findViewById(R.id.imageButtonAddImage);

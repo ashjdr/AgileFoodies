@@ -25,11 +25,14 @@ import java.util.Timer;
 
 import static android.content.ContentValues.TAG;
 
+
 public class
 RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentInteractionListener  {
+
     public TextView recipetext;
     public TextView nameView;
     public TextView timeView;
+
     FirebaseFirestore database;
     RecipeClass recipe;
     Timer timer;
@@ -41,6 +44,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
     private OnFragmentInteractionListener mListener;
 
+
     public RecipeFragment(){
 
 
@@ -51,12 +55,16 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
         super.onCreate(savedInstanceState);
     }
     @Override
+
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
+
         recipetext = v.findViewById(R.id.recipe_text);
         timeView = v.findViewById(R.id.timer);
         nameView = v.findViewById(R.id.recipe_name);
         database = FirebaseFirestore.getInstance();
+
+
         CollectionReference recipes = database.collection("recipes");
         if (mQueryType == "ingredientName") {
 
@@ -163,6 +171,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                                     }
                                 });
                             }
+
                             ingredient.addView(tView);
                             //fields.append("\n" + element);
                         }
@@ -194,7 +203,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                         Log.d(TAG, "No such document");
                     }
                 } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+                    Log.d(TAG, "Get failed with ", task.getException());
                 }
             }
         });}
@@ -233,4 +242,8 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
     }
 
 }
+
+
+
+
 

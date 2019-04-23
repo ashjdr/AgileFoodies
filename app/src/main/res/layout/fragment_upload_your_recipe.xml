@@ -11,7 +11,7 @@
         android:id="@+id/your_recipe_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Type recipe name here"
+        android:hint="@string/type_recipe_name_here"
         app:layout_constraintTop_toBottomOf="@id/save_upload"
         />
     <EditText
@@ -35,7 +35,7 @@
         android:layout_height="@dimen/imageview_height"
         android:contentDescription="@string/add_image"
         android:src="@drawable/ic_menu_gallery"/>
-
+                                                            
     <ImageButton
         android:id="@+id/takePhoto"
         android:layout_width="@dimen/imageview_width"
@@ -50,7 +50,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:contentDescription="Image uploaded"
+        android:contentDescription="@string/image_uploaded"
         app:layout_constraintLeft_toRightOf="@id/imageButtonAddImage"
          />
 
@@ -66,14 +66,14 @@
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vegan?"
+        android:text="@string/vegan"
         app:layout_constraintLeft_toRightOf="@id/uploadedImage"
          />
     <Switch
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vegetarian?"
+        android:text="@string/vegetarian"
         app:layout_constraintTop_toBottomOf="@id/switch1"
         app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
 
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        android:hint="Time taken in total "
+        android:hint="@string/time_taken_in_total"
         app:layout_constraintTop_toBottomOf="@id/switch2"
         app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
 

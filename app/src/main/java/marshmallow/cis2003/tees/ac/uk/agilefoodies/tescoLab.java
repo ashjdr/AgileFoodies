@@ -74,6 +74,7 @@ public class tescoLab extends AppCompatActivity {
             mTextViewResult.append("No Search results");
         }
 
+
         buttonParse.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
@@ -171,7 +172,6 @@ public class tescoLab extends AppCompatActivity {
         };
         mQueue.add(request);
     }
-
 
 
 }
