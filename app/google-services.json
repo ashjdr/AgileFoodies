@@ -45,6 +45,10 @@
             "package_name": "marshmallow.cis2003.tees.ac.uk.agilefoodies",
             "certificate_hash": "5bc091d47c62ffb1bd130a6fb89a8db230c147f5"
           }
+        },
+        {
+          "client_id": "920652972852-aclaad8g317eaehdrlgomfm9js7dvthh.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
