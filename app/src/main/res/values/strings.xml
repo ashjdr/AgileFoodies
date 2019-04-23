@@ -39,7 +39,26 @@
     <string name="action_settings">Settings</string>
 
 
+    <!--    <string name=""></string>   -->
+
     <!-- Matthew -->
+
+    <!-- unit converter -->
+    <string-array name="unit_arrays">
+        <item>Milliliters</item>
+        <item>Cups</item>
+        <item>Table Spoons</item>
+        <item>Tea Spoons</item>
+        <item>Pints</item>
+    </string-array>
+
+    <string name="Unit_Conversion">Unit Conversion</string>
+    <string name="equals">=</string>
+    <string name="to">To</string>
+    <string name="from">From</string>
+    <string name="go">Go</string>
+    <!-- /unit converter -->
+    <string name="converter">Converter</string>
 
     <string name="review_button">Review</string>
     <string name="review_text">Please Leave a review</string>
@@ -85,6 +104,16 @@
     <string name="timer_icon">timer Icon</string>
     <string name="set">Set</string>
     <string name="set_minutes">Set Minutes</string>
+    <string name="image_uploaded">image uploaded</string>
+    <string name="type_recipe_name_here">type recipe name here</string>
+    <string name="type_your_ingredients_here_one_per_line">type your ingredients here (one per line)</string>
+    <string name="type_your_instructions_here">type your instructions here</string>
+    <string name="vegan">vegan?</string>
+    <string name="vegetarian">Vegetarian?</string>
+    <string name="time_taken_in_total">time taken in total</string>
+    <string name="_0">0</string>
+    <string name="show_recipe">Show Recipe</string>
+
 
     <!-- Marshall -->
 
