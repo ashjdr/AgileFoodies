@@ -1,6 +1,4 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
-import com.android.volley.Response;
-import org.json.JSONException;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -9,8 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,16 +19,13 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment;
-import marshmallow.cis2003.tees.ac.uk.agilefoodies.R;
 
 /**
  * Created by t7062534 on 26/02/19.
@@ -112,7 +107,7 @@ public class tescoLab extends AppCompatActivity {
         return null;
     }
 
-    private void jsonParse(String q) throws AuthFailureError {            //TODO: check this, the warnings clain the throw is never going to be thrown?
+    private void jsonParse(String q) throws AuthFailureError {
 
         String urlStart = "https://dev.tescolabs.com/grocery/products/?query=";
         String urlEnd ="&offset=0&limit=";

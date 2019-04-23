@@ -7,5 +7,5 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:textAlignment="gravity"
-    android:gravity="right"
+    android:gravity="end"
     />

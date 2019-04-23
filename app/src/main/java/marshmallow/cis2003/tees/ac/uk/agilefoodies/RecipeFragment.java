@@ -29,9 +29,9 @@ import static android.content.ContentValues.TAG;
 public class
 RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentInteractionListener  {
 
-    public TextView recipetext;
-    public TextView nameView;
-    public TextView timeView;
+    private TextView recipetext;
+    private TextView nameView;
+    private TextView timeView;
 
     FirebaseFirestore database;
     RecipeClass recipe;
@@ -54,6 +54,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
 
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
@@ -66,7 +67,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
 
         CollectionReference recipes = database.collection("recipes");
-        if (mQueryType == "ingredientName") {
+        if (mQueryType.equals("ingredientName")) {
 
            Query query =  recipes.whereEqualTo("ingredientName", mTextEntered);
 
@@ -87,7 +88,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                             List<String> group = (List<String>) document.get("ingredients");
                             TextView tView = new TextView(getContext());
                             if (group == null){
-                                tView.setText("No ingredients");
+                                tView.setText(R.string.no_ingredients);
                             }
                             else {
                                 tView.append("Ingredients:\n");
@@ -106,9 +107,9 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                             }
                             final long timing = (long)document.get("time");
 
-                            timeView.setText("Time: "+ timing) ;
+                            timeView.setText("Time: " + timing) ;
                             final String name = (String)document.get("name");
-                            nameView.setText("Recipe Name: "+ name) ;
+                            nameView.setText("Recipe Name: " + name) ;
                             timeView.setOnClickListener(new View.OnClickListener(){
                                 public void onClick(View v){
                                     mListener.onFragmentInteraction(timing, name);
@@ -138,7 +139,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
             });}
 
 
-        else if (mQueryType == "recipeName"){
+        else if (mQueryType.equals("recipeName")){
         docRef = database.collection(recipes.getId()).document("" + mTextEntered);
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

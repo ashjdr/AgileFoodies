@@ -3,8 +3,8 @@
 
 
     <!-- Juli -->
-    <string name="action_sign_out">Sign out</string>
-    <string name="title_activity_login">Sign in</string>
+
+    <string name="sign_in">Sign in</string>
     <string name="add_image">Add Image</string>
     <string name="hint_instructions">Type instructions here</string>
     <!-- Strings related to login -->
@@ -135,7 +135,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="searchForRecipe">Search for a recipe</string>
-    
+    <string name="search_recipe_names">Search recipe names:</string>
+    <string name="searchbutton">searchButton</string>
+    <string name="search_ingredients">Search ingredients:</string>
+    <string name="ingredient_search">ingredient Search</string>
+    <string name="no_ingredients">No ingredients</string>
+
 
     <!-- Marshall -->
 

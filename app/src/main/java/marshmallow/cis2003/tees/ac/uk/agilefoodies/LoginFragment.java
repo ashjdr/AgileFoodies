@@ -19,8 +19,6 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
-import java.lang.reflect.Array;
-
 
 public class LoginFragment extends Fragment {
         private static final String TAG = "AndroidClarified";

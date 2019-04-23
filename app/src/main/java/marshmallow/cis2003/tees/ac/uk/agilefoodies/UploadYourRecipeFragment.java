@@ -5,10 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,18 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.util.AttributeSet;
-import android.widget.EditText;
-
 
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Arrays;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -71,21 +58,13 @@ public class UploadYourRecipeFragment extends Fragment {
 
         veganSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if (isChecked) {
-                pvegan = true;
-            } else {
-                pvegan = false;
-            }
+            pvegan = isChecked;
         }
     });
 
         vegetarianSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    pvegetarian = true;
-                } else {
-                    pvegetarian = false;
-                }
+                pvegetarian = isChecked;
             }
         });
 
