@@ -21,13 +21,14 @@
         android:scrollbars = "vertical"
         android:maxLines="12"
         app:layout_constraintTop_toBottomOf="@id/your_recipe_name"
-        />
+        android:inputType="text"
+        tools:ignore="LabelFor" />
     <EditText
         android:id="@+id/your_recipe_instructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="12"
-        android:hint="type your instructions here"
+        android:hint="@string/type_your_instructions_here"
         app:layout_constraintTop_toBottomOf="@id/your_recipe_ingredients"/>
     <ImageButton
         android:id="@+id/imageButtonAddImage"
