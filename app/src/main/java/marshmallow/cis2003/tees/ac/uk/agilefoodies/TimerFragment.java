@@ -21,8 +21,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-
 import java.util.Locale;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;

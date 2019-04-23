@@ -1,14 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import java.lang.reflect.Array;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Arrays;
 import java.util.List;
 
 public class RecipeClass {
@@ -40,7 +32,6 @@ public class RecipeClass {
         this.ratingCount = ratingCount;
 
         this.ratingValue = ratingValue;
-        this.timeCreated = timeCreated;
         this.ingredients = ingredients;
         this.instructions = instructions;
     }
