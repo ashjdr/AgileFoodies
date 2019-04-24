@@ -20,15 +20,18 @@
      />
     <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="109dp"
+        android:layout_margin="10dp"
+        android:padding="10dp">
 
-        android:layout_height="109dp">
 
 
         <LinearLayout
             android:id="@+id/ingredient"
             android:layout_width="match_parent"
             android:layout_height="109dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
         </LinearLayout>
 

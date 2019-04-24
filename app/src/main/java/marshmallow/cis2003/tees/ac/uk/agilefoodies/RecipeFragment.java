@@ -152,10 +152,11 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        StringBuilder fields = new StringBuilder ("");
-                        fields.append("\nVegan?: ").append(document.get("Vegan"));
-                        fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
-                        fields.append("\nCategory: ").append(document.get("category"));
+                        StringBuilder categories = new StringBuilder ("");
+                        categories.append("\nVegan?: ").append(document.get("Vegan"));
+                        categories.append("\nVegetarian?: ").append(document.get("Vegetarian"));
+                        categories.append("\nCategory: ").append(document.get("category"));
+
 
 
                         List<String> group = (List<String>) document.get("ingredients");
@@ -184,6 +185,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                         timeView.setText("Time: "+ timing) ;
                         final String name = (String)document.get("name");
                         nameView.setText("Recipe Name: "+ name) ;
+                        nameView.append(categories);
                         timeView.setOnClickListener(new View.OnClickListener(){
                             public void onClick(View v){
                                 mListener.onFragmentInteraction(timing, name);
@@ -191,7 +193,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
 
                         });
-
+                        StringBuilder fields = new StringBuilder ("");
                         fields.append("\n\nInstructions:");
                         List<String> group2 = (List<String>) document.get("instructions");
                         if (group2 == null){
@@ -218,20 +220,23 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
-                            StringBuilder fields = new StringBuilder ("");
-                            fields.append("\nVegan?: ").append(document.get("Vegan"));
-                            fields.append("\nVegetarian?: ").append(document.get("Vegetarian"));
-                            fields.append("\nCategory: ").append(document.get("category"));
+                            StringBuilder categories = new StringBuilder ("");
+                            categories.append("\nVegan?: ").append(document.get("vegan"));
+                            categories.append("\nVegetarian?: ").append(document.get("vegetarian"));
+                            categories.append("\nCategory: ").append(document.get("category"));
+
 
 
                             List<String> group = (List<String>) document.get("ingredients");
                             TextView tView = new TextView(getContext());
+                            tView.setTextSize(16);
                             if (group == null){
                                 tView.setText("No ingredients");
                             }
                             else {
                                 tView.append("Ingredients:\n");
                                 for  (final String element: group){
+
                                     tView.append(element + "\n");
                                     tView.setOnClickListener(new View.OnClickListener() {
                                         public void onClick(View v) {
@@ -247,9 +252,15 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                             }
                             final long timing = (long)document.get("time");
 
-                            timeView.setText("Time: "+ timing) ;
+                            timeView.setText("Click here to set timer "+ timing) ;
+                            timeView.setTextSize(20);
+                            timeView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                             final String name = (String)document.get("name");
                             nameView.setText("Recipe Name: "+ name) ;
+                            nameView.setTextSize(20);
+                            nameView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+
+                            nameView.append(categories);
                             timeView.setOnClickListener(new View.OnClickListener(){
                                 public void onClick(View v){
                                     mListener.onFragmentInteraction(timing, name);
@@ -257,7 +268,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
 
                             });
-
+                            StringBuilder fields = new StringBuilder ("");
                             fields.append("\n\nInstructions:");
                             List<String> group2 = (List<String>) document.get("instructions");
                             if (group2 == null){
@@ -272,8 +283,6 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                         } else {
                             Log.d(TAG, "No such document");
                         }
-                    } else {
-                        Log.d(TAG, "Get failed with ", task.getException());
                     }
                 }
             });}
