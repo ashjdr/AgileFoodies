@@ -42,6 +42,7 @@ public class tescoLab extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tesco_lab);
+        setTitle("Tesco Goods Search");
         Intent intent = getIntent();
         //setContentView(R.layout.activity_main);
         mTextViewResult =findViewById(R.id.text_view_result);

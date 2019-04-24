@@ -3,16 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+>
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="173dp"
-        android:layout_height="139dp"
+        android:layout_width="145dp"
+        android:layout_height="140dp"
         android:layout_alignTop="@+id/imageButton2"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_toStartOf="@+id/imageButton2"
         android:background="@drawable/carbonara"
@@ -24,10 +22,10 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="173dp"
+        android:layout_width="145dp"
         android:layout_height="140dp"
         android:layout_above="@+id/imageButton4"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="16dp"
         android:layout_toEndOf="@+id/imageButton3"
         android:background="@drawable/greek_salad"
@@ -37,12 +35,10 @@
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="173dp"
-        android:layout_height="139dp"
+        android:layout_width="145dp"
+        android:layout_height="140dp"
         android:layout_above="@+id/imageButton5"
         android:layout_alignStart="@+id/imageButton5"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/letterbox_summer_20paella"
         android:contentDescription="@string/food_bank_text"
@@ -52,10 +48,10 @@
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="173dp"
-        android:layout_height="139dp"
+        android:layout_width="145dp"
+        android:layout_height="140dp"
         android:layout_above="@+id/imageButton6"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/imageButton5"
         android:background="@drawable/massamancurry"
@@ -66,13 +62,11 @@
 
     <ImageButton
         android:id="@+id/imageButton5"
-        android:layout_width="173dp"
-        android:layout_height="150dp"
+        android:layout_width="145dp"
+        android:layout_height="140dp"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/imageButton6"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/steak"
         android:contentDescription="@string/food_bank_text"
@@ -85,11 +79,11 @@
 
     <ImageButton
         android:id="@+id/imageButton6"
-        android:layout_width="173dp"
-        android:layout_height="150dp"
+        android:layout_width="145dp"
+        android:layout_height="140dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/imageButton5"
         android:background="@drawable/healthy_meal"

@@ -1,5 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,6 +29,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Home Page");
 
         //START OF AD CODE
         if (savedInstanceState == null) {
@@ -209,6 +211,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
-}
+
+
+
+    }
+
 
 

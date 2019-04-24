@@ -293,6 +293,13 @@ public class TimerFragment extends Fragment implements RecipeFragment.OnFragment
         mTextViewName.setText("Timer for " + name);
 
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        getActivity().setTitle(getString(R.string.timer_title));
+
+    }
 }
 
 

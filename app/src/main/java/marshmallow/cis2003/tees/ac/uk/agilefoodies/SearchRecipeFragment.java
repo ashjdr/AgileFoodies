@@ -74,6 +74,7 @@ private OnFragmentInteractionListener sListener;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        getActivity().setTitle(getString(R.string.recipe_search));
         if (context instanceof SearchRecipeFragment.OnFragmentInteractionListener) {
             sListener = (SearchRecipeFragment.OnFragmentInteractionListener) context;
         } else {

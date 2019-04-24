@@ -1,9 +1,13 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +25,7 @@ import com.google.firebase.firestore.Query;
 
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Timer;
 
 import static android.content.ContentValues.TAG;
@@ -68,7 +73,9 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
         database = FirebaseFirestore.getInstance();
 
 
+
         CollectionReference recipes = database.collection("recipes");
+
 //        if (mQueryType.equals("ingredientName")) {
 //
 //           Query query =  recipes.whereEqualTo("ingredientName", mTextEntered);
@@ -257,10 +264,9 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                             timeView.setTextSize(20);
                             timeView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                             final String name = (String)document.get("name");
-                            nameView.setText("Recipe Name: "+ name) ;
-                            nameView.setTextSize(20);
+                            nameView.setTextSize(16);
                             nameView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-
+                            nameView.setText(name);
                             nameView.append(categories);
                             timeView.setOnClickListener(new View.OnClickListener(){
                                 public void onClick(View v){
@@ -300,9 +306,11 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
         return v;
     }
 
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        getActivity().setTitle(getString(R.string.recipe_details));
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {

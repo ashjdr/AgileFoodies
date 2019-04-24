@@ -17,7 +17,16 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    <string name="recipe_name">"Recipe Name: "</string>
+
+    <string name="recipe_details">"Recipe Details "</string>
+    <string name="nearest_shop">"Find Nearest Shop"</string>
+    <string name="foodbank">"Foodbank Details"</string>
+    <string name="recipe_search">Search for a Recipe</string>
+    <string name="timer_title">Timer</string>
+    <string name="unit_converter">Unit Converter</string>
+    <string name="upload_recipe">Upload Your Recipe</string>
+    <string name="review_title">Review App</string>
+
     <string name="Time">"Time: "</string>
     <string-array name="category_theme_array">
         <item>English</item>
@@ -46,7 +55,7 @@
     <string name="dinner">Dinner</string>
     <string name="side">Sides</string>
     <string name="free_food">Free meals in your area</string>
-    <string name="title_activity_home_page"> </string>
+    <string name="title_activity_home_page">Home Page </string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
