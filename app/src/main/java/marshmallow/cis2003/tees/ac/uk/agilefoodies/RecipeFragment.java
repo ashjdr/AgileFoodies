@@ -230,13 +230,14 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                             List<String> group = (List<String>) document.get("ingredients");
                             TextView tView = new TextView(getContext());
                             tView.setTextSize(16);
+                            tView.setTextColor(getResources().getColor(R.color.black));
+                            tView.setPadding(5,5,5,5);
                             if (group == null){
                                 tView.setText("No ingredients");
                             }
                             else {
                                 tView.append("Ingredients:\n");
                                 for  (final String element: group){
-
                                     tView.append(element + "\n");
                                     tView.setOnClickListener(new View.OnClickListener() {
                                         public void onClick(View v) {
@@ -269,7 +270,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
                             });
                             StringBuilder fields = new StringBuilder ("");
-                            fields.append("\n\nInstructions:");
+                            fields.append("Instructions:");
                             List<String> group2 = (List<String>) document.get("instructions");
                             if (group2 == null){
                                 fields.append("\n No instructions found");}
@@ -278,8 +279,13 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                                 for (String element: group2){
                                     fields.append("\n" + num + ") " + element + "\n" );
                                     num++;
-                                }
-                                recipetext.setText(fields);}
+                                }recipetext.setText(fields);}
+                            recipetext.setTextSize(20);
+                            recipetext.setTextColor(getResources().getColor(R.color.dark_green));
+
+
+
+
                         } else {
                             Log.d(TAG, "No such document");
                         }
