@@ -5,6 +5,7 @@
     <color name="colorAccent">#ff4081</color>
     <!-- Juli -->
     <color name="TurquoiseBackground">#70CFFF</color>
+    <color name="window_background"> #ccefff</color>
     <color name="white">#FFFFFF</color>
 
     <!-- Jack -->
