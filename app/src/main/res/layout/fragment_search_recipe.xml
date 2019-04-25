@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_term_recipe_name"
         android:layout_toEndOf="@id/buttonSearch_ingredients"
-        android:hint="@string/search_ingredients" />
+        android:hint="@string/search_ingredients"
+        />
 
     <Button
         android:id="@+id/buttonSearch_ingredients"
@@ -34,5 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonSearch_recipe_name"
         android:text="@string/ingredient_search" />
+
+    <TextView
+        android:id = "@+id/view_results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/buttonSearch_recipe_name"
+       />
+
 
 </RelativeLayout>
