@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,11 +40,13 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
     private TextView nameView;
     private TextView timeView;
     private TextView textView1;
+    private TextView recipeNameView;
+    private TextView instructionNameView;
 
     FirebaseFirestore database;
     RecipeClass recipe;
     Timer timer;
-//    SearchRecipeFragment searchRecipe;
+
     String mTextEntered;
     String mQueryType;
     DocumentReference docRef;
@@ -70,12 +73,22 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                              Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_recipe, container, false);
 
         recipetext = v.findViewById(R.id.recipe_text);
+        recipetext.setTextSize(20);
+        recipetext.setTextColor(getResources().getColor(R.color.dark_green));
         timeView = v.findViewById(R.id.timer);
+        timeView.setTextSize(20);
+        timeView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         nameView = v.findViewById(R.id.recipe_name);
+        nameView.setTextSize(20);
+        nameView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         textView1 = v.findViewById(R.id.ingredients_title);
+        recipeNameView = v.findViewById(R.id.recipe_name_view);
+        recipeNameView.setTextSize(30);
         database = FirebaseFirestore.getInstance();
-
-
+        textView1.setTextSize(10);
+        textView1.setTextColor(getResources().getColor(R.color.blue));
+        instructionNameView= v.findViewById(R.id.instruction_name_view);
+        instructionNameView.setTextSize(20);
 
         CollectionReference recipes = database.collection("recipes");
 
@@ -83,6 +96,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
         if ((mQueryType != null) && mQueryType.equals("recipeName")){
         docRef = database.collection(recipes.getId()).document("" + mTextEntered);
+
 
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -96,15 +110,20 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                             categories.append("\nVegetarian?: ").append(document.get("vegetarian"));
                             categories.append("\nCategory: ").append(document.get("category"));
 
-
-
                             List<String> group = (List<String>) document.get("ingredients");
 
                             if (group == null){
                                 textView1.setText("No ingredients");
                             }
                             else {
-                                textView1.append("Ingredients:\n");
+
+                                String string= "\nIngredient:";
+                                String click="\nclick ingredient to shop";
+                                SpannableString ss1=  new SpannableString(string);
+                                ss1.setSpan(new RelativeSizeSpan(2f), 0, ss1.length(), 0);
+                                textView1.append(ss1);
+                                textView1.append(click);
+
                                 for  (final String element: group){
                                     TextView tView = new TextView(getContext());
                                     tView.setTextSize(16);
@@ -122,18 +141,13 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                                     ingredient.addView(tView);
                                 }
 
-
                                 //fields.append("\n" + element);
                             }
                             final long timing = (long)document.get("time");
 
-                            timeView.setText("Click here to set timer "+ timing) ;
-                            timeView.setTextSize(20);
-                            timeView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                            timeView.setText("Timer: (click to start)" + timing);
                             final String name = (String)document.get("name");
-                            nameView.setTextSize(16);
-                            nameView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                            nameView.setText(name);
+                            recipeNameView.setText(name);
                             nameView.append(categories);
                             timeView.setOnClickListener(new View.OnClickListener(){
                                 public void onClick(View v){
@@ -143,7 +157,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
                             });
                             StringBuilder fields = new StringBuilder ("");
-                            fields.append("Instructions:");
+                            instructionNameView.append("Instructions");
                             List<String> group2 = (List<String>) document.get("instructions");
                             if (group2 == null){
                                 fields.append("\n No instructions found");}
@@ -153,18 +167,13 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                                     fields.append("\n" + num + ") " + element + "\n" );
                                     num++;
                                 }recipetext.setText(fields);}
-                            recipetext.setTextSize(20);
-                            recipetext.setTextColor(getResources().getColor(R.color.dark_green));
-
-
-
-
                         } else {
                             Log.d(TAG, "No such document");
                         }
                     }
                 }
             });}
+
 
         else { docRef = database.collection(recipes.getId()).document("" +recipeNameFragmentInteraction);
 
@@ -180,15 +189,20 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                             categories.append("\nVegetarian?: ").append(document.get("vegetarian"));
                             categories.append("\nCategory: ").append(document.get("category"));
 
-
-
                             List<String> group = (List<String>) document.get("ingredients");
 
                             if (group == null){
                                 textView1.setText("No ingredients");
                             }
                             else {
-                                textView1.append("Ingredients:\n");
+
+                                String string= "\nIngredient:";
+                                String click="\nclick ingredient to shop";
+                                SpannableString ss1=  new SpannableString(string);
+                                ss1.setSpan(new RelativeSizeSpan(2f), 0, ss1.length(), 0);
+                                textView1.append(ss1);
+                                textView1.append(click);
+
                                 for  (final String element: group){
                                     TextView tView = new TextView(getContext());
                                     tView.setTextSize(16);
@@ -206,18 +220,13 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                                     ingredient.addView(tView);
                                 }
 
-
                                 //fields.append("\n" + element);
                             }
                             final long timing = (long)document.get("time");
 
-                            timeView.setText("Click here to set timer "+ timing) ;
-                            timeView.setTextSize(20);
-                            timeView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                            timeView.setText("Timer: (click to start)" + timing);
                             final String name = (String)document.get("name");
-                            nameView.setTextSize(16);
-                            nameView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                            nameView.setText(name);
+                            recipeNameView.setText(name);
                             nameView.append(categories);
                             timeView.setOnClickListener(new View.OnClickListener(){
                                 public void onClick(View v){
@@ -227,7 +236,7 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
                             });
                             StringBuilder fields = new StringBuilder ("");
-                            fields.append("Instructions:");
+                            instructionNameView.append("Instructions");
                             List<String> group2 = (List<String>) document.get("instructions");
                             if (group2 == null){
                                 fields.append("\n No instructions found");}
@@ -237,22 +246,12 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
                                     fields.append("\n" + num + ") " + element + "\n" );
                                     num++;
                                 }recipetext.setText(fields);}
-                            recipetext.setTextSize(20);
-                            recipetext.setTextColor(getResources().getColor(R.color.dark_green));
-
-
-
-
                         } else {
                             Log.d(TAG, "No such document");
                         }
                     }
                 }
             });}
-
-
-
-
 
         return v;
     }
