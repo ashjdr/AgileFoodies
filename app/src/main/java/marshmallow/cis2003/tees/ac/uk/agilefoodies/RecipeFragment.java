@@ -86,9 +86,10 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
         recipeNameView.setTextSize(30);
         database = FirebaseFirestore.getInstance();
         textView1.setTextSize(10);
-        textView1.setTextColor(getResources().getColor(R.color.blue));
+        textView1.setTextColor(getResources().getColor(R.color.black));
         instructionNameView= v.findViewById(R.id.instruction_name_view);
         instructionNameView.setTextSize(20);
+        instructionNameView.setTextColor(getResources().getColor(R.color.dark_green));
 
         CollectionReference recipes = database.collection("recipes");
 
@@ -157,14 +158,14 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
                             });
                             StringBuilder fields = new StringBuilder ("");
-                            instructionNameView.append("Instructions");
+                            instructionNameView.append("Instructions:");
                             List<String> group2 = (List<String>) document.get("instructions");
                             if (group2 == null){
                                 fields.append("\n No instructions found");}
                             else{
                                 int num = 1;
                                 for (String element: group2){
-                                    fields.append("\n" + num + ") " + element + "\n" );
+                                    fields.append(num + ")" + element + "\n\n" );
                                     num++;
                                 }recipetext.setText(fields);}
                         } else {
@@ -236,14 +237,14 @@ RecipeFragment extends Fragment implements SearchRecipeFragment.OnFragmentIntera
 
                             });
                             StringBuilder fields = new StringBuilder ("");
-                            instructionNameView.append("Instructions");
+                            instructionNameView.append("\nInstructions:");
                             List<String> group2 = (List<String>) document.get("instructions");
                             if (group2 == null){
                                 fields.append("\n No instructions found");}
                             else{
                                 int num = 1;
                                 for (String element: group2){
-                                    fields.append("\n" + num + ") " + element + "\n" );
+                                    fields.append(num + ")" + element + "\n\n" );
                                     num++;
                                 }recipetext.setText(fields);}
                         } else {

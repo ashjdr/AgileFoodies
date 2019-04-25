@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -29,7 +33,7 @@
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
         android:background="#37AEE4"
-        android:backgroundTint="#FEFBDE"
+        android:backgroundTint="#37AEE4"
      />
 
     <TextView
@@ -39,12 +43,6 @@
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
         />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="109dp"
-        android:layout_margin="10dp"
-        android:padding="10dp">
-
 
 
         <LinearLayout
@@ -52,12 +50,12 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="vertical"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
             android:background="#37AEE4"
-            android:backgroundTint="#FEFBDE">
+            android:backgroundTint="#37AEE4">
 
         </LinearLayout>
-
-    </ScrollView>
 
     <TextView
         android:id="@+id/instruction_name_view"
@@ -66,10 +64,6 @@
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
         />
-    <ScrollView
-
-        android:layout_width="match_parent"
-        android:layout_height="277dp">
 
 
 
@@ -81,7 +75,7 @@
             android:layout_marginEnd="@dimen/activity_vertical_margin"
             />
 
-    </ScrollView>
+
 
     <fragment
         android:id="@+id/adFragment"
@@ -91,6 +85,6 @@
 
 </LinearLayout>
 
-
+</ScrollView>
 
 
