@@ -83,21 +83,24 @@ private OnFragmentInteractionListener sListener;
             @Override
             public void onClick(View v) {
                 textEntered = ingredientSearchText.getText().toString().toLowerCase();
-
-//
                     recipes.whereEqualTo("ingredient", textEntered)
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                     if (task.isSuccessful()) {
+
                                         List<String> RecipeList = new ArrayList<>();
                                         for (DocumentSnapshot doc : task.getResult()) {
                                             String e = (doc.getId());
                                             RecipeList.add(e);
-                                            rView.setText(RecipeList.toString());
+                                            rView.append(e);
                                         }
-                                    } else {
+
+
+                                    }
+
+                                    else {
                                         Log.d(TAG, "Error getting documents: ", task.getException());
                                     }
                                 }
