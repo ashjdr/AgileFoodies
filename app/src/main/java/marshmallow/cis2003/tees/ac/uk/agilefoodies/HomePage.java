@@ -1,5 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,7 +18,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener, SearchRecipeFragment.OnFragmentInteractionListener {
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener,
+        SearchRecipeFragment.OnFragmentInteractionListener, HomePageFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Home Page");
 
         //START OF AD CODE
         if (savedInstanceState == null) {
@@ -39,6 +42,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, new HomePageFragment())
                 .commit();
+
+
+
         //end
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
@@ -89,7 +95,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             return true;
         }
         else if(id == R.id.action_account){
-            Intent intent=new Intent(HomePage.this,LoginFragment.class);
+            Intent intent=new Intent(HomePage.this,LoginActivity.class);
             startActivity(intent);
 
         }
@@ -182,6 +188,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         fragTwo.onFragmentInteraction(time, name);
     }
 
+
+
+    public void onFragmentInteraction(String recipeName) {
+        RecipeFragment fragFour = new RecipeFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragFour)
+                .commit();
+        fragFour.onFragmentInteraction(recipeName);
+    }
+
+
     public void onFragmentInteraction(String textEntered, String queryType)
     {
         RecipeFragment fragOne = new RecipeFragment();
@@ -193,6 +211,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
-}
+
+
+
+    }
+
 
 

@@ -5,8 +5,13 @@
     <color name="colorAccent">#ff4081</color>
     <!-- Juli -->
     <color name="TurquoiseBackground">#70CFFF</color>
+    <color name="window_background"> #ccefff</color>
     <color name="white">#FFFFFF</color>
-
+    <color name="dark_green">#003300</color>
+    <color name="black">#000000</color>
+    <color name="red"> #ee1c2e</color>
+    <color name="blue"> #00539f </color>
+    <color name="yellow">  #fff200 </color>
     <!-- Jack -->
 
 

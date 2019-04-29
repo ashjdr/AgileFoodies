@@ -17,9 +17,19 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    <string name="recipe_name">"Recipe Name: "</string>
+
+    <string name="recipe_details">"Recipe Details "</string>
+    <string name="nearest_shop">"Find Nearest Shop"</string>
+    <string name="foodbank">"Foodbank Details"</string>
+    <string name="recipe_search">Search for a Recipe</string>
+    <string name="timer_title">Timer</string>
+    <string name="unit_converter">Unit Converter</string>
+    <string name="upload_recipe">Upload Your Recipe</string>
+    <string name="review_title">Review App</string>
+
     <string name="Time">"Time: "</string>
     <string-array name="category_theme_array">
+        <item>Select an item</item>
         <item>English</item>
         <item>Mexican</item>
         <item>Italian</item>
@@ -46,7 +56,7 @@
     <string name="dinner">Dinner</string>
     <string name="side">Sides</string>
     <string name="free_food">Free meals in your area</string>
-    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_activity_home_page">Home Page </string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -99,18 +109,18 @@
     <string name="settings">Settings</string>
     <string name="locate_stores_near_you">Locate stores near you</string>
     <string name="leave_a_review">Leave a review</string>
-    <string name="locate_free_food">Locate Free Food</string>
+    <string name="locate_free_food">Food Banks</string>
     <string name="communicate">Communicate</string>
     <string name="share">Share</string>
     <string name="send">Send</string>
-    <string name="select_a_shop_to_locate_near_you">select a shop to locate near you</string>
+    <string name="select_a_shop_to_locate_near_you">Select a shop to locate a store near you</string>
     <string name="temp_image_msg">temp image, will be replaced with link to database</string>
     <string name="food_bank_text">A food-bank can give assistance to those who need it, so that they can get enough food to feed themselves. If you require this service, please have a look through the buttons below to find a food-bank near you that might be able to help you.</string>
     <string name="sign_out">SIGN OUT</string>
     <string name="google_profile_picture">google profile picture</string>
     <string name="logo">logo</string>
     <string name="agilefoodies">AgileFoodies</string>
-    <string name="immage_of_food">immage of food</string>
+    <string name="immage_of_food">image of food</string>
     <string name="recipe_timer">Recipe Timer</string>
     <string name="search">search</string>
     <string name="minutes">Minutes</string>
@@ -140,6 +150,7 @@
     <string name="search_ingredients">Search ingredients:</string>
     <string name="ingredient_search">ingredient Search</string>
     <string name="no_ingredients">No ingredients</string>
+    <string name="spinner_title">Category</string>
 
 
     <!-- Marshall -->
