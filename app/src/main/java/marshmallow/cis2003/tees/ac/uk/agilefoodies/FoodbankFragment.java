@@ -1,5 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ public class FoodbankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View v = inflater.inflate(R.layout.activity_food_bank, container, false);
+        View v = inflater.inflate(R.layout.fragment_food_bank, container, false);
 
 
         Button B1 = v.findViewById(R.id.FBmapbutton);
@@ -40,5 +41,12 @@ public class FoodbankFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        getActivity().setTitle(getString(R.string.foodbank));
+
     }
 }

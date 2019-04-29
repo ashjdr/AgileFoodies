@@ -1,5 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,17 +17,19 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecipeFragment.OnFragmentInteractionListener,
+        SearchRecipeFragment.OnFragmentInteractionListener, HomePageFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_home_page2);
+        setContentView(R.layout.fragment_home_page2);
 
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Home Page");
 
         //START OF AD CODE
         if (savedInstanceState == null) {
@@ -39,6 +42,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contentFragment, new HomePageFragment())
                 .commit();
+
+
+
         //end
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
@@ -112,20 +118,20 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         else if (id == R.id.recipe_activity) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentFragment, new UploadYourRecipeActivity())
+                    .replace(R.id.contentFragment, new UploadYourRecipeFragment())
                     .commit();
         }
 
-
         else if (id == R.id.timer_fragment){
-            
-             getSupportFragmentManager().beginTransaction()
-
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new TimerFragment())
                     .commit();
-        } else if (id == R.id.nav_manage) {
-            //action needed
+        }
 
+        else if (id == R.id.recipe_search_fragment) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new SearchRecipeFragment())
+                    .commit();
         }
 
         else if (id == R.id.nav_locate) {
@@ -135,12 +141,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_home) {
-
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new HomePageFragment())
                     .commit();
-
-
         }
 
         else if (id == R.id.nav_review) {
@@ -150,11 +153,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         else if (id == R.id.nav_foodbank) {
-
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contentFragment, new FoodbankFragment())
                     .commit();
-        } else if (id == R.id.nav_share) {
+        }
+
+        else if (id == R.id.nav_converter) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.contentFragment, new UnitConverterFragment())
+                    .commit();
+        }
+
+        else if (id == R.id.nav_share) {
             //action needed
         } else if (id == R.id.nav_send) {
             //action needed
@@ -165,6 +175,46 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }}
+    }
+
+    @Override
+
+    public void onFragmentInteraction(Long time, String name) {
+        TimerFragment fragTwo = new TimerFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragTwo)
+                .commitNow();
+        fragTwo.onFragmentInteraction(time, name);
+    }
+
+
+
+    public void onFragmentInteraction(String recipeName) {
+        RecipeFragment fragFour = new RecipeFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragFour)
+                .commit();
+        fragFour.onFragmentInteraction(recipeName);
+    }
+
+
+    public void onFragmentInteraction(String textEntered, String queryType)
+    {
+        RecipeFragment fragOne = new RecipeFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFragment, fragOne)
+                .commit();
+        fragOne.onFragmentInteraction(textEntered, queryType );
+    }
+
+
+
+
+
+    }
+
 
 

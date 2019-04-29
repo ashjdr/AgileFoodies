@@ -1,0 +1,75 @@
+{
+  "project_info": {
+    "project_number": "920652972852",
+    "firebase_url": "https://agilefoodies.firebaseio.com",
+    "project_id": "agilefoodies",
+    "storage_bucket": "agilefoodies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920652972852:android:f6fda6982627299a",
+        "android_client_info": {
+          "package_name": "marshmallow.cis2003.tees.ac.uk.agilefoodies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920652972852-lj8vkal7ev0lorp35bd6rjgn3fkibvp3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "marshmallow.cis2003.tees.ac.uk.agilefoodies",
+            "certificate_hash": "fa967a13e24aea5248515e062944572f73a089e1"
+          }
+        },
+        {
+          "client_id": "920652972852-i5id8jd56b71ieb6rlek6rrupqntpri4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "marshmallow.cis2003.tees.ac.uk.agilefoodies",
+            "certificate_hash": "4c94116183e0d3ea0b1c905e6bb2ce26102f2947"
+          }
+        },
+        {
+          "client_id": "920652972852-3u6lf9c3g0bl53bmhrgg0cn9f99vkvah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "marshmallow.cis2003.tees.ac.uk.agilefoodies",
+            "certificate_hash": "f68f9a9d66d14fc19c884b2317e05b5cb03a75eb"
+          }
+        },
+        {
+          "client_id": "920652972852-kqb2uid2bblvagt3tgil5621pnn2iqg3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "marshmallow.cis2003.tees.ac.uk.agilefoodies",
+            "certificate_hash": "5bc091d47c62ffb1bd130a6fb89a8db230c147f5"
+          }
+
+        },
+        {
+          "client_id": "920652972852-aclaad8g317eaehdrlgomfm9js7dvthh.apps.googleusercontent.com",
+          "client_type": 3
+
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsDYhMVRlZdugtgO2WrKvnnCQgNrIZgx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920652972852-aclaad8g317eaehdrlgomfm9js7dvthh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

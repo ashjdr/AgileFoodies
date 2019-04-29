@@ -7,7 +7,8 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
-            android:title="@string/home" />
+            android:title="@string/home"
+            />
         <!--the icon used here is under the following licence: https://www.iconbros.com/license -->
         <!--It can therefore be used for the purposes of this app-->
         <item
@@ -23,9 +24,10 @@
             android:icon="@drawable/timericon"
             android:title="@string/timer" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/settings" />
+            android:id="@+id/recipe_search_fragment"
+            android:icon="@drawable/recipe"
+            android:title="@string/searchForRecipe" />
+
         <item
             android:id="@+id/nav_locate"
             android:icon="@drawable/mapicon"
@@ -43,6 +45,12 @@
             android:id="@+id/nav_foodbank"
             android:icon="@drawable/basketicon"
             android:title="@string/locate_free_food" />
+        <!--the icon used here is under the following licence: https://www.iconbros.com/license-->
+        <!--It can therefore be used for the purposes of this app-->
+        <item
+            android:id="@+id/nav_converter"
+            android:icon="@drawable/convertericon"
+            android:title="@string/converter" />
 
     </group>
 

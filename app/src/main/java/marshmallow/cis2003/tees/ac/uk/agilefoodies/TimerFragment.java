@@ -3,6 +3,7 @@ package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +27,9 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 
 //import android.app.Fragment;
 
-public class TimerFragment extends Fragment {
+public class TimerFragment extends Fragment implements RecipeFragment.OnFragmentInteractionListener {
     private EditText mEditTextInput;
+    private TextView mTextViewName;
     private TextView mTextViewCountDown;
     private Button mButtonSet;
     private Button mButtonStartPause;
@@ -39,26 +42,39 @@ public class TimerFragment extends Fragment {
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
+    Intent intent;
 
+    public TimerFragment(){
+
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
+
+        Log.d("TimerFragment", "onCreate()");
+    }
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v =  inflater.inflate(R.layout.fragment_timer, container, false);
 
 
-
+        intent = getActivity().getIntent();
 
 
             mEditTextInput = v.findViewById(R.id.edit_text_input);
             mTextViewCountDown = v.findViewById(R.id.text_view_countdown);
             mButtonSet = v.findViewById(R.id.button_set);
-
+            mTextViewName = v.findViewById(R.id.textView5);
             mButtonStartPause = v.findViewById(R.id.button_start_pause);
             mButtonReset = v.findViewById(R.id.button_reset);
 
             mButtonSet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     String input = mEditTextInput.getText().toString();
                     if (input.length() == 0) {
                         Toast.makeText(TimerFragment.this.getContext(), "Field can't be empty", Toast.LENGTH_SHORT).show();
@@ -107,6 +123,10 @@ public class TimerFragment extends Fragment {
         resetTimer();
         closeKeyboard();
     }
+
+
+
+
 
     private void startTimer() {
         mEndTime = System.currentTimeMillis() + mTimeLeftInMillis;
@@ -264,7 +284,23 @@ public class TimerFragment extends Fragment {
                 startTimer();
             }
         }
-        }}
+        }
+
+    @Override
+    public void onFragmentInteraction(Long time, String name) {
+        Log.d("TimerFragment", "onFragmentInteraction()");
+        mEditTextInput.setText("" + time);
+        mTextViewName.setText("Timer for " + name);
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        getActivity().setTitle(getString(R.string.timer_title));
+
+    }
+}
 
 
 

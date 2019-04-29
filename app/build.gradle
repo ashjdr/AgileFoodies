@@ -23,8 +23,9 @@ dependencies {
 
     //noinspection GradleDependency
     implementation 'com.google.android.gms:play-services-auth:11.8.0'
-
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    //noinspection GradleDependency
+    implementation 'com.google.firebase:firebase-firestore:11.8.0'
 
     // Jack
     implementation 'com.android.volley:volley:1.1.1'
@@ -38,6 +39,9 @@ dependencies {
     // Marshall
 
     // Ash
+
+    // FIREBASE LINK: https://console.firebase.google.com/project/agilefoodies/database/agilefoodies/data
+
     //noinspection GradleDependency
     implementation 'com.google.firebase:firebase-auth:11.8.0'
     //noinspection GradleDependency
@@ -76,6 +80,4 @@ dependencies {
 // Ash
 
 
-
-
-
+apply plugin: 'com.google.gms.google-services'

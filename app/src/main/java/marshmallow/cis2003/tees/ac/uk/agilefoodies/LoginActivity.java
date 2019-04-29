@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,23 +20,27 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
-import java.lang.reflect.Array;
 
-
-public class LoginActivity extends Fragment {
+public class LoginActivity extends AppCompatActivity{
         private static final String TAG = "AndroidClarified";
     private GoogleSignInClient googleSignInClient;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
-        View v = inflater.inflate(R.layout.ad_fragment, container, false);
 
-        SignInButton googleSignInButton = v.findViewById(R.id.sign_in_button);
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        SignInButton googleSignInButton = findViewById(R.id.sign_in_button);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        googleSignInClient = GoogleSignIn.getClient(getContext(), gso);
+
+        googleSignInClient = GoogleSignIn.getClient(this,gso);
         googleSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,16 +49,15 @@ public class LoginActivity extends Fragment {
             }
         });
 
-        return v;
     }
 
 
     @Override
     public void onStart() {
         super.onStart();
-        GoogleSignInAccount alreadyloggedAccount = GoogleSignIn.getLastSignedInAccount(getContext());
+        GoogleSignInAccount alreadyloggedAccount = GoogleSignIn.getLastSignedInAccount(this);
         if (alreadyloggedAccount != null) {
-            Toast.makeText(getContext(), "Already Logged In", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Already Logged In", Toast.LENGTH_SHORT).show();
             onLoggedIn(alreadyloggedAccount);
         }
         else {
@@ -84,7 +88,7 @@ public class LoginActivity extends Fragment {
  }
 
     private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
-        Intent intent = new Intent(getContext(), ProfileActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
         intent.putExtra(ProfileActivity.GOOGLE_ACCOUNT, googleSignInAccount);
 
         startActivity(intent);

@@ -1,5 +1,6 @@
 package marshmallow.cis2003.tees.ac.uk.agilefoodies;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ public class ReviewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-            View view = inflater.inflate(R.layout.activity_review, container, false);
+            View view = inflater.inflate(R.layout.fragment_review, container, false);
 
             RatingBar ratingBar = view.findViewById(R.id.ratingBar);
             ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -39,6 +40,9 @@ public class ReviewFragment extends Fragment {
     }
 
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        getActivity().setTitle(getString(R.string.review_title));}
 
 }
