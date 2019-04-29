@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="marshmallow.cis2003.tees.ac.uk.agilefoodies.UploadYourRecipeFragment">
 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <EditText
         android:id="@+id/your_recipe_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/type_recipe_name_here"
-        app:layout_constraintTop_toBottomOf="@id/save_upload"
         />
-    <EditText
-        android:id="@+id/your_recipe_ingredients"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:scrollbars = "vertical"
-        android:maxLines="12"
-        app:layout_constraintTop_toBottomOf="@id/your_recipe_name"
-        android:inputType="text"
-        tools:ignore="LabelFor" />
+
+        <LinearLayout
+            android:id="@+id/ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin">
+        </LinearLayout>
+
     <EditText
         android:id="@+id/your_recipe_instructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="12"
         android:hint="@string/type_your_instructions_here"
-        app:layout_constraintTop_toBottomOf="@id/your_recipe_ingredients"/>
+    />
+
     <ImageButton
         android:id="@+id/imageButtonAddImage"
         android:layout_width="@dimen/imageview_width"
@@ -42,8 +45,7 @@
         android:layout_width="@dimen/imageview_width"
         android:layout_height="@dimen/imageview_height"
         android:contentDescription="@string/add_image"
-        android:src="@drawable/ic_menu_camera"
-        app:layout_constraintTop_toBottomOf="@id/imageButtonAddImage" />
+        android:src="@drawable/ic_menu_camera" />
 
     <ImageView
 
@@ -52,31 +54,22 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/image_uploaded"
-        app:layout_constraintLeft_toRightOf="@id/imageButtonAddImage"
          />
 
-    <ImageButton
-        android:id="@+id/save_upload"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_menu_manage"
-    app:layout_constraintTop_toBottomOf="@id/takePhoto"
-        android:contentDescription="@string/settings" />
+
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vegan"
-        app:layout_constraintLeft_toRightOf="@id/uploadedImage"
          />
     <Switch
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vegetarian"
-        app:layout_constraintTop_toBottomOf="@id/switch1"
-        app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
+    />
 
     <EditText
         android:id="@+id/editText2"
@@ -85,14 +78,28 @@
         android:ems="10"
         android:inputType="number"
         android:hint="@string/time_taken_in_total"
-        app:layout_constraintTop_toBottomOf="@id/switch2"
-        app:layout_constraintLeft_toRightOf="@id/uploadedImage"/>
+/>
 
     <Spinner
         android:id="@+id/category_spinner"
         android:layout_width="336dp"
         android:layout_height="25dp"
-        app:layout_constraintLeft_toRightOf="@id/save_upload"
-        app:layout_constraintTop_toBottomOf="@id/editText2" />
+        android:prompt="@string/spinner_title"/>
+/>
 
-</android.support.constraint.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/save_upload"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_menu_manage"
+            android:contentDescription="@string/settings" />
+
+        <fragment
+            android:id="@+id/adFragment"
+            android:name="marshmallow.cis2003.tees.ac.uk.agilefoodies.AdFragment"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+
+    </LinearLayout>
+
+</ScrollView>

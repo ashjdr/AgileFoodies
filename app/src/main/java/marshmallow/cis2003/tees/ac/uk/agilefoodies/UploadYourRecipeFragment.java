@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,10 +17,16 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -29,6 +36,8 @@ public class UploadYourRecipeFragment extends Fragment {
     public RecipeClass recipe = new RecipeClass();
     boolean pvegan;
     boolean pvegetarian;
+
+
     FirebaseFirestore database;
 
     @Override
@@ -36,26 +45,53 @@ public class UploadYourRecipeFragment extends Fragment {
     {
         View v = inflater.inflate(R.layout.fragment_upload_your_recipe, container, false);
         final EditText nametext = v.findViewById(R.id.your_recipe_name);
-
+        
         uploadedImage = v.findViewById(R.id.uploadedImage);
         ImageButton takePhoto = v.findViewById(R.id.takePhoto);
         ImageButton addImage = v.findViewById(R.id.imageButtonAddImage);
         ImageButton saveUpload = v.findViewById(R.id.save_upload);
         final Switch veganSwitch = v.findViewById(R.id.switch1);
         Switch vegetarianSwitch = v.findViewById(R.id.switch2);
-        final EditText ingredientsText = v.findViewById(R.id.your_recipe_ingredients);
         final EditText timeText = v.findViewById(R.id.editText2);
         database = FirebaseFirestore.getInstance();
+        final LinearLayout ingredient = getActivity().findViewById(R.id.ingredient);
+        final ArrayList<String> ingredients = new ArrayList<>();
+        final EditText ingredientsText = new EditText(getContext());
+            ingredientsText.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event){
+                        if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                                (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                            String mvalue;
+                            EditText mingredientsText = ingredientsText;
+                            mvalue = mingredientsText.getText().toString();
+                            if(mvalue.isEmpty()){
+                                return false;
+                            }
+                            else {
+                                ingredients.add(mvalue);
+                                ingredient.addView(mingredientsText);
+                            }
+                        }
+
+
+
+
+                    return false;
+                }
+
+
+            });
+
+
+
         Spinner categorySpinner = v.findViewById(R.id.category_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.category_theme_array, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         categorySpinner.setAdapter(adapter);
 
-                    for (int i = 0; i < ingredientsText.getMaxLines(); i++) {
-                        Log.i("Info log", "result is" + i);
-                        ingredientsText.setHint(i + ") Type ingredients here");
-                    }
+
 
         veganSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -94,6 +130,7 @@ public class UploadYourRecipeFragment extends Fragment {
                 int ptime = Integer.parseInt(timeText.getText().toString());
                 RecipeClass recipe = new RecipeClass();
                 recipe.setName(pname);
+                recipe.setIngredients(ingredients);
                 recipe.setVegan(pvegan);
                 recipe.setVegetarian(pvegetarian);
                 recipe.setTime(ptime);

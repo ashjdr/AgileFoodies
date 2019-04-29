@@ -95,7 +95,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             return true;
         }
         else if(id == R.id.action_account){
-            Intent intent=new Intent(HomePage.this,LoginFragment.class);
+            Intent intent=new Intent(HomePage.this,LoginActivity.class);
             startActivity(intent);
 
         }
